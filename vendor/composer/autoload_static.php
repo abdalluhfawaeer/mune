@@ -554,8 +554,11 @@ class ComposerStaticInit1d3269b8f20adf3eb711c64545a4146f
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\AuthCoutroller' => __DIR__ . '/../..' . '/app/Http/Controllers/AuthCoutroller.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\MuneCoutroller' => __DIR__ . '/../..' . '/app/Http/Controllers/MuneCoutroller.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
+        'App\\Http\\Livewire\\AddMune' => __DIR__ . '/../..' . '/app/Http/Livewire/AddMune.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\Lang' => __DIR__ . '/../..' . '/app/Http/Middleware/Lang.php',

@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AuthCoutroller;
+use App\Http\Controllers\MuneCoutroller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,9 +17,21 @@ use Illuminate\Support\Facades\Route;
 //    return redirect('/' . app()->getLocale());
 //})->name('home');
 
-Route::get('/', function () {
+Route::get('/login', function () {
 //    dd(app()->getLocale());
 //    app()->setlocale('ar');
+    return view('login');
+});
 
-    return view('welcome');
+Route::get('/wc', function () {
+    //    dd(app()->getLocale());
+    //    app()->setlocale('ar');
+        return view('welcome');
+    });
+Route::post('post-login', [AuthCoutroller::class, 'postLogin'])->name('login.post'); 
+Route::get('logout', [AuthCoutroller::class, 'logout'])->name('logout');
+
+Route::controller(MuneCoutroller::class)->group(function () {
+    Route::get('/mune/add', 'add');
+    Route::post('/orders', 'store');
 });
