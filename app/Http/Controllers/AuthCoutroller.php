@@ -25,4 +25,11 @@ class AuthCoutroller extends Controller
   
         return redirect("login")->withSuccess('Oppes! You have entered invalid credentials');
     }
+
+    public function logout() {
+        Session::flush();
+        Auth::logout();
+  
+        return Redirect('login');
+    }
 }

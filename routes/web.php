@@ -33,5 +33,7 @@ Route::get('logout', [AuthCoutroller::class, 'logout'])->name('logout');
 
 Route::controller(MuneCoutroller::class)->group(function () {
     Route::get('/mune/add', 'add');
-    Route::post('/orders', 'store');
+    Route::get('/mune/edit/{id}', 'edit');
+    Route::get('/mune/list', 'list');
+    Route::get('/mune/customize', 'customize');
 });
