@@ -27,4 +27,8 @@ class MuneCoutroller extends Controller
             'id' => $request->id
         ]);
     }
+
+    public function category() {
+        return view('mune.category');
+    }
 }

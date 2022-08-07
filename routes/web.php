@@ -36,4 +36,5 @@ Route::controller(MuneCoutroller::class)->group(function () {
     Route::get('/mune/edit/{id}', 'edit');
     Route::get('/mune/list', 'list');
     Route::get('/mune/customize', 'customize');
+    Route::get('/mune/category', 'category');
 });
