@@ -31,4 +31,8 @@ class MuneCoutroller extends Controller
     public function category() {
         return view('mune.category');
     }
+
+    public function addItem() {
+        return view('mune.add-item');
+    }
 }

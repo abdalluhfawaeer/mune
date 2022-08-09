@@ -37,4 +37,7 @@ Route::controller(MuneCoutroller::class)->group(function () {
     Route::get('/mune/list', 'list');
     Route::get('/mune/customize', 'customize');
     Route::get('/mune/category', 'category');
+    Route::get('/mune/add/item', 'addItem');
+    Route::get('/mune/list/item', 'listItem');
+    Route::get('/mune/item/edit/{id}', 'editItem');
 });

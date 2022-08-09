@@ -19,7 +19,7 @@ class ListCategory extends Component
     public $name_ar_search = '';
     public $name_en_search = '';
     
-    public $menu = [];
+    public $menu;
 
     protected $paginationTheme = 'bootstrap';
 
@@ -66,7 +66,7 @@ class ListCategory extends Component
         if (!empty($this->name_en_search)) {
             $list = $list->where('name_en',$this->name_en_search);
         }
-        return  $list->paginate(10);
+        return  $list->paginate(5);
     }
 
     public function delete($id) {
