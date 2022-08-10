@@ -577,6 +577,8 @@ class ComposerStaticInit1d3269b8f20adf3eb711c64545a4146f
         'App\\Models\\Item' => __DIR__ . '/../..' . '/app/Models/Item.php',
         'App\\Models\\Mune' => __DIR__ . '/../..' . '/app/Models/Mune.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
+        'App\\Models\\Variation' => __DIR__ . '/../..' . '/app/Models/Variation.php',
+        'App\\Models\\VariationsAdd' => __DIR__ . '/../..' . '/app/Models/VariationsAdd.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',

@@ -55,7 +55,8 @@ class Mune extends Model
 		'end_date',
 		'desc',
 		'user_id',
-		'currint_user'
+		'currint_user',
+		'text',
 	];
 
 	public function user()

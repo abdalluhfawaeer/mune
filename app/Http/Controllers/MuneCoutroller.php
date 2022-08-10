@@ -35,4 +35,10 @@ class MuneCoutroller extends Controller
     public function addItem() {
         return view('mune.add-item');
     }
+
+    public function editItem(Request $request) {
+        return view('mune.item-edit' ,[
+            'id' => $request->id
+        ]);
+    }
 }

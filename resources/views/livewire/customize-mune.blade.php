@@ -71,6 +71,11 @@
                                                                 @error('color') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror
                                                             <div class="fv-plugins-message-container invalid-feedback"></div></div>
                                                             <div class="mb-10 fv-row fv-plugins-icon-container">
+                                                                <label class="required form-label">color text</label>
+                                                                <input type="color" name="color_text" class="form-control mb-2" placeholder="color_text" wire:model.dafer="color_text">
+                                                                @error('color_text') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror
+                                                            <div class="fv-plugins-message-container invalid-feedback"></div></div>
+                                                            <div class="mb-10 fv-row fv-plugins-icon-container">
                                                                 <label class="required form-label">Mobile</label>
                                                                 <input type="text" name="product_name" class="form-control mb-2" placeholder="Mobile" wire:model.dafer="mobile">
                                                                 @error('mobile') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror

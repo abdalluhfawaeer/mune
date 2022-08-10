@@ -31,6 +31,8 @@ return array(
     'App\\Models\\Item' => $baseDir . '/app/Models/Item.php',
     'App\\Models\\Mune' => $baseDir . '/app/Models/Mune.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
+    'App\\Models\\Variation' => $baseDir . '/app/Models/Variation.php',
+    'App\\Models\\VariationsAdd' => $baseDir . '/app/Models/VariationsAdd.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',

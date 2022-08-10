@@ -18,8 +18,6 @@ use App\Http\Controllers\MuneCoutroller;
 //})->name('home');
 
 Route::get('/login', function () {
-//    dd(app()->getLocale());
-//    app()->setlocale('ar');
     return view('login');
 });
 

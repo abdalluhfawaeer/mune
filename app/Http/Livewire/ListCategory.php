@@ -66,6 +66,7 @@ class ListCategory extends Component
         if (!empty($this->name_en_search)) {
             $list = $list->where('name_en',$this->name_en_search);
         }
+        $this->resetPage();
         return  $list->paginate(5);
     }
 

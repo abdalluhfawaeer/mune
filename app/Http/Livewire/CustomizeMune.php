@@ -23,6 +23,7 @@ class CustomizeMune extends Component
     public $password_c = "";
     public $photo;
     public $img = '';
+    public $color_text = '';
 
     protected $rules = [
         'product_name' => 'required',
@@ -33,6 +34,7 @@ class CustomizeMune extends Component
         $this->mune_id = $mune->id;
         $this->product_name = $mune->name;
         $this->color = $mune->color;
+        $this->color_text = $mune->text;
         $this->mobile = $mune->user->mobile;
         $this->desc = $mune->desc;
         $this->email = $mune->user->email;
@@ -58,7 +60,8 @@ class CustomizeMune extends Component
             'name' => $this->product_name,
             'color' => $this->color,
             'desc' => $this->desc,
-            'logo' => $logo
+            'logo' => $logo,
+            'text' => $this->color_text,
         ]);
 
         User::where('id',Auth()->user()->id)->update([

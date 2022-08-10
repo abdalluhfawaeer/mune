@@ -75,6 +75,7 @@ class ListMune extends Component
         }
 
         $list = $list->paginate(10);
+        $this->resetPage();
         return  $list;
     }
 
