@@ -20,7 +20,7 @@
                                 </div>
                             </div>
                             <div class="card-body text-center pt-0">
-                                <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3" data-kt-image-input="true" style="<br /> <b>Warning</b>: Undefined variable $imageBg in <b>/var/www/preview.keenthemes.com/kt-products/metronic/releases/2022-07-14-092914/core/html/dist/view/pages/apps/ecommerce/catalog/edit-product/_thumbnail.php</b> on line <b>30</b><br />">
+                                <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3" data-kt-image-input="true" style="background-image:url({{ asset("storage/".$this->img) }})">
                                     <div class="image-input-wrapper w-150px h-150px"></div>
                                     <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" data-kt-initialized="1">
                                         <i class="bi bi-pencil-fill fs-7"></i>
@@ -97,13 +97,13 @@
                                             </div>
                                             <div class="mb-10 fv-row fv-plugins-icon-container">
                                                 <label class="required form-label">Price</label>
-                                                <input type="text" name="product_name" class="form-control mb-2" placeholder="Price" wire:model.dafer="price">
+                                                <input type="number" step="any" name="product_name" class="form-control mb-2" placeholder="Price" wire:model.dafer="price">
                                                 <br>
                                                 @error('price') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror
                                             <div class="fv-plugins-message-container invalid-feedback"></div></div>
                                             <div class="mb-10 fv-row fv-plugins-icon-container">
                                                 <label class="required form-label">calories</label>
-                                                <input type="text" name="product_name" class="form-control mb-2" placeholder="calories" wire:model.dafer="calories">
+                                                <input type="number" step="any" name="product_name" class="form-control mb-2" placeholder="calories" wire:model.dafer="calories">
                                                
                                             </div>
                                             <div class="mb-10 fv-row fv-plugins-icon-container">
@@ -165,7 +165,7 @@
                                                                     <input type="text" class="form-control mw-100 w-200px" placeholder="name en" wire:model='name_en_a.0'>
                                                                 </div>
                                                                 <div class="w-100 w-md-200px">
-                                                                    <input type="text" class="form-control mw-100 w-200px" placeholder="price" wire:model='price_a.0'>                                                             
+                                                                    <input type="number" step="any" class="form-control mw-100 w-200px" placeholder="price" wire:model='price_a.0'>                                                             
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -179,7 +179,7 @@
                                                                     <input type="text" class="form-control mw-100 w-200px" placeholder="name en" wire:model='name_en_a.1'>
                                                                 </div>
                                                                 <div class="w-100 w-md-200px">
-                                                                    <input type="text" class="form-control mw-100 w-200px" placeholder="price" wire:model='price_a.1'>                                                             
+                                                                    <input type="number" step="any" class="form-control mw-100 w-200px" placeholder="price" wire:model='price_a.1'>                                                             
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -193,7 +193,7 @@
                                                                     <input type="text" class="form-control mw-100 w-200px" placeholder="name en" wire:model='name_en_a.2'>
                                                                 </div>
                                                                 <div class="w-100 w-md-200px">
-                                                                    <input type="text" class="form-control mw-100 w-200px" placeholder="price" wire:model='price_a.2'>                                                             
+                                                                    <input type="number" step="any" class="form-control mw-100 w-200px" placeholder="price" wire:model='price_a.2'>                                                             
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -207,7 +207,7 @@
                                                                     <input type="text" class="form-control mw-100 w-200px" placeholder="name en" wire:model='name_en_a.3'>
                                                                 </div>
                                                                 <div class="w-100 w-md-200px">
-                                                                    <input type="text" class="form-control mw-100 w-200px" placeholder="price" wire:model='price_a.3'>                                                             
+                                                                    <input type="number" step="any" class="form-control mw-100 w-200px" placeholder="price" wire:model='price_a.3'>                                                             
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -244,7 +244,7 @@
                                                                     <input type="text" class="form-control mw-100 w-200px" placeholder="name en" wire:model='name_en_a.4'>
                                                                 </div>
                                                                 <div class="w-100 w-md-200px">
-                                                                    <input type="text" class="form-control mw-100 w-200px" placeholder="price" wire:model='price_a.4'>                                                             
+                                                                    <input type="number" step="any" class="form-control mw-100 w-200px" placeholder="price" wire:model='price_a.4'>                                                             
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -258,7 +258,7 @@
                                                                     <input type="text" class="form-control mw-100 w-200px" placeholder="name en" wire:model='name_en_a.5'>
                                                                 </div>
                                                                 <div class="w-100 w-md-200px">
-                                                                    <input type="text" class="form-control mw-100 w-200px" placeholder="price" wire:model='price_a.5'>                                                             
+                                                                    <input type="number" step="any" class="form-control mw-100 w-200px" placeholder="price" wire:model='price_a.5'>                                                             
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -272,7 +272,7 @@
                                                                     <input type="text" class="form-control mw-100 w-200px" placeholder="name en" wire:model='name_en_a.6'>
                                                                 </div>
                                                                 <div class="w-100 w-md-200px">
-                                                                    <input type="text" class="form-control mw-100 w-200px" placeholder="price" wire:model='price_a.6'>                                                             
+                                                                    <input type="number" step="any" class="form-control mw-100 w-200px" placeholder="price" wire:model='price_a.6'>                                                             
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -286,7 +286,7 @@
                                                                     <input type="text" class="form-control mw-100 w-200px" placeholder="name en" wire:model='name_en_a.7'>
                                                                 </div>
                                                                 <div class="w-100 w-md-200px">
-                                                                    <input type="text" class="form-control mw-100 w-200px" placeholder="price" wire:model='price_a.7'>                                                             
+                                                                    <input type="number" step="any" class="form-control mw-100 w-200px" placeholder="price" wire:model='price_a.7'>                                                             
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -322,7 +322,7 @@
                                                                 <input type="text" class="form-control mw-100 w-200px" placeholder="name en" wire:model='name_en_a.8'>
                                                             </div>
                                                             <div class="w-100 w-md-200px">
-                                                                <input type="text" class="form-control mw-100 w-200px" placeholder="price" wire:model='price_a.8'>                                                             
+                                                                <input type="number" step="any" class="form-control mw-100 w-200px" placeholder="price" wire:model='price_a.8'>                                                             
                                                             </div>
                                                         </div>
                                                         <br>
@@ -334,7 +334,7 @@
                                                                 <input type="text" class="form-control mw-100 w-200px" placeholder="name en" wire:model='name_en_a.9'>
                                                             </div>
                                                             <div class="w-100 w-md-200px">
-                                                                <input type="text" class="form-control mw-100 w-200px" placeholder="price" wire:model='price_a.9'>                                                             
+                                                                <input type="number" step="any" class="form-control mw-100 w-200px" placeholder="price" wire:model='price_a.9'>                                                             
                                                             </div>
                                                         </div>
                                                         <br>
@@ -347,7 +347,7 @@
                                                                     <input type="text" class="form-control mw-100 w-200px" placeholder="name en" wire:model='name_en_a.10'>
                                                                 </div>
                                                                 <div class="w-100 w-md-200px">
-                                                                    <input type="text" class="form-control mw-100 w-200px" placeholder="price" wire:model='price_a.10'>                                                             
+                                                                    <input type="number" step="any" class="form-control mw-100 w-200px" placeholder="price" wire:model='price_a.10'>                                                             
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -361,7 +361,7 @@
                                                                     <input type="text" class="form-control mw-100 w-200px" placeholder="name en" wire:model='name_en_a.11'>
                                                                 </div>
                                                                 <div class="w-100 w-md-200px">
-                                                                    <input type="text" class="form-control mw-100 w-200px" placeholder="price" wire:model='price_a.11'>                                                             
+                                                                    <input type="number" step="any" class="form-control mw-100 w-200px" placeholder="price" wire:model='price_a.11'>                                                             
                                                                 </div>
                                                             </div>
                                                         </div>

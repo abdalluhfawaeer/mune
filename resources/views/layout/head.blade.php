@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+
+	{{-- lang="en" dir="rtl" direction="rtl" style="direction:rtl;" data-theme="light" --}}
     <head>
 		<title>mune</title>
 		<meta charset="utf-8" />
