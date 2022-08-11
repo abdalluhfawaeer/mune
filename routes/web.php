@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthCoutroller;
 use App\Http\Controllers\MuneCoutroller;
+use App\Http\Controllers\FrontController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,4 +39,10 @@ Route::controller(MuneCoutroller::class)->group(function () {
     Route::get('/mune/add/item', 'addItem');
     Route::get('/mune/list/item', 'listItem');
     Route::get('/mune/item/edit/{id}', 'editItem');
+});
+
+
+Route::controller(FrontController::class)->group(function () {
+    Route::get('/{name}/{id}', 'viwe');
+
 });
