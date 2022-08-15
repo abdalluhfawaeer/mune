@@ -48,6 +48,10 @@ function addProduct(){
             'qty' : qty ,
         });
     localStorage.setItem('products', JSON.stringify(products));
+    if ($('div.checkbox-group.required :radio:checked').length > 0) {
+        toastr.success('Click Button');
+    }
+    
 }
 
 function removeProduct(productId){

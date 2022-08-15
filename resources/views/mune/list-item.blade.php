@@ -1,3 +1,3 @@
 @include('layout.head')
-    @livewire('list-mune')
+    @livewire('list-item')
 @extends('layout.footer')

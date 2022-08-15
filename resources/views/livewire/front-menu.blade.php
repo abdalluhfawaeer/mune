@@ -10,7 +10,6 @@
 
         .curt {
             background-color: {{ $menu->color }};
-            color: {{ $menu->text }};
         }
         .title {
             color: {{ $menu->text }};
@@ -74,12 +73,13 @@
         <img class="modeli" src="{{ asset('storage/' . $photo) }}" alt="Smash">
         <h2 class="title">{{ $title }}</h2>
         <center><p class="desc" style="opacity: 0.6;">{{ $desc }}</p></center>
-        <section class="light" style="margin-bottom: 300px;">
+        <section class="light"` style="margin-bottom: 300px;">
         @if (count($variations) > 0)
             @foreach ($variations as $v)
                 @if (count($v->variations_adds) > 0)
                     <h3>{{ $v->title_en }} <span style="opacity: 0.6;color:red;font-size:12px"> {{ ($v->req==1) ? 'required' : '' }} </span></h3>
                     <hr>
+                    <div class="checkbox-group">
                     @foreach ($v->variations_adds as $add)
                         <label>
                             <input type="radio" name="{{ $v->id }}" id="add_{{ $v->id }}" value="{{ $add->price }}">
@@ -87,6 +87,7 @@
                             <span class="text" style="opacity: 0.6;" id="add_{{ $v->id }}">{{ $add->title_en }} - ({{ $add->price }} JD)</span>
                         </label>
                     @endforeach
+                    </div>
                     <br>
                 @endif    
             @endforeach

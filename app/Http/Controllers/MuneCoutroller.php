@@ -16,6 +16,10 @@ class MuneCoutroller extends Controller
         return view('mune.list');
     }
 
+    public function listItem() {
+        return view('mune.list-item');
+    }
+
     public function edit(Request $request) {
         return view('mune.add' ,[
             'id' => $request->id

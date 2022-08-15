@@ -22,7 +22,7 @@ class FrontMenu extends Component
 
     public function mount($id ,$name) {
         $this->menu = Mune::where('id',$id)->first();
-        $this->category = Category::where('staus','active')->get();
+        $this->category = Category::where('menu_id',$id)->where('staus','active')->get();
     }
 
     public function render()

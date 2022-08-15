@@ -80,8 +80,9 @@ class ListMune extends Component
     }
 
     public function delete($id) {
-        $user_id = Mune::where('id',$id)->first()->user_id;
-        Mune::where('id',$id)->delete();
-        User::where('id',$user_id)->delete();
+        $status = Mune::where('id',$id)->first()->staus;
+        Mune::where('id',$id)->update([
+            'staus' => ($status == 'not_active') ? 'active' : 'not_active',
+        ]);
     }
 }
