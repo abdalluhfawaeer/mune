@@ -19,6 +19,7 @@ class FrontMenu extends Component
     public $price = 0;
     public $desc = '';
     public $item_id = '';
+    public $i = '';
 
     public function mount($id ,$name) {
         $this->menu = Mune::where('id',$id)->first();

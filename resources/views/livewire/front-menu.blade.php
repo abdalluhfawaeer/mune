@@ -76,20 +76,27 @@
         <section class="light"` style="margin-bottom: 300px;">
         @if (count($variations) > 0)
             @foreach ($variations as $v)
-                @if (count($v->variations_adds) > 0)
+                @if (count($v->variations_adds) > 1)
+                <div class="check">
                     <h3>{{ $v->title_en }} <span style="opacity: 0.6;color:red;font-size:12px"> {{ ($v->req==1) ? 'required' : '' }} </span></h3>
                     <hr>
-                    <div class="checkbox-group">
-                    @foreach ($v->variations_adds as $add)
+                    @if ($v->req == 1)
+                        <input type="hidden" id="required" value="1">
+                    @endif
+                    <div class="checkbox-group {{ ($v->req==1) ? 'required' : '' }}">
+                    @foreach ($v->variations_adds as $key => $add)
                         <label>
-                            <input type="radio" name="{{ $v->id }}" id="add_{{ $v->id }}" value="{{ $add->price }}">
+                            <input type="checkbox" name="{{ $i++ }}" id="add_v" value="{{ $add->price }}" title="{{ $v->id }}" onclick="ShowHideDiv(this)">
                             <span class="design"></span>
                             <span class="text" style="opacity: 0.6;" id="add_{{ $v->id }}">{{ $add->title_en }} - ({{ $add->price }} JD)</span>
                         </label>
                     @endforeach
                     </div>
-                    <br>
-                @endif    
+                </div>
+                @endif   
+                @if ($loop->last)
+                    <input type="hidden" id="key" value="{{$i}}">
+                @endif 
             @endforeach
         @endif
         </section>
@@ -98,7 +105,7 @@
             <div class="qty">
                 <button onclick="dec('qty')" class="btnq"
                     style="border-bottom-left-radius: 12px;border-top-left-radius: 12px;">-</button>
-                <input name="qty" type="number" value="1" class="textnumber" id="qty">
+                <input name="qty" type="number" value="1" class="textnumber" id="qty" max="1">
                 <button onclick="inc('qty')" class="btnq"
                     style="border-bottom-right-radius: 12px;border-top-right-radius: 12px;">+</button>
             </div>

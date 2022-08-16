@@ -218,7 +218,7 @@ section {
     justify-content: center;
     flex-direction: column;
     position: relative;
-    padding: 25px;
+    padding: 10px;
 }
 
 
@@ -378,4 +378,10 @@ input:active+.design::after {
     height: 50px;
     color: white;
     font-size: 24px;
+}
+.check {
+    background-color: white;
+    padding: 10px;
+    margin-top: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
