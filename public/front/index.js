@@ -1,20 +1,3 @@
-function inc(element) {
-    var item_price = document.getElementById('item_price').value;
-    let el = document.querySelector(`[name="${element}"]`);
-    el.value = parseInt(el.value) + 1;
-    var price = parseFloat(item_price) * el.value;
-    document.getElementById('curt').innerText = "Add to cart ("+price+"JD)";
-}
-
-function dec(element) {
-    var item_price = document.getElementById('item_price').value;
-    let el = document.querySelector(`[name="${element}"]`);
-    if (parseInt(el.value) > 0) {
-        el.value = parseInt(el.value) - 1;
-    }
-    var price = parseFloat(item_price) * el.value;
-    document.getElementById('curt').innerText = "Add to cart ("+price+"JD)";
-}
 function open_panel($id) {
     var panel = document.getElementById($id);
     var actv = document.getElementById('act_' + $id);
@@ -31,7 +14,7 @@ function addProduct(){
     var required = document.getElementById('required');
     if (required != null) {
         if (required.value > 0) {
-            if ($('div.checkbox-group.required :checkbox:checked').length > 0) {
+            if ($('div.checkbox-group.required :radio:checked').length > 0) {
                 pushStore();
                 toastr.success('Click Button');
             } else {
@@ -45,31 +28,32 @@ function addProduct(){
 }
 
 function pushStore() {
-    var item_id = document.getElementById('item_id').value;
-    var key = document.getElementById('key');
-    if (key !=null) {
-        key = key.value;
-    } else {
-        key = 0;
-    }
-    var item_price = document.getElementById('item_price').value;
+    var item_id = $('#item_id').val();
+    var key = $('#key');
+    if (key !=null) { key = key.val(); } else { key = 0; }
+    var item_price = $('#item_price').val();
     var price = 0;
+    var price_checked = 0;
     let acc = [];
-    for (var i =0 ;i<key;i++) {
-        if (document.querySelector('input[name="'+i+'"]:checked') != null) {
-            var v_price = document.querySelector('input[name="'+i+'"]:checked').value;
-            acc.push(
-                {
-                    'v_id' : document.querySelector('input[name="'+i+'"]:checked').title ,
-                    'v_price' : v_price ,
-                });
-            price += parseFloat(item_price) + parseFloat(v_price);
+    $('input[type=checkbox], input[type=radio]').each( function() {
+        if( $(this).is(':checked') ) {
+            acc.push({
+                'title' : $(this).attr("title") ,
+                'v_id' : $(this).attr("id_v") ,
+                'v_price' : parseFloat($(this).val()),
+            });
+            price_checked += parseFloat($(this).val());
         }
-    }
-    var item_img = document.getElementById('item_img').value;
-    var item_title = document.getElementById('item_title').value;
-    var qty = document.getElementById('qty').value;
-    price += parseFloat(item_price) * parseFloat(qty);
+    });
+    
+    var item_img = $('#item_img').val();
+    var item_title = $('#item_title').val();
+    var qty = $('#qty').val();
+
+    price = parseFloat(item_price) * parseInt(qty);
+    price_checked = qty * price_checked;
+    price = price + price_checked;
+
     let products = [];
     if(localStorage.getItem('products')){
         products = JSON.parse(localStorage.getItem('products'));
@@ -95,15 +79,46 @@ function removeProduct(productId){
     }
 }
 
-function ShowHideDiv(chkPassport) {
-    var qty = document.getElementById("qty").value;
-    var item_price = document.getElementById('item_price');
-    var price = 0;
-    if (chkPassport.checked) {
-        price = parseFloat(chkPassport.value) + parseFloat(item_price.value);
-        document.getElementById('curt').innerText = "Add to cart ("+price+"JD)";
-    } else {
-        price = parseFloat(chkPassport.value) - parseFloat(item_price.value);
-        document.getElementById('curt').innerText = "Add to cart ("+price+"JD)"; 
+$("#form_calc").change(function() {
+    var qty = parseInt($('#qty').val());
+    var checkd = 0;
+    var totalPrice   = parseFloat($('#item_price').val()),
+    values       = [];
+    $('input[type=checkbox], input[type=radio]').each( function() {
+      if( $(this).is(':checked') ) {
+        values.push($(this).val());
+        checkd += parseFloat($(this).val());
+        }
+    });
+    totalPrice = totalPrice * qty;
+    checkd = qty * checkd;
+    totalPrice = totalPrice + checkd;
+    $("#curt span").text(totalPrice);  
+    $('#checkd').val(checkd)
+});   
+
+$("#inc").click(function(){
+    var qty = parseInt($('#qty').val());
+    var checkd = parseFloat($('#checkd').val());
+    var totalPrice   = parseFloat($('#item_price').val());
+    qty++;
+    totalPrice = totalPrice * qty;
+    checkd = qty * checkd;
+    totalPrice = totalPrice + checkd;
+    $("#curt span").text(totalPrice);  
+    $('#qty').val(qty);
+});
+
+$("#dec").click(function(){
+    var qty = parseInt($('#qty').val());
+    var checkd = parseFloat($('#checkd').val());
+    var totalPrice   = parseFloat($('#item_price').val());
+    qty--;
+    if (qty > 0) {
+        totalPrice = totalPrice * qty;
+        checkd = qty * checkd;
+        totalPrice = totalPrice + checkd;
+        $("#curt span").text(totalPrice);  
+        $('#qty').val(qty);
     }
-}
+});

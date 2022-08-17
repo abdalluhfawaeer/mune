@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Add;
 use App\Models\Category;
 use App\Models\Item;
 use App\Models\Mune;
@@ -32,6 +33,9 @@ class AddItem extends Component
     public $name_en_a = [];
     public $price_a = [];
     public $req = [];
+    public $adds_name = [];
+    public $adds_name_en = [];
+    public $adds_price = [];
 
     protected $rules = [
         'name_ar' => 'required',
@@ -114,8 +118,38 @@ class AddItem extends Component
                 }
             } 
         }
+
+        for($i = 0 ; $i <= 15 ; $i++) {
+            if (!empty($this->adds_name[$i])) {
+                Add::create([
+                    'name_ar' => $this->adds_name[$i] ?? 0,
+                    'name_en' => $this->adds_name_en[$i] ?? 0,
+                    'price' => $this->adds_price[$i] ?? 0,
+                    'sort' => $i,
+                    'item_id' => $item_id
+                ]);
+            }
+        }
         
         session()->flash('message', 'Post successfully updated.');
-        $this->reset(['name_ar','name_en','photo','desc','status','price','cat','calories']);
+        $this->reset([
+            'name_ar',
+            'name_en',
+            'photo',
+            'desc',
+            'status',
+            'price',
+            'cat',
+            'calories',
+            'adds_name',
+            'adds_name_en',
+            'adds_price',
+            'name',
+            'name_en_a',
+            'price_a',
+            'title',
+            'name_en_a',
+            'req',
+        ]);
     }
 }

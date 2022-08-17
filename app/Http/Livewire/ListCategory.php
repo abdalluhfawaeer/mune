@@ -7,10 +7,11 @@ use Livewire\Component;
 use App\Models\Mune;
 use Illuminate\Support\Facades\Auth;
 use Livewire\WithPagination;
+use Livewire\WithFileUploads;
 
 class ListCategory extends Component
 {
-    use WithPagination;
+    use WithPagination,WithFileUploads;
 
     public $name_ar = '';
     public $name_en = '';
@@ -18,7 +19,9 @@ class ListCategory extends Component
     public $status_search = '';
     public $name_ar_search = '';
     public $name_en_search = '';
-    
+    public $photo;
+    public $img = '';
+
     public $menu;
 
     protected $paginationTheme = 'bootstrap';
@@ -39,17 +42,19 @@ class ListCategory extends Component
         ]);
     }
 
-    public function save() {
+    public function save() { 
         $this->validate();
-
+        $logo = empty($this->photo) ? $this->img : $this->photo->store('public/'.$this->menu->id);
+        $logo = str_replace('public/','',$logo);
         Category::create([
             'name_ar' => $this->name_ar,
             'name_en' => $this->name_en,
             'staus' => $this->status,
-            'menu_id' => $this->menu->id
+            'menu_id' => $this->menu->id,
+            'img' => $logo,
         ]);
-
-        $this->reset(['name_ar','name_en']);
+        session()->flash('message', 'Post successfully updated.');
+        $this->reset(['name_ar','name_en','photo']);
     }
 
     public function query() {
@@ -79,15 +84,20 @@ class ListCategory extends Component
         $this->name_ar = $cat->name_ar;
         $this->name_en = $cat->name_en;
         $this->status = $cat->staus;
+        $this->img = $cat->img;
     }
 
     public function edit($id) {
         $this->validate();
+        $logo = empty($this->photo) ? $this->img : $this->photo->store('public/'.$this->menu->id);
+        $logo = str_replace('public/','',$logo);
 
         Category::where('id',$id)->update([
             'name_ar' => $this->name_ar,
             'name_en' => $this->name_en,
             'staus' => $this->status,
+            'img' => $logo,
         ]);
+        session()->flash('message', 'Post successfully updated.');
     }
 }

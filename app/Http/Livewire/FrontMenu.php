@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Add;
 use App\Models\Category;
 use App\Models\Item;
 use App\Models\Mune;
@@ -13,6 +14,7 @@ class FrontMenu extends Component
     public $menu = [];
     public $category = [];
     public $variations = [];
+    public $adds = [];
     public $open = false;
     public $photo = '';
     public $title = '';
@@ -43,6 +45,7 @@ class FrontMenu extends Component
         $this->desc = $item->desc; 
         $this->item_id = $item->id; 
         $this->variations = Variation::with('variations_adds')->where('item_id',$item_id)->get();
+        $this->adds = Add::where('item_id',$item_id)->get();
         $this->open = true;
     }
 

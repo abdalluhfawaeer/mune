@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Add;
 use Livewire\Component;
 use App\Models\Category;
 use Livewire\WithFileUploads;
@@ -34,6 +35,9 @@ class EditItem extends Component
     public $name_en_a = [];
     public $price_a = [];
     public $req = [];
+    public $adds_name = [];
+    public $adds_name_en = [];
+    public $adds_price = [];
 
     protected $rules = [
         'name_ar' => 'required',
@@ -56,6 +60,7 @@ class EditItem extends Component
         $this->img = $item->img;
         $this->item_id = $item_id;
         $variation = Variation::with('variations_adds')->where('item_id',$item_id)->get();
+        $adds = Add::where('item_id',$item_id)->get();
         foreach ($variation as $value) {
             $this->title[$value->sort] = $value->title_ar;
             $this->title_en[$value->sort] = $value->title_en;
@@ -65,6 +70,11 @@ class EditItem extends Component
                 $this->name_en_a[$add->sort] = $add->title_en;
                 $this->price_a[$add->sort] = $add->price;
             }
+        }
+        foreach ($adds as $value) {
+            $this->adds_name[$value->sort] = $value->name_ar;
+            $this->adds_name_en[$value->sort] = $value->name_en;
+            $this->adds_price[$value->sort] = $value->price;
         }
     }
 
@@ -92,6 +102,7 @@ class EditItem extends Component
 
         $ids = Variation::where('item_id',$this->item_id)->get()->pluck('id');
         Variation::where('item_id',$this->item_id)->delete();
+        Add::where('item_id',$this->item_id)->delete();
         VariationsAdd::whereIn('variations_id',$ids)->delete();
         foreach ($this->title as $key => $value) {
             $variation_id = Variation::create([
@@ -144,7 +155,17 @@ class EditItem extends Component
                 }
             } 
         }
-        
+        for($i = 0 ; $i <= 15 ; $i++) {
+            if (!empty($this->adds_name[$i])) {
+                Add::create([
+                    'name_ar' => $this->adds_name[$i] ?? 0,
+                    'name_en' => $this->adds_name_en[$i] ?? 0,
+                    'price' => $this->adds_price[$i] ?? 0,
+                    'sort' => $i,
+                    'item_id' => $item_id
+                ]);
+            }
+        }
         session()->flash('message', 'Post successfully updated.');
     }
 }

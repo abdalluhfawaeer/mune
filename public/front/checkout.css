@@ -1,0 +1,18 @@
+.items {
+    padding: 10px;
+}
+.item {
+    background-color: white;
+    width: 100%;
+    display: flex;
+}
+.item_img {
+    width: 100px;
+    height: 100%;
+}
+.bold_c {
+    padding: 10px;
+}
+.ul_checkout {
+    padding: 10px;
+}
