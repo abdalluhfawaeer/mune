@@ -64,6 +64,8 @@ function pushStore() {
         'item_img' : item_img ,
         'item_title' : item_title ,
         'item_price' : price ,
+        'price' : price ,
+        'random' : parseInt((Math.random() * 1000000)),
         'qty' : qty ,
         'acc' : acc ,
     });
