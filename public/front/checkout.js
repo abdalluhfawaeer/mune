@@ -4,6 +4,7 @@ function myFunction() {
     var acc_name = '';
     var inc = 1;
     var dec = 0;
+    var total = 0;
     $(".box").remove();
     for (var i = 0; i < cart.length; i++){
         if (cart[i].acc.length > 0) {
@@ -25,7 +26,9 @@ function myFunction() {
         '</div>'
         );
         acc_name = '';
+        total += cart[i].item_price;
     }
+    $('#total').text(total+' JD');
 }
 function updateProduct(random,oppreition){
     let cart = JSON.parse(localStorage.getItem('products'));
@@ -63,6 +66,5 @@ function removeProduct(random){
     }
     myFunction();
 }
-
 
 myFunction();

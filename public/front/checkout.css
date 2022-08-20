@@ -144,6 +144,42 @@ body {
 		width: 120px;
 	}
 }
+
+input[type=radio] {
+	display: none;
+  }
+.label {
+display: inline-block;
+padding: 5px;
+background-color: white;
+box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+input[type=radio]:checked + .label {
+background: #f00;
+color: #fff;
+}
+.custmer {
+    border: none;
+    width: 100%;
+    height: 40px;
+    border-radius: 7px;
+    font-size: 18px;
+	text-align: center;
+	padding: 5px;
+	margin-top: 5px;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+}
+.custmert {
+	margin-top: 5px;
+}
+.input {
+	margin-top: 10px;
+}
+.checkd {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
 @media screen and (max-width: 900px) {
 	.project {
 		flex-direction: column;

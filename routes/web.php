@@ -45,4 +45,5 @@ Route::controller(MuneCoutroller::class)->group(function () {
 Route::controller(FrontController::class)->group(function () {
     Route::get('/{name}/{id}', 'viwe');
     Route::get('/{name}/{id}/checkout', 'checkout');
+    Route::get('/{name}/{id}/send', 'send');
 });

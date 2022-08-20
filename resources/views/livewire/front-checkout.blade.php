@@ -52,13 +52,9 @@
 				</div>
 			</div>
 			<div class="right-bar">
-				<p><span>Subtotal</span> <span>$120</span></p>
 				<hr>
-				<p><span>Tax (5%)</span> <span>$6</span></p>
-				<hr>
-				<p><span>Shipping</span> <span>$15</span></p>
-				<hr>
-				<p><span>Total</span> <span>$141</span></p><a href="#"><i class="fa fa-shopping-cart"></i>Checkout</a>
+				<p><span>Total</span> <span id="total">141 JD</span></p>
+				<a href="/{{ $menu->name }}/{{ $menu->id }}/send"><i class="fa fa-shopping-cart"></i>Checkout</a>
 			</div>
 		</div>
 	</div>
