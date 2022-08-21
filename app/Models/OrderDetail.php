@@ -37,7 +37,7 @@ class OrderDetail extends Model
 		'item_id' => 'int',
 		'qty' => 'int',
 		'price' => 'float',
-		'acc' => 'json'
+		'acc' => 'array'
 	];
 
 	protected $fillable = [

@@ -71,6 +71,8 @@
         var text = "";
         function send() {
             text = '';
+            var type = '';
+            var order_id = 0;
             var error = 0;
             var name = $('#name').val();
             var mobile = $('#mobile').val();
@@ -95,10 +97,21 @@
                 error++;
             } 
             if (error == 0){
+                let cart = JSON.parse(localStorage.getItem('products'));
+                if($('#yes').is(':checked')) {
+                    type = 'delvairy';
+                } else {
+                    type = 'from';
+                }
                 text +="hello " + name + "%0A";
                 text +="welcam to rewadsad%0A";
-                text +="number order 5%0A";
-                let cart = JSON.parse(localStorage.getItem('products'));
+                promiseB = @this.sends(name, mobile,cart,type)
+                order_id = promiseB.then(function(result) {
+                    return result + 1;
+                });
+                console.log(order_id);
+                text +="number order" + order_id;
+                text +="%0A";
                 for (var i = 0; i < cart.length; i++){
                     text += "item " + cart[i].item_title + " Qty " + cart[i].qty +"x "+"price "+cart[i].item_price+"%0A";
                     if (cart[i].acc !=null) {
@@ -109,14 +122,14 @@
                     text +="%0A";
                 }
                 text +="%0A";
-                if($('#yes').is(':checked')) {
-                    if (navigator.geolocation) {
-                        navigator.geolocation.getCurrentPosition(showPosition);
-                    } 
-                } else {
-                    window.location.href = "https://wa.me/"+{{ $menu->user->mobile }}+"?text="+text;
-                }
-                @this.sends(name, mobile,cart)
+                console.log(text);
+                // if($('#yes').is(':checked')) {
+                //     if (navigator.geolocation) {
+                //         navigator.geolocation.getCurrentPosition(showPosition);
+                //     } 
+                // } else {
+                //     window.location.href = "https://wa.me/"+{{ $menu->user->mobile }}+"?text="+text;
+                // }
             }
            
     }
