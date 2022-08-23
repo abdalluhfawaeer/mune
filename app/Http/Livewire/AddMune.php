@@ -7,9 +7,12 @@ use App\Models\Mune;
 use App\Models\User;
 use Hash;
 use Illuminate\Support\Facades\Auth;
+use Livewire\WithFileUploads;
 
 class AddMune extends Component
 {
+    use WithFileUploads;
+
     public $email = '';
     public $name = '';
     public $product_name = '';
@@ -67,7 +70,7 @@ class AddMune extends Component
             'mobile' => $this->mobile,
         ])->id;
 
-        Mune::updateOrCreate(['id' => $this->id_m],[
+        $menu_id = Mune::updateOrCreate(['id' => $this->id_m],[
             'name' => $this->product_name,
             'price' => $this->price,
             'staus' => 'active',
@@ -76,6 +79,17 @@ class AddMune extends Component
             'user_id' => $id,
             'currint_user' => Auth()->id(),
             'desc' => 'd',
+            'qr_code' => 'qr',
+        ])->id;
+
+        if ($this->id_m == 0) {
+            \QrCode::size(500)
+                ->format('png')
+                ->generate('codingdriver.com', public_path('qrcode/qrcode_'.$menu_id.'.png'));
+        }
+
+        Mune::where('id',$menu_id)->update([
+            'qr_code' => 'qrcode_'.$menu_id.'.png',
         ]);
 
         session()->flash('message', 'Post successfully updated.');

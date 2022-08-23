@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Counter;
 use App\Models\Mune;
+use App\Models\Viwe;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -11,6 +13,20 @@ class FrontController extends Controller
         $menu = Mune::where('name',$request->name)->where('id',$request->id)->first();
         if (!empty($menu)) {
             if ($menu->staus == 'active') {
+                $counter = Counter::where('menu_id',$request->id)->first();
+                $counter = empty($counter) ? 0 : $counter->counter;
+                Counter::updateOrCreate([
+                    'menu_id' => $request->id
+                ],[
+                    'counter' => ++$counter,
+                    'menu_id' => $request->id
+                ]);
+                Viwe::updateOrCreate([
+                    'ip_address' => \Request::ip()
+                ],[
+                    'ip_address' => \Request::ip(),
+                    'menu_id' => $request->id
+                ]);
                 return view('gust.front' ,[
                     'name' => $request->id,
                     'id' => $request->id

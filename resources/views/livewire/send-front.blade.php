@@ -122,7 +122,6 @@
                     text +="%0A";
                 }
                 text +="%0A";
-                console.log(text);
                 // if($('#yes').is(':checked')) {
                 //     if (navigator.geolocation) {
                 //         navigator.geolocation.getCurrentPosition(showPosition);
