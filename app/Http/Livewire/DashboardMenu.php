@@ -33,11 +33,11 @@ class DashboardMenu extends Component
     {
         $this->user = User::where('id',auth()->user()->id)->first();
         $this->menu = Mune::where('user_id',auth()->user()->id)->first();
-        $this->total_view = Viwe::where('menu_id',$this->menu->id)->count();
-        $this->total_view_real = Counter::where('menu_id',$this->menu->id)->first();
+        $this->total_view = Viwe::where('menu_id',$this->menu->id)->whereBetween('created_at',[$this->start_date,$this->end_date])->count();
+        $this->total_view_real = Counter::where('menu_id',$this->menu->id)->whereBetween('created_at',[$this->start_date,$this->end_date])->first();
         $this->total_view_real = empty($this->total_view_real) ? 0 : $this->total_view_real->counter;
-        $this->total_order = Order::where('menu_id',$this->menu->id)->count();
-        $this->total_order_jd = Order::where('menu_id',$this->menu->id)->sum('total');
+        $this->total_order = Order::where('menu_id',$this->menu->id)->whereBetween('created_at',[$this->start_date,$this->end_date])->count();
+        $this->total_order_jd = Order::where('menu_id',$this->menu->id)->whereBetween('created_at',[$this->start_date,$this->end_date])->sum('total');
         $this->order = Order::join('customer','customer.id','orders.customer_id')->where('orders.menu_id',$this->menu->id)->limit(6)->orderBy('orders.id','desc')->get();
         $this->customer = Customer::where('menu_id',$this->menu->id)->limit(6)->orderBy('id','desc')->get();
         return view('livewire.dashboard-menu');

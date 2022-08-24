@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthCoutroller;
 use App\Http\Controllers\MuneCoutroller;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\OrderController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,4 +52,11 @@ Route::controller(FrontController::class)->group(function () {
     Route::get('/{name}/{id}', 'viwe');
     Route::get('/{name}/{id}/checkout', 'checkout');
     Route::get('/{name}/{id}/send', 'send');
+});
+
+Route::controller(OrderController::class)->group(function () {
+    Route::get('/order', 'order');
+    Route::get('/customer', 'customer');
+    Route::get('/menu/order/today', 'orderToday');
+    Route::get('/order/detail/{id}', 'orderDetail');
 });
