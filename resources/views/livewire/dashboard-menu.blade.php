@@ -154,11 +154,17 @@
                         <div class="card h-xl-100">
                             <div class="card-header border-0 pt-5">
                                 <h3 class="card-title align-items-start flex-column">
-                                    <span class="card-label fw-bold text-dark">Last Order</span>
+                                    <span class="card-label fw-bold text-dark">Last Order {{ $menu_id }}</span>
                                 </h3>
+                                @if (auth()->user()->role == 'admin')
+                                <div class="card-toolbar">
+                                    <a href="/admin/menu/report/order/{{ $menu_id }}" class="btn btn-sm btn-light">All Order</a>
+                                </div>
+                                @else
                                 <div class="card-toolbar">
                                     <a href="/mune/list" class="btn btn-sm btn-light">All Order</a>
                                 </div>
+                                @endif
                             </div>
                             <div class="card-body pt-6">
                                 @foreach ($order as $last)
@@ -192,9 +198,15 @@
                             <h3 class="card-title align-items-start flex-column">
                                 <span class="card-label fw-bold text-dark">Last Customer</span>
                             </h3>
+                            @if (auth()->user()->role == 'admin')
+                            <div class="card-toolbar">
+                                <a href="/admin/menu/customer/{{ $menu_id }}" class="btn btn-sm btn-light">All Customer</a>
+                            </div>
+                            @else
                             <div class="card-toolbar">
                                 <a href="/customer" class="btn btn-sm btn-light">All Customer</a>
                             </div>
+                            @endif
                         </div>
                         <div class="card-body pt-6">
                             @foreach ($customer as $last)

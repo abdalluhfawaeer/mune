@@ -23,4 +23,16 @@ class AdminController extends Controller
     public function menuReport(Request $request) {
         return view('admin.menu-report');
     }
+
+    public function menuCustomer(Request $request) {
+        return view('admin.customer-report',[
+            'id' => $request->id
+        ]);
+    }
+
+    public function menuOrder(Request $request) {
+        return view('admin.order-report',[
+            'id' => $request->id
+        ]);
+    }
 }

@@ -26,6 +26,7 @@ class DashboardMenu extends Component
     public $select_menu = [];
     public $select_menu_id = 0;
     public $qrdcode = '';
+    public $menu_id = '';
 
     public function mount() {
         $this->start_date = new Carbon('first day of this month');
@@ -50,6 +51,7 @@ class DashboardMenu extends Component
         $this->order = Order::join('customer','customer.id','orders.customer_id')->where('orders.menu_id',$this->menu->id)->limit(6)->orderBy('orders.id','desc')->get();
         $this->customer = Customer::where('menu_id',$this->menu->id)->limit(6)->orderBy('id','desc')->get();
         $this->qrdcode = 'qrcode_'.$this->menu->id.'.png';
+        $this->menu_id = $this->menu->id;
         return view('livewire.dashboard-menu');
     }
 
