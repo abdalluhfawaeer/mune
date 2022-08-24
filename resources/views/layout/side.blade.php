@@ -31,6 +31,9 @@
                 @if (Auth()->user()->role == 'mune')
                     @include('layout.side-menu')
                 @endif
+                @if (Auth()->user()->role == 'admin')
+                    @include('layout.side-admin')
+                @endif
                 <div class="menu-item">
                     <a class="menu-link" href="/logout"   data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
                         <span class="menu-icon">

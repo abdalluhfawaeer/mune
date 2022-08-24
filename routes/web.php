@@ -1,21 +1,12 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthCoutroller;
 use App\Http\Controllers\MuneCoutroller;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\OrderController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 //Route::middleware('local.set')->get('/', function () {
 //    return redirect('/' . app()->getLocale());
 //})->name('home');
@@ -59,4 +50,13 @@ Route::controller(OrderController::class)->group(function () {
     Route::get('/customer', 'customer');
     Route::get('/menu/order/today', 'orderToday');
     Route::get('/order/detail/{id}', 'orderDetail');
+});
+
+Route::controller(AdminController::class)->group(function () {
+    Route::get('/admin/add/sales', 'saels');
+    Route::get('/admin/report/sales', 'saelsReport');
+    Route::get('/admin/sales/edit/{id}', 'saelsEdit');
+    Route::get('/admin/menu/report', 'menuReport');
+    Route::get('/admin/menu/customer/{id}', 'menuCustomer');
+    Route::get('/admin/menu/report/order/{id}', 'menuOrder');
 });

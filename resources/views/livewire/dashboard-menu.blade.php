@@ -12,7 +12,18 @@
     </div>
     <br><br><br>
     <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+        
         <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack" wire:ignore.self>
+            @if (auth()->user()->role == 'admin')
+            <div class="position-relative w-md-400px me-md-2">
+                <select class="form-control  ps-10" wire:model="select_menu_id">
+                    <option value="" selected>menu</option>
+                    @foreach ($select_menu as $menu)
+                        <option value="{{ $menu->id }}">{{ $menu->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            @endif
             <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">                        
             </div>
             <div class="d-flex align-items-center gap-2 gap-lg-3">
@@ -182,7 +193,7 @@
                                 <span class="card-label fw-bold text-dark">Last Customer</span>
                             </h3>
                             <div class="card-toolbar">
-                                <a href="#" class="btn btn-sm btn-light">All Customer</a>
+                                <a href="/customer" class="btn btn-sm btn-light">All Customer</a>
                             </div>
                         </div>
                         <div class="card-body pt-6">
@@ -206,10 +217,7 @@
                 <div class="col-xl-8 mb-5 mb-xl-10">
                     <div class="card card-flush h-xl-100">
                         <div class="card-header pt-5">
-                            <h3 class="card-title align-items-start flex-column">
-                                <span class="card-label fw-bold text-dark">Team Schedule</span>
-                                <span class="text-gray-400 pt-2 fw-semibold fs-6">49 Acual Tasks</span>
-                            </h3>
+                            <img src="{{ url('qrcode/'.$qrdcode) }}" width="200">
                         </div>
                     </div>
                 </div>             

@@ -13,13 +13,6 @@
             <div id="kt_ecommerce_add_product_form"
                 class="form d-flex flex-column flex-lg-row fv-plugins-bootstrap5 fv-plugins-framework">
                 <form wire:submit.prevent="save" class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
-                    <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 fw-semibold mb-n2"
-                        role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link text-active-primary pb-4 active" data-bs-toggle="tab"
-                                href="#kt_ecommerce_add_product_general" aria-selected="true" role="tab">General</a>
-                        </li>
-                    </ul>
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="kt_ecommerce_add_product_general" role="tab-panel">
                             <div class="d-flex flex-column gap-7 gap-lg-10">

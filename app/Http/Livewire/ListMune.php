@@ -19,6 +19,8 @@ class ListMune extends Component
     public $start_date = '';
     public $end_date = '';
     public $status = '';
+    public $sales = '';
+    public $user_sales  = [];
 
     protected $paginationTheme = 'bootstrap';
 
@@ -26,7 +28,7 @@ class ListMune extends Component
 
 
     public function mount() {
-        
+        $this->user_sales = User::where('role','sales')->get();
     }
 
     public function render()
@@ -48,6 +50,14 @@ class ListMune extends Component
 
         if (!empty($this->name)) {
             $list = $list->where('name', 'like', '%' . $this->name . '%');
+        }
+
+        if (!empty($this->sales)) {
+            if ($this->sales == 'admin') {
+                $list = $list->where('currint_user',Auth()->id());
+            } else {
+                $list = $list->where('currint_user',$this->sales);
+            }
         }
 
         if (!empty($this->b_name)) {

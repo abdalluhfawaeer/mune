@@ -27,7 +27,7 @@
                                                         <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor"></path>
                                                     </svg>
                                                 </span>
-                                                <input type="text" class="form-control form-control-solid ps-10" name="search" wire:model="name" placeholder="name">
+                                                <input type="text" class="form-control form-control-solid ps-10" wire:model="name" placeholder="Name">
                                             </div>
                                             <div class="position-relative w-md-400px me-md-2">
                                                 <span class="svg-icon svg-icon-3 svg-icon-gray-500 position-absolute top-50 translate-middle ms-6">
@@ -36,16 +36,7 @@
                                                         <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor"></path>
                                                     </svg>
                                                 </span>
-                                                <input type="text" class="form-control form-control-solid ps-10" name="search" wire:model="b_name" placeholder="b name">
-                                            </div>
-                                            <div class="position-relative w-md-400px me-md-2">
-                                                <span class="svg-icon svg-icon-3 svg-icon-gray-500 position-absolute top-50 translate-middle ms-6">
-                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="currentColor"></rect>
-                                                        <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor"></path>
-                                                    </svg>
-                                                </span>
-                                                <input type="text" class="form-control form-control-solid ps-10" name="search" wire:model="mobile" placeholder="mobile">
+                                                <input type="text" class="form-control form-control-solid ps-10" name="search" wire:model="mobile" placeholder="name">
                                             </div>
                                             <div class="position-relative w-md-400px me-md-2">
                                                     <select class="form-control form-control-solid ps-10" wire:model="status">
@@ -54,36 +45,36 @@
                                                         <option value="not_active">not_active</option>
                                                     </select>
                                             </div>
-                                            @if (auth()->user()->role == 'admin')
                                             <div class="position-relative w-md-400px me-md-2">
-                                                <select class="form-control form-control-solid ps-10" wire:model="sales">
-                                                    <option value="" selected>saels</option>
-                                                    <option value="admin" >admin</option>
-                                                    @foreach ($user_sales as $sales)
-                                                        <option value="{{ $sales->id }}">{{ $sales->name }}</option>
-                                                    @endforeach
-                                                </select>
+                                                <div class="mb-0">
+                                                    <input class="form-control form-control" placeholder="Pick date rage" id="kt_daterangepicker_4"/>
+                                                </div>
+                                                <script>
+                                                    var start = moment();
+                                                    var end = moment().endOf("month");
+                                
+                                                    function cb(start, end) {
+                                                        $("#kt_daterangepicker_4").html(start.format("MMMM D, YYYY") + " - " + end.format("MMMM D, YYYY"));
+                                                        @this.setDate(start.format("YYYY-MM-DD"),end.format("YYYY-MM-DD"));
+                                                    }
+                                
+                                                    $("#kt_daterangepicker_4").daterangepicker({
+                                                        startDate: start,
+                                                        endDate: end,
+                                                        ranges: {
+                                                        "Today": [moment(), moment()],
+                                                        "Yesterday": [moment().subtract(1, "days"), moment().subtract(1, "days")],
+                                                        "Last 7 Days": [moment().subtract(6, "days"), moment()],
+                                                        "Last 30 Days": [moment().subtract(29, "days"), moment()],
+                                                        "This Month": [moment().startOf("month"), moment().endOf("month")],
+                                                        "Last Month": [moment().subtract(1, "month").startOf("month"), moment().subtract(1, "month").endOf("month")]
+                                                        }
+                                                    }, cb);
+                                
+                                                    cb(start, end);
+                                                </script>
                                             </div>
-                                            @endif
-                                            <div class="position-relative w-md-400px me-md-2">
-                                                <span class="svg-icon svg-icon-3 svg-icon-gray-500 position-absolute top-50 translate-middle ms-6">
-                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="currentColor"></rect>
-                                                        <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor"></path>
-                                                    </svg>
-                                                </span>
-                                                <input type="date" class="form-control form-control-solid ps-10" name="search" wire:model="start_date" placeholder="start_date">
-                                            </div>
-                                            <div class="position-relative w-md-400px me-md-2">
-                                                <span class="svg-icon svg-icon-3 svg-icon-gray-500 position-absolute top-50 translate-middle ms-6">
-                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="currentColor"></rect>
-                                                        <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor"></path>
-                                                    </svg>
-                                                </span>
-                                                <input type="date" class="form-control form-control-solid ps-10" name="search" wire:model="end_date" placeholder="end_date">
-                                            </div>
-                                        </div>
+                                        </div> 
                                     </div>
                                 </div>
                             </form>
@@ -99,12 +90,11 @@
                                                     <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
                                                         <th>ID</th>
                                                         <th>Name</th>
-                                                        <th>Bussnis Name</th>
                                                         <th>Mobile</th>
-                                                        <th>Status</th>
-                                                        <th>Start_date</th>
-                                                        <th>end_date</th>
-                                                        <th>price</th>
+                                                        <th>Status ACTAIVE</th>
+                                                        <th>Status NOT ACTAIVE</th>
+                                                        <th>TOTAL ACTAIVE</th>
+                                                        <th>TOTAL NOT ACTAIVE</th>
                                                         <th class="text-end min-w-100px sorting_disabled" rowspan="1"
                                                             colspan="1" aria-label="Actions" style="width: 143.5px;">
                                                             Actions</th>
@@ -117,13 +107,22 @@
                                                             <a class="text-gray-800 text-hover-primary fs-5 fw-bold">{{ $item->id }}</a>
                                                         </td>
                                                         <td data-kt-ecommerce-order-filter="order_id">
-                                                            <a class="text-gray-800 text-hover-primary fs-5 fw-bold">{{ $item->user->name }}</a>
-                                                        </td>
-                                                        <td data-kt-ecommerce-order-filter="order_id">
                                                             <a class="text-gray-800 text-hover-primary fs-5 fw-bold">{{ $item->name }}</a>
                                                         </td>
                                                         <td data-kt-ecommerce-order-filter="order_id">
-                                                            <a class="text-gray-800 text-hover-primary fs-5 fw-bold">{{ $item->user->mobile }}</a>
+                                                            <a class="text-gray-800 text-hover-primary fs-5 fw-bold">{{ $item->mobile }}</a>
+                                                        </td>
+                                                        <td data-kt-ecommerce-order-filter="order_id">
+                                                            <a class="text-gray-800 text-hover-primary fs-5 fw-bold">{{ $item->count_avtive }}</a>
+                                                        </td>
+                                                        <td data-kt-ecommerce-order-filter="order_id">
+                                                            <a class="text-gray-800 text-hover-primary fs-5 fw-bold">{{ $item->count_not }}</a>
+                                                        </td>
+                                                        <td data-kt-ecommerce-order-filter="order_id">
+                                                            <a class="text-gray-800 text-hover-primary fs-5 fw-bold">{{ $item->total }}JD</a>
+                                                        </td>
+                                                        <td data-kt-ecommerce-order-filter="order_id">
+                                                            <a class="text-gray-800 text-hover-primary fs-5 fw-bold">{{ $item->total_not }}JD</a>
                                                         </td>
                                                         <td data-kt-ecommerce-order-filter="order_id">
                                                             @if ($item->staus == 'active')
@@ -131,26 +130,9 @@
                                                             @else
                                                                 <a class="badge badge-light-danger">{{ $item->staus }}</a>
                                                             @endif
-                                                        </td> 
-                                                        <td data-kt-ecommerce-order-filter="order_id">
-                                                            <a class="text-gray-800 text-hover-primary fs-5 fw-bold">{{ $item->start_date }}</a>
-                                                        </td>
-                                                        <td data-kt-ecommerce-order-filter="order_id">
-                                                            <a class="text-gray-800 text-hover-primary fs-5 fw-bold">{{ $item->end_date }}</a>
-                                                        </td>
-                                                        <td data-kt-ecommerce-order-filter="order_id">
-                                                            <a class="text-gray-800 text-hover-primary fs-5 fw-bold">{{ $item->price }}JD</a>
                                                         </td>
                                                         <td class="text-end">
-                                                            <a href="/{{ $item->name }}/{{ $item->id }}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" target="blank">
-                                                                <span class="svg-icon svg-icon-3">
-                                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                        <path d="M17.5 11H6.5C4 11 2 9 2 6.5C2 4 4 2 6.5 2H17.5C20 2 22 4 22 6.5C22 9 20 11 17.5 11ZM15 6.5C15 7.9 16.1 9 17.5 9C18.9 9 20 7.9 20 6.5C20 5.1 18.9 4 17.5 4C16.1 4 15 5.1 15 6.5Z" fill="currentColor"></path>
-                                                                        <path opacity="0.3" d="M17.5 22H6.5C4 22 2 20 2 17.5C2 15 4 13 6.5 13H17.5C20 13 22 15 22 17.5C22 20 20 22 17.5 22ZM4 17.5C4 18.9 5.1 20 6.5 20C7.9 20 9 18.9 9 17.5C9 16.1 7.9 15 6.5 15C5.1 15 4 16.1 4 17.5Z" fill="currentColor"></path>
-                                                                    </svg>
-                                                                </span>
-                                                            </a>
-                                                            <a href="/mune/edit/{{ $item->id }}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+                                                            <a href="/admin/sales/edit/{{ $item->id }}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
                                                                 <span class="svg-icon svg-icon-3">
                                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                         <path opacity="0.3" d="M21.4 8.35303L19.241 10.511L13.485 4.755L15.643 2.59595C16.0248 2.21423 16.5426 1.99988 17.0825 1.99988C17.6224 1.99988 18.1402 2.21423 18.522 2.59595L21.4 5.474C21.7817 5.85581 21.9962 6.37355 21.9962 6.91345C21.9962 7.45335 21.7817 7.97122 21.4 8.35303ZM3.68699 21.932L9.88699 19.865L4.13099 14.109L2.06399 20.309C1.98815 20.5354 1.97703 20.7787 2.03189 21.0111C2.08674 21.2436 2.2054 21.4561 2.37449 21.6248C2.54359 21.7934 2.75641 21.9115 2.989 21.9658C3.22158 22.0201 3.4647 22.0084 3.69099 21.932H3.68699Z" fill="currentColor"></path>
@@ -158,7 +140,6 @@
                                                                     </svg>
                                                                 </span>
                                                             </a>
-                                                            @if (auth()->user()->role == 'admin')
                                                             <a href="#" wire:click="delete({{ $item->id }})" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
                                                                 <span class="svg-icon svg-icon-3">
                                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -168,7 +149,6 @@
                                                                     </svg>
                                                                 </span>
                                                             </a>
-                                                            @endif
                                                         </td>
                                                     </tr>
                                                     @endforeach

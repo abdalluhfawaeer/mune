@@ -1,3 +1,3 @@
 @include('layout.head')
-    @livewire('add-mune',['id' => $id])
+    @livewire('add-sales',['id'=>0])
 @include('layout.footer')
