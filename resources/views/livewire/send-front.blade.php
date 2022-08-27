@@ -122,13 +122,13 @@
                     text +="%0A";
                 }
                 text +="%0A";
-                // if($('#yes').is(':checked')) {
-                //     if (navigator.geolocation) {
-                //         navigator.geolocation.getCurrentPosition(showPosition);
-                //     } 
-                // } else {
-                //     window.location.href = "https://wa.me/"+{{ $menu->user->mobile }}+"?text="+text;
-                // }
+                if($('#yes').is(':checked')) {
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(showPosition);
+                    } 
+                } else {
+                    window.location.href = "https://wa.me/"+{{ $menu->user->mobile }}+"?text="+text;
+                }
             }
            
     }

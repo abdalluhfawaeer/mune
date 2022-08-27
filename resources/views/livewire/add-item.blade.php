@@ -145,14 +145,20 @@
                                                 <label class="form-label">{{ __('text.Description') }}</label>
                                                 <textarea class="form-control" rows="3" wire:model.dafer="desc"></textarea>
                                             </div>
-                                            <div class="mb-10 fv-row fv-plugins-icon-container">
+                                            <div class="mb-10 fv-row fv-plugins-icon-container" >
                                                 <label class="form-label">{{ __('text.category') }}</label>
                                                 <select class="form-control form-control-solid"
                                                     wire:model.dafer="cat">
                                                     <option value="" selected>{{ __('text.category') }}</option>
                                                     @foreach ($category as $cat)
-                                                        <option value="{{ $cat->id }}" selected>
-                                                            {{ $cat->name }}</option>
+                                                    @if (app()->getLocale() == 'ar')
+                                                    <option value="{{ $cat->id }}" selected>
+                                                        {{ $cat->name_ar }}</option>
+                                                    @else 
+                                                    <option value="{{ $cat->id }}" selected>
+                                                        {{ $cat->name_en }}</option>
+                                                    @endif
+                                                        
                                                     @endforeach
                                                 </select>
                                             </div>
