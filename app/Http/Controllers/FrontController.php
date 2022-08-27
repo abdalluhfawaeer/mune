@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 class FrontController extends Controller
 {
     public function viwe(Request $request) {
+        dd(\Request::ip());
         $menu = Mune::where('name',$request->name)->where('id',$request->id)->first();
         if (!empty($menu)) {
             if ($menu->staus == 'active') {
