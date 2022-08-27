@@ -10,6 +10,14 @@ function open_panel($id) {
     }
 }
 
+function open_model() {
+    document.getElementById("navopen").style.display = 'block';    
+}
+
+function open_model2() {
+    document.getElementById("navopen").style.display = 'none';    
+}
+
 function addProduct(){
     var required = document.getElementById('required');
     if (required != null) {

@@ -22,7 +22,7 @@
                                 </svg>
                             </span>
                         </span>
-                        <span class="menu-title">Dashboard</span>
+                        <span class="menu-title">{{ __('text.dashboard') }}</span>
                     </a>
                 </div>
                 @if (Auth()->user()->role == 'sales')
@@ -44,7 +44,7 @@
                                 </svg>
                             </span>
                         </span>
-                        <span class="menu-title">Logout</span>
+                        <span class="menu-title">{{ __('text.logut') }}</span>
                     </a>
                 </div>
             </div>
@@ -72,11 +72,19 @@
             <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1">
                 <div class="d-flex align-items-stretch" id="kt_header_nav"></div>
                 <div class="d-flex align-items-stretch flex-shrink-0">
+                    @if (app()->getLocale() == 'en')
                     <div class="d-flex align-items-center ms-1 ms-lg-3">
-                        <a class="btn btn-icon btn-icon-muted btn-active-light btn-active-color-primary w-30px h-30px w-md-40px h-md-40px" href="../../demo1/dist/documentation/getting-started/dark-mode.html">
-                            <i class="fonticon-sun fs-2"></i>
+                        <a class="btn btn-icon btn-icon-muted btn-active-light btn-active-color-primary w-30px h-30px w-md-40px h-md-40px" href="/lang/ar">
+                            العربية
+                        </a>
+                    </div>    
+                    @else
+                    <div class="d-flex align-items-center ms-1 ms-lg-3">
+                        <a class="btn btn-icon btn-icon-muted btn-active-light btn-active-color-primary w-30px h-30px w-md-40px h-md-40px" href="/lang/en">
+                            English
                         </a>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>

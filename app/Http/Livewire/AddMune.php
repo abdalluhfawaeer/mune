@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Addition;
 use Livewire\Component;
 use App\Models\Mune;
 use App\Models\User;
@@ -23,6 +24,8 @@ class AddMune extends Component
     public $price = '';
     public $id_m = 0;
     public $user_id = 0;
+    public $type = 'order';
+    public $theme = 1;
 
     protected $rules = [
         'mobile' => 'required',
@@ -36,7 +39,7 @@ class AddMune extends Component
     public function mount($id) {
         $this->id_m = $id;
         if ($id > 0) {
-            $mune = Mune::with('user')->where('id',$id)->first();
+            $mune = Mune::with('user','additions')->where('id',$id)->first();
             $this->email = $mune->user->email;
             $this->name = $mune->user->name;
             $this->product_name = $mune->name;
@@ -46,6 +49,8 @@ class AddMune extends Component
             $this->end_date = $mune->end_date;
             $this->price = $mune->price;
             $this->user_id = $mune->user->id;
+            $this->theme = $mune->additions->theme;
+            $this->type = $mune->additions->type;
         } 
     }
     public function render()
@@ -90,6 +95,12 @@ class AddMune extends Component
 
         Mune::where('id',$menu_id)->update([
             'qr_code' => 'qrcode_'.$menu_id.'.png',
+        ]);
+
+        Addition::updateOrCreate(['menu_id' => $menu_id],[
+            'theme' => $this->theme,
+            'type' => $this->type,
+            'menu_id' => $menu_id,
         ]);
 
         session()->flash('message', 'Post successfully updated.');

@@ -64,4 +64,9 @@ class Mune extends Model
 	{
 		return $this->belongsTo(User::class);
 	}
+
+	public function additions()
+	{
+		return $this->hasOne(Addition::class ,'menu_id');
+	}
 }

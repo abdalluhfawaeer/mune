@@ -47,7 +47,7 @@ class AddItem extends Component
 
     public function mount() {
         $this->menu = Mune::with('user')->where('user_id',Auth()->user()->id)->first();
-        $this->category = Category::where('menu_id',$this->menu->id)->get();
+        $this->category = Category::select('id','name_'.app()->getLocale().' as name')->where('menu_id',$this->menu->id)->get();
     }
 
     public function save() {

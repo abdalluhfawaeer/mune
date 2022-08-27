@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Addition;
 use App\Models\Mune;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -24,13 +25,14 @@ class CustomizeMune extends Component
     public $photo;
     public $img = '';
     public $color_text = '';
+    public $faecbook = ''; public $youtube ='';public $instagram='';public $twitter='';
 
     protected $rules = [
         'product_name' => 'required',
     ];
 
     public function mount() {
-        $mune = Mune::with('user')->where('user_id',Auth()->user()->id)->first();
+        $mune = Mune::with('user','additions')->where('user_id',Auth()->user()->id)->first();
         $this->mune_id = $mune->id;
         $this->product_name = $mune->name;
         $this->color = $mune->color;
@@ -40,6 +42,10 @@ class CustomizeMune extends Component
         $this->email = $mune->user->email;
         $this->password_c = $mune->user->password;
         $this->img = $mune->logo;
+        $this->faecbook = $mune->additions->faecbook;
+        $this->youtube = $mune->additions->youtube;
+        $this->instagram = $mune->additions->instagram;
+        $this->twitter = $mune->additions->twitter;
     }
 
     public function render()
@@ -68,6 +74,13 @@ class CustomizeMune extends Component
             'email' => $this->email,
             'mobile' => $this->mobile,
             //'password' => empty($this->password) ? Hash::make($this->password) : $this->password_c,
+        ]);
+
+        Addition::where('menu_id',$this->mune_id)->update([
+            'faecbook' => $this->faecbook,
+            'youtube' => $this->youtube,
+            'instagram' => $this->instagram,
+            'twitter' => $this->twitter,
         ]);
 
         session()->flash('message', 'Post successfully updated.');

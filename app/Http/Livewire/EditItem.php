@@ -48,7 +48,7 @@ class EditItem extends Component
 
     public function mount($item_id) {
         $this->menu = Mune::with('user')->where('user_id',Auth()->user()->id)->first();
-        $this->category = Category::where('menu_id',$this->menu->id)->get();
+        $this->category = Category::select('id','name_'.app()->getLocale().' as name')->where('menu_id',$this->menu->id)->get();
         $item = Item::where('id',$item_id)->first();
         $this->name_ar = $item->name_ar;
         $this->name_en = $item->name_en;

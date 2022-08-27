@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mune;
 use Illuminate\Http\Request;
 
 class MuneCoutroller extends Controller
@@ -44,5 +45,10 @@ class MuneCoutroller extends Controller
         return view('mune.item-edit' ,[
             'id' => $request->id
         ]);
+    }
+
+    public function showMenu() {
+        $menu = Mune::where('user_id',auth()->user()->id)->first();
+        return redirect()->route('showMenu', ['name' => $menu->name , 'id' => $menu->id]);
     }
 }

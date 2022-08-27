@@ -8,7 +8,7 @@
                             <div data-kt-swapper="true" data-kt-swapper-mode="prepend"
                                 data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
                                 class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
-                                <h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">Dashboard
+                                <h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">{{ __('text.add_category') }}
                                     <span class="h-20px border-1 border-gray-200 border-start ms-3 mx-2 me-1"></span>
                                 </h1>
                             </div>
@@ -35,7 +35,7 @@
                                                     </svg>
                                                 </span>
                                                 <input type="text" class="form-control form-control-solid ps-10"
-                                                    wire:model="name_en_search" placeholder="name en">
+                                                    wire:model="name_en_search" placeholder="{{ __('text.name_en') }}">
                                             </div>
                                             <div class="position-relative w-md-400px me-md-2">
                                                 <span
@@ -52,21 +52,21 @@
                                                     </svg>
                                                 </span>
                                                 <input type="text" class="form-control form-control-solid ps-10"
-                                                    name="search" wire:model="name_ar_search" placeholder="name ar">
+                                                    name="search" wire:model="name_ar_search" placeholder="{{ __('text.name_ar') }}">
                                             </div>
                                             <div class="position-relative w-md-400px me-md-2">
                                                 <select class="form-control form-control-solid ps-10"
                                                     wire:model="status_search">
-                                                    <option value="">status</option>
-                                                    <option value="active" selected>active</option>
-                                                    <option value="not_active">not_active</option>
+                                                    <option value="">{{ __('text.status') }}</option>
+                                                    <option value="active" selected>{{ __('text.active') }}</option>
+                                                    <option value="not_active">{{ __('text.not_active') }}</option>
                                                 </select>
                                             </div>
 
                                             <div class="position-relative w-md-400px me-md-2">
                                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                                     data-bs-target="#kt_modal_1">
-                                                    Add
+                                                    {{ __('text.add_category') }}
                                                 </button>
                                             </div>
                                         </div>
@@ -78,7 +78,7 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h3 class="modal-title">Add</h3>
+                                                <h3 class="modal-title">{{ __('text.add_category') }}</h3>
                                                 <div class="btn btn-icon btn-sm btn-active-light-primary ms-2"
                                                     data-bs-dismiss="modal" aria-label="Close">
                                                     <span class="svg-icon svg-icon-1"></span>
@@ -88,9 +88,9 @@
                                             <div class="modal-body">
                                                 <div class="mb-10">
                                                     <label for="exampleFormControlInput1"
-                                                        class="required form-label">Name AR</label>
+                                                        class="required form-label">{{ __('text.name_ar') }}</label>
                                                     <input type="text" class="form-control form-control-solid"
-                                                        placeholder="Example input" wire:model="name_ar" />
+                                                        placeholder="{{ __('text.name_ar') }}" wire:model="name_ar" />
                                                     <br>
                                                     @error('name_ar')
                                                         <span class="alert alert-danger"
@@ -99,9 +99,9 @@
                                                 </div>
                                                 <div class="mb-10">
                                                     <label for="exampleFormControlInput1"
-                                                        class="required form-label">Name En</label>
+                                                        class="required form-label">{{ __('text.name_en') }}</label>
                                                     <input type="text" class="form-control form-control-solid"
-                                                        placeholder="Example input" wire:model="name_en" />
+                                                        placeholder="{{ __('text.name_en') }}" wire:model="name_en" />
                                                     <br>
                                                     @error('name_en')
                                                         <span class="alert alert-danger"
@@ -110,9 +110,9 @@
                                                 </div>
                                                 <div class="mb-10">
                                                     <label for="exampleFormControlInput1"
-                                                        class="required form-label">photo</label>
+                                                        class="required form-label">{{ __('text.photo') }}</label>
                                                     <input type="file" class="form-control form-control-solid"
-                                                        placeholder="Example input" wire:model="photo" />
+                                                        placeholder="{{ __('text.photo') }}" wire:model="photo" />
                                                     <br>
                                                     @error('photo')
                                                         <span class="alert alert-danger"
@@ -121,20 +121,19 @@
                                                 </div>
                                                 <div class="mb-10">
                                                     <label for="exampleFormControlInput1"
-                                                        class="required form-label">status</label>
+                                                        class="required form-label">{{ __('text.status') }}</label>
                                                     <select class="form-control form-control-solid ps-10"
                                                         wire:model="status">
-                                                        <option value="active" selected>active</option>
-                                                        <option value="not_active">not_active</option>
+                                                        <option value="active" selected>{{ __('text.active') }}</option>
+                                                        <option value="not_active">{{ __('text.not_active') }}</option>
                                                     </select>
                                                 </div>
                                             </div>
 
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-light"
-                                                    data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary" wire:click="save">Save
-                                                    changes</button>
+                                                    data-bs-dismiss="modal">{{ __('text.Close') }}</button>
+                                                <button type="button" class="btn btn-primary" wire:click="save">{{ __('text.SaveChanges') }}</button>
                                             </div>
                                         </div>
                                     </div>
@@ -151,13 +150,10 @@
                                                         <tr
                                                             class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
                                                             <th>ID</th>
-                                                            <th>Name ar</th>
-                                                            <th>Name en</th>
-                                                            <th>Status</th>
-                                                            <th class="text-end min-w-100px sorting_disabled"
-                                                                rowspan="1" colspan="1" aria-label="Actions"
-                                                                style="width: 143.5px;">
-                                                                Actions</th>
+                                                            <th>{{ __('text.name_ar') }}</th>
+                                                            <th>{{ __('text.name_en') }}</th>
+                                                            <th>{{ __('text.status') }}</th>
+                                                            <th></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody class="fw-semibold text-gray-600">
@@ -178,10 +174,10 @@
                                                                 <td data-kt-ecommerce-order-filter="order_id">
                                                                     @if ($item->staus == 'active')
                                                                         <a
-                                                                            class="badge badge-light-success">{{ $item->staus }}</a>
+                                                                            class="badge badge-light-success">{{ __('text.'.$item->staus) }}</a>
                                                                     @else
                                                                         <a
-                                                                            class="badge badge-light-danger">{{ $item->staus }}</a>
+                                                                            class="badge badge-light-danger">{{ __('text.'.$item->staus) }}</a>
                                                                     @endif
                                                                 </td>
                                                                 <td class="text-end">
@@ -228,7 +224,7 @@
                                                                 <div class="modal-dialog">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
-                                                                            <h3 class="modal-title">Add</h3>
+                                                                            <h3 class="modal-title">{{ __('text.add_category') }}</h3>
                                                                             <div class="btn btn-icon btn-sm btn-active-light-primary ms-2"
                                                                                 data-bs-dismiss="modal"
                                                                                 aria-label="Close">
@@ -240,11 +236,10 @@
                                                                         <div class="modal-body">
                                                                             <div class="mb-10">
                                                                                 <label for="exampleFormControlInput1"
-                                                                                    class="required form-label">Name
-                                                                                    AR</label>
+                                                                                    class="required form-label">{{ __('text.name_ar') }}</label>
                                                                                 <input type="text"
                                                                                     class="form-control form-control-solid"
-                                                                                    placeholder="Example input"
+                                                                                    placeholder="{{ __('text.name_ar') }}"
                                                                                     wire:model="name_ar" />
                                                                                 <br>
                                                                                 @error('name_ar')
@@ -254,11 +249,10 @@
                                                                             </div>
                                                                             <div class="mb-10">
                                                                                 <label for="exampleFormControlInput1"
-                                                                                    class="required form-label">Name
-                                                                                    En</label>
+                                                                                    class="required form-label">{{ __('text.name_en') }}</label>
                                                                                 <input type="text"
                                                                                     class="form-control form-control-solid"
-                                                                                    placeholder="Example input"
+                                                                                    placeholder="{{ __('text.name_en') }}"
                                                                                     wire:model="name_en" />
                                                                                 <br>
                                                                                 @error('name_en')
@@ -268,7 +262,7 @@
                                                                             </div>
                                                                             <div class="mb-10">
                                                                                 <label for="exampleFormControlInput1"
-                                                                                    class="required form-label">photo</label>
+                                                                                    class="required form-label">{{ __('text.photo') }}</label>
                                                                                 <input type="file"
                                                                                     class="form-control form-control-solid"
                                                                                     placeholder="Example input"
@@ -281,14 +275,14 @@
                                                                             </div>
                                                                             <div class="mb-10">
                                                                                 <label for="exampleFormControlInput1"
-                                                                                    class="required form-label">status</label>
+                                                                                    class="required form-label">{{ __('text.status') }}</label>
                                                                                 <select
                                                                                     class="form-control form-control-solid ps-10"
                                                                                     wire:model="status">
                                                                                     <option value="active" selected>
-                                                                                        active</option>
+                                                                                        {{ __('text.active') }}</option>
                                                                                     <option value="not_active">
-                                                                                        not_active</option>
+                                                                                        {{ __('text.not_active') }}</option>
                                                                                 </select>
                                                                             </div>
                                                                         </div>
@@ -296,11 +290,10 @@
                                                                         <div class="modal-footer">
                                                                             <button type="button"
                                                                                 class="btn btn-light"
-                                                                                data-bs-dismiss="modal">Close</button>
+                                                                                data-bs-dismiss="modal">{{ __('text.Close') }}</button>
                                                                             <button type="button"
                                                                                 class="btn btn-primary"
-                                                                                wire:click="edit({{ $item->id }})">Save
-                                                                                changes</button>
+                                                                                wire:click="edit({{ $item->id }})">{{ __('text.SaveChanges') }}</button>
                                                                         </div>
                                                                     </div>
                                                                 </div>

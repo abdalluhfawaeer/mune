@@ -8,7 +8,7 @@
                             <div data-kt-swapper="true" data-kt-swapper-mode="prepend"
                                 data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
                                 class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
-                                <h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">Dashboard
+                                <h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">{{ __('text.Order') }}
                                     <span class="h-20px border-1 border-gray-200 border-start ms-3 mx-2 me-1"></span>
                                 </h1>
                             </div>
@@ -27,7 +27,7 @@
                                                         <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor"></path>
                                                     </svg>
                                                 </span>
-                                                <input type="text" class="form-control form-control-solid ps-10" wire:model="id_mune" placeholder="id mune">
+                                                <input type="text" class="form-control form-control-solid ps-10" wire:model="id_mune" placeholder="ID">
                                             </div>
                                             <div class="position-relative w-md-400px me-md-2">
                                                 <span class="svg-icon svg-icon-3 svg-icon-gray-500 position-absolute top-50 translate-middle ms-6">
@@ -36,7 +36,7 @@
                                                         <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor"></path>
                                                     </svg>
                                                 </span>
-                                                <input type="text" class="form-control form-control-solid ps-10" name="search" wire:model="name" placeholder="name">
+                                                <input type="text" class="form-control form-control-solid ps-10" name="search" wire:model="name" placeholder="{{ __('text.name') }}">
                                             </div>
                                             <div class="position-relative w-md-400px me-md-2">
                                                 <span class="svg-icon svg-icon-3 svg-icon-gray-500 position-absolute top-50 translate-middle ms-6">
@@ -45,20 +45,11 @@
                                                         <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor"></path>
                                                     </svg>
                                                 </span>
-                                                <input type="text" class="form-control form-control-solid ps-10" name="search" wire:model="b_name" placeholder="b name">
-                                            </div>
-                                            <div class="position-relative w-md-400px me-md-2">
-                                                <span class="svg-icon svg-icon-3 svg-icon-gray-500 position-absolute top-50 translate-middle ms-6">
-                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="currentColor"></rect>
-                                                        <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor"></path>
-                                                    </svg>
-                                                </span>
-                                                <input type="text" class="form-control form-control-solid ps-10" name="search" wire:model="mobile" placeholder="mobile">
+                                                <input type="text" class="form-control form-control-solid ps-10" name="search" wire:model="mobile" placeholder="{{ __('text.Mobile') }}">
                                             </div>
                                             <div class="position-relative w-md-400px me-md-2">
                                                     <select class="form-control form-control-solid ps-10" wire:model="status">
-                                                        <option value="" selected>status</option>
+                                                        <option value="" selected>{{ __('text.status') }}</option>
                                                         <option value="active">active</option>
                                                         <option value="not_active">not_active</option>
                                                     </select>
@@ -96,15 +87,13 @@
                                                 <thead>
                                                     <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
                                                         <th>ID</th>
-                                                        <th>name</th>
-                                                        <th>mobile</th>
-                                                        <th>type</th>
-                                                        <th>status</th>
-                                                        <th>total</th>
-                                                        <th>date</th>
-                                                        <th class="text-end min-w-100px sorting_disabled" rowspan="1"
-                                                            colspan="1" aria-label="Actions" style="width: 143.5px;">
-                                                            Actions</th>
+                                                        <th>{{ __('text.name') }}</th>
+                                                        <th>{{ __('text.Mobile') }}</th>
+                                                        <th>{{ __('text.type') }}</th>
+                                                        <th>{{ __('text.status') }}</th>
+                                                        <th>{{ __('text.total') }}</th>
+                                                        <th>{{ __('text.date') }}</th>
+                                                        <th></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody class="fw-semibold text-gray-600">

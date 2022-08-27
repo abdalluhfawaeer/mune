@@ -4,7 +4,7 @@
             <div data-kt-swapper="true" data-kt-swapper-mode="prepend"
                 data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
                 class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
-                <h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">Sales
+                <h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">{{ __('text.sales') }}
                     <span class="h-20px border-1 border-gray-200 border-start ms-3 mx-2 me-1"></span>
                 </h1>
             </div>
@@ -73,7 +73,7 @@
                                             </div>
                                             <div class="m-0">
                                                 <span class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1">{{ $menu_count_active }}</span>
-                                                <span class="text-gray-500 fw-semibold fs-6">Menu Active</span>
+                                                <span class="text-gray-500 fw-semibold fs-6">{{ __('text.MenuActive') }}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -91,7 +91,7 @@
                                             </div>
                                             <div class="m-0">
                                                 <span class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1">{{ $menu_count_not }}</span>
-                                                <span class="text-gray-500 fw-semibold fs-6">Menu Not Active</span>
+                                                <span class="text-gray-500 fw-semibold fs-6">{{ __('text.MenuNotActive') }}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -109,25 +109,7 @@
                                             </div>
                                             <div class="m-0">
                                                 <span class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1">{{ $menu_sum }}</span>
-                                                <span class="text-gray-500 fw-semibold fs-6">Menu Total JD</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="bg-gray-100 bg-opacity-70 rounded-2 px-6 py-5">
-                                            <div class="symbol symbol-30px me-5 mb-8">
-                                                <span class="symbol-label">
-                                                    <span class="svg-icon svg-icon-1 svg-icon-primary">
-                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <path opacity="0.3" d="M20.9 12.9C20.3 12.9 19.9 12.5 19.9 11.9C19.9 11.3 20.3 10.9 20.9 10.9H21.8C21.3 6.2 17.6 2.4 12.9 2V2.9C12.9 3.5 12.5 3.9 11.9 3.9C11.3 3.9 10.9 3.5 10.9 2.9V2C6.19999 2.5 2.4 6.2 2 10.9H2.89999C3.49999 10.9 3.89999 11.3 3.89999 11.9C3.89999 12.5 3.49999 12.9 2.89999 12.9H2C2.5 17.6 6.19999 21.4 10.9 21.8V20.9C10.9 20.3 11.3 19.9 11.9 19.9C12.5 19.9 12.9 20.3 12.9 20.9V21.8C17.6 21.3 21.4 17.6 21.8 12.9H20.9Z" fill="currentColor"></path>
-                                                            <path d="M16.9 10.9H13.6C13.4 10.6 13.2 10.4 12.9 10.2V5.90002C12.9 5.30002 12.5 4.90002 11.9 4.90002C11.3 4.90002 10.9 5.30002 10.9 5.90002V10.2C10.6 10.4 10.4 10.6 10.2 10.9H9.89999C9.29999 10.9 8.89999 11.3 8.89999 11.9C8.89999 12.5 9.29999 12.9 9.89999 12.9H10.2C10.4 13.2 10.6 13.4 10.9 13.6V13.9C10.9 14.5 11.3 14.9 11.9 14.9C12.5 14.9 12.9 14.5 12.9 13.9V13.6C13.2 13.4 13.4 13.2 13.6 12.9H16.9C17.5 12.9 17.9 12.5 17.9 11.9C17.9 11.3 17.5 10.9 16.9 10.9Z" fill="currentColor"></path>
-                                                        </svg>
-                                                    </span>
-                                                </span>
-                                            </div>
-                                            <div class="m-0">
-                                                <span class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1">822</span>
-                                                <span class="text-gray-500 fw-semibold fs-6">Hours Learned</span>
+                                                <span class="text-gray-500 fw-semibold fs-6">{{ __('text.MenuTotalJD') }}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -141,10 +123,10 @@
                         <div class="card h-xl-100">
                             <div class="card-header border-0 pt-5">
                                 <h3 class="card-title align-items-start flex-column">
-                                    <span class="card-label fw-bold text-dark">Last MENU</span>
+                                    <span class="card-label fw-bold text-dark">{{{ __('text.last_menu') }}}</span>
                                 </h3>
                                 <div class="card-toolbar">
-                                    <a href="/mune/list" class="btn btn-sm btn-light">All MENU</a>
+                                    <a href="/mune/list" class="btn btn-sm btn-light">{{ __('text.all_menu') }}</a>
                                 </div>
                             </div>
                             <div class="card-body pt-6">
@@ -171,153 +153,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row g-5 g-xl-10">
-                <div class="col-xl-4 mb-xl-10">
-                    <div class="card h-xl-100">
-                        <div class="card-header border-0 pt-5">
-                            <h3 class="card-title align-items-start flex-column">
-                                <span class="card-label fw-bold text-dark">Recommended for you</span>
-                                <span class="text-muted mt-1 fw-semibold fs-7">8k social visitors</span>
-                            </h3>
-                            <div class="card-toolbar">
-                                <a href="#" class="btn btn-sm btn-light">All Courses</a>
-                            </div>
-                        </div>
-                        <div class="card-body pt-6">
-                            <div class="d-flex flex-stack">
-                                <div class="symbol symbol-40px me-4">
-                                    <div class="symbol-label fs-2 fw-semibold bg-danger text-inverse-danger">M</div>
-                                </div>
-                                <div class="d-flex align-items-center flex-row-fluid flex-wrap">
-                                    <div class="flex-grow-1 me-2">
-                                        <a href="/metronic8/demo1/../demo1/pages/user-profile/overview.html" class="text-gray-800 text-hover-primary fs-6 fw-bold">UI/UX Design</a>
-                                        <span class="text-muted fw-semibold d-block fs-7">40+ Courses</span>
-                                    </div>
-                                    <a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
-                                        <span class="svg-icon svg-icon-2">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <rect opacity="0.5" x="18" y="13" width="13" height="2" rx="1" transform="rotate(-180 18 13)" fill="currentColor"></rect>
-                                                <path d="M15.4343 12.5657L11.25 16.75C10.8358 17.1642 10.8358 17.8358 11.25 18.25C11.6642 18.6642 12.3358 18.6642 12.75 18.25L18.2929 12.7071C18.6834 12.3166 18.6834 11.6834 18.2929 11.2929L12.75 5.75C12.3358 5.33579 11.6642 5.33579 11.25 5.75C10.8358 6.16421 10.8358 6.83579 11.25 7.25L15.4343 11.4343C15.7467 11.7467 15.7467 12.2533 15.4343 12.5657Z" fill="currentColor"></path>
-                                            </svg>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="separator separator-dashed my-4"></div>
-                            <div class="d-flex flex-stack">
-                                <div class="symbol symbol-40px me-4">
-                                    <div class="symbol-label fs-2 fw-semibold bg-success text-inverse-success">Q</div>
-                                </div>
-                                <div class="d-flex align-items-center flex-row-fluid flex-wrap">
-                                    <div class="flex-grow-1 me-2">
-                                        <a href="/metronic8/demo1/../demo1/pages/user-profile/overview.html" class="text-gray-800 text-hover-primary fs-6 fw-bold">QA Analysis</a>
-                                        <span class="text-muted fw-semibold d-block fs-7">18 Courses</span>
-                                    </div>
-                                    <a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
-                                        <span class="svg-icon svg-icon-2">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <rect opacity="0.5" x="18" y="13" width="13" height="2" rx="1" transform="rotate(-180 18 13)" fill="currentColor"></rect>
-                                                <path d="M15.4343 12.5657L11.25 16.75C10.8358 17.1642 10.8358 17.8358 11.25 18.25C11.6642 18.6642 12.3358 18.6642 12.75 18.25L18.2929 12.7071C18.6834 12.3166 18.6834 11.6834 18.2929 11.2929L12.75 5.75C12.3358 5.33579 11.6642 5.33579 11.25 5.75C10.8358 6.16421 10.8358 6.83579 11.25 7.25L15.4343 11.4343C15.7467 11.7467 15.7467 12.2533 15.4343 12.5657Z" fill="currentColor"></path>
-                                            </svg>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="separator separator-dashed my-4"></div>
-                            <div class="d-flex flex-stack">
-                                <div class="symbol symbol-40px me-4">
-                                    <div class="symbol-label fs-2 fw-semibold bg-info text-inverse-info">W</div>
-                                </div>
-                                <div class="d-flex align-items-center flex-row-fluid flex-wrap">
-                                    <div class="flex-grow-1 me-2">
-                                        <a href="/metronic8/demo1/../demo1/pages/user-profile/overview.html" class="text-gray-800 text-hover-primary fs-6 fw-bold">Web Development</a>
-                                        <span class="text-muted fw-semibold d-block fs-7">120+ Courses</span>
-                                    </div>
-                                    <a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
-                                        <span class="svg-icon svg-icon-2">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <rect opacity="0.5" x="18" y="13" width="13" height="2" rx="1" transform="rotate(-180 18 13)" fill="currentColor"></rect>
-                                                <path d="M15.4343 12.5657L11.25 16.75C10.8358 17.1642 10.8358 17.8358 11.25 18.25C11.6642 18.6642 12.3358 18.6642 12.75 18.25L18.2929 12.7071C18.6834 12.3166 18.6834 11.6834 18.2929 11.2929L12.75 5.75C12.3358 5.33579 11.6642 5.33579 11.25 5.75C10.8358 6.16421 10.8358 6.83579 11.25 7.25L15.4343 11.4343C15.7467 11.7467 15.7467 12.2533 15.4343 12.5657Z" fill="currentColor"></path>
-                                            </svg>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="separator separator-dashed my-4"></div>
-                            <div class="d-flex flex-stack">
-                                <div class="symbol symbol-40px me-4">
-                                    <div class="symbol-label fs-2 fw-semibold bg-primary text-inverse-primary">M</div>
-                                </div>
-                                <div class="d-flex align-items-center flex-row-fluid flex-wrap">
-                                    <div class="flex-grow-1 me-2">
-                                        <a href="/metronic8/demo1/../demo1/pages/user-profile/overview.html" class="text-gray-800 text-hover-primary fs-6 fw-bold">Marketing</a>
-                                        <span class="text-muted fw-semibold d-block fs-7">50+ Courses.</span>
-                                    </div>
-                                    <a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
-                                        <span class="svg-icon svg-icon-2">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <rect opacity="0.5" x="18" y="13" width="13" height="2" rx="1" transform="rotate(-180 18 13)" fill="currentColor"></rect>
-                                                <path d="M15.4343 12.5657L11.25 16.75C10.8358 17.1642 10.8358 17.8358 11.25 18.25C11.6642 18.6642 12.3358 18.6642 12.75 18.25L18.2929 12.7071C18.6834 12.3166 18.6834 11.6834 18.2929 11.2929L12.75 5.75C12.3358 5.33579 11.6642 5.33579 11.25 5.75C10.8358 6.16421 10.8358 6.83579 11.25 7.25L15.4343 11.4343C15.7467 11.7467 15.7467 12.2533 15.4343 12.5657Z" fill="currentColor"></path>
-                                            </svg>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="separator separator-dashed my-4"></div>
-                            <div class="d-flex flex-stack">
-                                <div class="symbol symbol-40px me-4">
-                                    <div class="symbol-label fs-2 fw-semibold bg-warning text-inverse-warning">P</div>
-                                </div>
-                                <div class="d-flex align-items-center flex-row-fluid flex-wrap">
-                                    <div class="flex-grow-1 me-2">
-                                        <a href="/metronic8/demo1/../demo1/pages/user-profile/overview.html" class="text-gray-800 text-hover-primary fs-6 fw-bold">Philosophy</a>
-                                        <span class="text-muted fw-semibold d-block fs-7">24+ Courses</span>
-                                    </div>
-                                    <a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
-                                        <span class="svg-icon svg-icon-2">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <rect opacity="0.5" x="18" y="13" width="13" height="2" rx="1" transform="rotate(-180 18 13)" fill="currentColor"></rect>
-                                                <path d="M15.4343 12.5657L11.25 16.75C10.8358 17.1642 10.8358 17.8358 11.25 18.25C11.6642 18.6642 12.3358 18.6642 12.75 18.25L18.2929 12.7071C18.6834 12.3166 18.6834 11.6834 18.2929 11.2929L12.75 5.75C12.3358 5.33579 11.6642 5.33579 11.25 5.75C10.8358 6.16421 10.8358 6.83579 11.25 7.25L15.4343 11.4343C15.7467 11.7467 15.7467 12.2533 15.4343 12.5657Z" fill="currentColor"></path>
-                                            </svg>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="separator separator-dashed my-4"></div>
-                            <div class="d-flex flex-stack">
-                                <div class="symbol symbol-40px me-4">
-                                    <div class="symbol-label fs-2 fw-semibold bg-dark text-inverse-dark">M</div>
-                                </div>
-                                <div class="d-flex align-items-center flex-row-fluid flex-wrap">
-                                    <div class="flex-grow-1 me-2">
-                                        <a href="/metronic8/demo1/../demo1/pages/user-profile/overview.html" class="text-gray-800 text-hover-primary fs-6 fw-bold">Mathematics</a>
-                                        <span class="text-muted fw-semibold d-block fs-7">24+ Courses</span>
-                                    </div>
-                                    <a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
-                                        <span class="svg-icon svg-icon-2">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <rect opacity="0.5" x="18" y="13" width="13" height="2" rx="1" transform="rotate(-180 18 13)" fill="currentColor"></rect>
-                                                <path d="M15.4343 12.5657L11.25 16.75C10.8358 17.1642 10.8358 17.8358 11.25 18.25C11.6642 18.6642 12.3358 18.6642 12.75 18.25L18.2929 12.7071C18.6834 12.3166 18.6834 11.6834 18.2929 11.2929L12.75 5.75C12.3358 5.33579 11.6642 5.33579 11.25 5.75C10.8358 6.16421 10.8358 6.83579 11.25 7.25L15.4343 11.4343C15.7467 11.7467 15.7467 12.2533 15.4343 12.5657Z" fill="currentColor"></path>
-                                            </svg>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-8 mb-5 mb-xl-10">
-                    <div class="card card-flush h-xl-100">
-                        <div class="card-header pt-5">
-                            <h3 class="card-title align-items-start flex-column">
-                                <span class="card-label fw-bold text-dark">Team Schedule</span>
-                                <span class="text-gray-400 pt-2 fw-semibold fs-6">49 Acual Tasks</span>
-                            </h3>
-                           
-                        </div>
-                    </div>
-                </div>             
             </div>
         </div>
     </div>

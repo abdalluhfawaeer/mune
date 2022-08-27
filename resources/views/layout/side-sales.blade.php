@@ -8,7 +8,7 @@
                 </svg>
             </span>
         </span>
-        <span class="menu-title">Add mune</span>
+        <span class="menu-title">{{ __('text.add_menu') }}</span>
     </a>
 </div>
 <div class="menu-item">
@@ -21,6 +21,6 @@
                 </svg>
             </span>
         </span>
-        <span class="menu-title">Mune</span>
+        <span class="menu-title">{{ __('text.menu') }}</span>
     </a>
 </div>

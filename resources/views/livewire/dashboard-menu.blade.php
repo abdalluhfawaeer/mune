@@ -4,7 +4,7 @@
             <div data-kt-swapper="true" data-kt-swapper-mode="prepend"
                 data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
                 class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
-                <h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">Menu
+                <h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">{{ __('text.menu') }}
                     <span class="h-20px border-1 border-gray-200 border-start ms-3 mx-2 me-1"></span>
                 </h1>
             </div>
@@ -85,8 +85,8 @@
                                                 </span>
                                             </div>
                                             <div class="m-0">
-                                                <span class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1">{{ $total_view }}</span>
-                                                <span class="text-gray-500 fw-semibold fs-6">Page View</span>
+                                                <span class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1">{{ $total_view_real }}</span>
+                                                <span class="text-gray-500 fw-semibold fs-6">{{ __('text.PageViwe') }}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -103,8 +103,8 @@
                                                 </span>
                                             </div>
                                             <div class="m-0">
-                                                <span class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1">{{ $total_view_real }}</span>
-                                                <span class="text-gray-500 fw-semibold fs-6">Page View Real</span>
+                                                <span class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1">{{ $total_view }}</span>
+                                                <span class="text-gray-500 fw-semibold fs-6">{{ __('text.PageViweR') }}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -122,7 +122,7 @@
                                             </div>
                                             <div class="m-0">
                                                 <span class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1">{{ $total_order }}</span>
-                                                <span class="text-gray-500 fw-semibold fs-6">Order</span>
+                                                <span class="text-gray-500 fw-semibold fs-6">{{ __('text.Order') }}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -140,7 +140,7 @@
                                             </div>
                                             <div class="m-0">
                                                 <span class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1">{{ $total_order_jd }}</span>
-                                                <span class="text-gray-500 fw-semibold fs-6">Order Total</span>
+                                                <span class="text-gray-500 fw-semibold fs-6">{{ __('text.OrderTotal') }}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -154,15 +154,15 @@
                         <div class="card h-xl-100">
                             <div class="card-header border-0 pt-5">
                                 <h3 class="card-title align-items-start flex-column">
-                                    <span class="card-label fw-bold text-dark">Last Order {{ $menu_id }}</span>
+                                    <span class="card-label fw-bold text-dark">{{ __('text.last_order') }}</span>
                                 </h3>
                                 @if (auth()->user()->role == 'admin')
                                 <div class="card-toolbar">
-                                    <a href="/admin/menu/report/order/{{ $menu_id }}" class="btn btn-sm btn-light">All Order</a>
+                                    <a href="/admin/menu/report/order/{{ $menu_id }}" class="btn btn-sm btn-light">{{ __('text.all_order') }}</a>
                                 </div>
                                 @else
                                 <div class="card-toolbar">
-                                    <a href="/mune/list" class="btn btn-sm btn-light">All Order</a>
+                                    <a href="/order" class="btn btn-sm btn-light">{{ __('text.all_order') }}</a>
                                 </div>
                                 @endif
                             </div>
@@ -196,15 +196,15 @@
                     <div class="card h-xl-100">
                         <div class="card-header border-0 pt-5">
                             <h3 class="card-title align-items-start flex-column">
-                                <span class="card-label fw-bold text-dark">Last Customer</span>
+                                <span class="card-label fw-bold text-dark">{{ __('text.last_customer') }}</span>
                             </h3>
                             @if (auth()->user()->role == 'admin')
                             <div class="card-toolbar">
-                                <a href="/admin/menu/customer/{{ $menu_id }}" class="btn btn-sm btn-light">All Customer</a>
+                                <a href="/admin/menu/customer/{{ $menu_id }}" class="btn btn-sm btn-light">{{ __('text.all_customer') }}</a>
                             </div>
                             @else
                             <div class="card-toolbar">
-                                <a href="/customer" class="btn btn-sm btn-light">All Customer</a>
+                                <a href="/customer" class="btn btn-sm btn-light">{{ __('text.all_customer') }}</a>
                             </div>
                             @endif
                         </div>
@@ -216,7 +216,7 @@
                                     </div>
                                     <div class="d-flex align-items-center flex-row-fluid flex-wrap">
                                         <div class="flex-grow-1 me-2">
-                                            <a href="/metronic8/demo1/../demo1/pages/user-profile/overview.html" class="text-gray-800 text-hover-primary fs-6 fw-bold">{{ $last->name }}</a>
+                                            <a href="" class="text-gray-800 text-hover-primary fs-6 fw-bold">{{ $last->name }}</a>
                                             <span class="text-muted fw-semibold d-block fs-7">{{ $last->mobile }}</span>
                                         </div>
                                     </div>

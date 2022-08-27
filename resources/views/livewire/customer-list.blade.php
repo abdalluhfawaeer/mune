@@ -8,7 +8,7 @@
                             <div data-kt-swapper="true" data-kt-swapper-mode="prepend"
                                 data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
                                 class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
-                                <h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">Dashboard
+                                <h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">{{ __('text.Customer') }}
                                     <span class="h-20px border-1 border-gray-200 border-start ms-3 mx-2 me-1"></span>
                                 </h1>
                             </div>
@@ -27,7 +27,7 @@
                                                         <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor"></path>
                                                     </svg>
                                                 </span>
-                                                <input type="text" class="form-control form-control-solid ps-10" wire:model="name" placeholder="Name">
+                                                <input type="text" class="form-control form-control-solid ps-10" wire:model="name" placeholder="{{ __('text.name') }}">
                                             </div>
                                             <div class="position-relative w-md-400px me-md-2">
                                                 <span class="svg-icon svg-icon-3 svg-icon-gray-500 position-absolute top-50 translate-middle ms-6">
@@ -36,7 +36,7 @@
                                                         <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor"></path>
                                                     </svg>
                                                 </span>
-                                                <input type="text" class="form-control form-control-solid ps-10" name="search" wire:model="mobile" placeholder="mobile">
+                                                <input type="text" class="form-control form-control-solid ps-10" name="search" wire:model="mobile" placeholder="{{ __('text.Mobile') }}">
                                             </div>
                                         </div>
                                     </div>
@@ -53,11 +53,11 @@
                                                 <thead>
                                                     <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
                                                         <th>ID</th>
-                                                        <th>name</th>
-                                                        <th>mobile</th>
-                                                        <th>Total Order</th>
-                                                        <th>Total Price</th>
-                                                        <th>Last Date</th>
+                                                        <th>{{ __('text.name') }}</th>
+                                                        <th>{{ __('text.Mobile') }}</th>
+                                                        <th>{{ __('text.OrderCount') }}</th>
+                                                        <th>{{ __('text.OrderTotal') }}</th>
+                                                        <th>{{ __('text.last_date') }}</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody class="fw-semibold text-gray-600">

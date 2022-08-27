@@ -15,19 +15,18 @@ Route::get('/login', function () {
     return view('login');
 });
 
-Route::get('/dashboard', function () {
+Route::middleware('lang')->get('/dashboard', function () {
     return view('dashboard.dashboard');
 });
 
 Route::get('/wc', function () {
-    //    dd(app()->getLocale());
-    //    app()->setlocale('ar');
         return view('welcome');
-    });
+});
 Route::post('post-login', [AuthCoutroller::class, 'postLogin'])->name('login.post'); 
 Route::get('logout', [AuthCoutroller::class, 'logout'])->name('logout');
+Route::get('/lang/{lang}', [AuthCoutroller::class, 'lang']);
 
-Route::controller(MuneCoutroller::class)->group(function () {
+Route::middleware('lang')->controller(MuneCoutroller::class)->group(function () {
     Route::get('/mune/add', 'add');
     Route::get('/mune/edit/{id}', 'edit');
     Route::get('/mune/list', 'list');
@@ -36,23 +35,24 @@ Route::controller(MuneCoutroller::class)->group(function () {
     Route::get('/mune/add/item', 'addItem');
     Route::get('/mune/list/item', 'listItem');
     Route::get('/mune/item/edit/{id}', 'editItem');
+    Route::get('/click/mune/show', 'showMenu');
 });
 
 
-Route::controller(FrontController::class)->group(function () {
-    Route::get('/{name}/{id}', 'viwe');
+Route::middleware('lang')->controller(FrontController::class)->group(function () {
+    Route::get('/{name}/{id}', 'viwe')->name('showMenu');
     Route::get('/{name}/{id}/checkout', 'checkout');
     Route::get('/{name}/{id}/send', 'send');
 });
 
-Route::controller(OrderController::class)->group(function () {
+Route::middleware('lang')->controller(OrderController::class)->group(function () {
     Route::get('/order', 'order');
     Route::get('/customer', 'customer');
     Route::get('/menu/order/today', 'orderToday');
     Route::get('/order/detail/{id}', 'orderDetail');
 });
 
-Route::controller(AdminController::class)->group(function () {
+Route::middleware('lang')->controller(AdminController::class)->group(function () {
     Route::get('/admin/add/sales', 'saels');
     Route::get('/admin/report/sales', 'saelsReport');
     Route::get('/admin/sales/edit/{id}', 'saelsEdit');

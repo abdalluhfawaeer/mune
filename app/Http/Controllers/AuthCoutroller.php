@@ -32,4 +32,9 @@ class AuthCoutroller extends Controller
   
         return Redirect('login');
     }
+
+    public function lang(Request $request) {
+        session()->put('lang', $request->lang);
+        return  redirect()->back();
+    }
 }

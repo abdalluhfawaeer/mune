@@ -20,6 +20,7 @@ class ListMune extends Component
     public $end_date = '';
     public $status = '';
     public $sales = '';
+    public $type = '';
     public $user_sales  = [];
 
     protected $paginationTheme = 'bootstrap';
@@ -38,7 +39,7 @@ class ListMune extends Component
 
     public function query() {
         $user = User::where('id',Auth()->id())->first();
-        $list = Mune::with('user');
+        $list = Mune::with('user','additions');
 
         if ($user->role != 'admin') {
             $list = $list->where('currint_user',$user->id);
@@ -63,6 +64,12 @@ class ListMune extends Component
         if (!empty($this->b_name)) {
             $list = $list->whereHas('user',function ($q) {
                 $q->where('name', 'like', '%' . $this->b_name . '%');
+            });
+        }
+
+        if (!empty($this->type)) {
+            $list = $list->whereHas('additions',function ($q) {
+                $q->where('type', $this->type);
             });
         }
 

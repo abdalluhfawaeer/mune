@@ -2,7 +2,7 @@
     <div class="toolbar" id="kt_toolbar">
         <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
             <div data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}" class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
-                <h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">Dashboard
+                <h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">{{ __('text.add_menu') }}
                     <span class="h-20px border-1 border-gray-200 border-start ms-3 mx-2 me-1"></span></h1>
             </div>
         </div>
@@ -19,71 +19,92 @@
                                 <div class="card card-flush py-4">
                                     <div class="card-header">
                                         <div class="card-title">
-                                            <h2>General</h2>
+                                            <h2>{{ __('text.add_menu') }}</h2>
                                         </div>
                                     </div>
                                     <div class="card-body pt-0">
                                         <div class="mb-10 fv-row fv-plugins-icon-container">
-                                            <label class="required form-label">Email</label>
-                                            <input type="email" name="product_name" class="form-control mb-2"
-                                                placeholder="Email" wire:model.dafer="email" @if($id_m > 0) disabled @endif>
+                                            <label class="required form-label">{{ __('text.Email') }}</label>
+                                            <input type="email"  class="form-control mb-2"
+                                                placeholder="{{ __('text.Email') }}" wire:model.dafer="email" @if($id_m > 0) disabled @endif>
                                             <br>
                                             @error('email') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror
                                         </div>
                                         <div class="mb-10 fv-row fv-plugins-icon-container">
-                                            <label class="required form-label">name</label>
-                                            <input type="name" name="product_name" class="form-control mb-2"
-                                                placeholder="Email" wire:model.dafer="name">
+                                            <label class="required form-label">{{ __('text.name') }}</label>
+                                            <input type="name" class="form-control mb-2"
+                                                placeholder="{{ __('text.name') }}" wire:model.dafer="name">
                                             <br>
                                             @error('name') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror
                                         </div>
                                         <div class="mb-10 fv-row fv-plugins-icon-container">
-                                            <label class="required form-label">Product Name</label>
-                                            <input type="text" name="product_name" class="form-control mb-2"
-                                                placeholder="Product name" wire:model.dafer="product_name">
+                                            <label class="required form-label">{{ __('text.MenuName') }}</label>
+                                            <input type="text" class="form-control mb-2"
+                                                placeholder="{{ __('text.MenuName') }}" wire:model.dafer="product_name">
                                                 <br>
                                             @error('product_name') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror
                                         </div>
                                         <div class="mb-10 fv-row fv-plugins-icon-container">
-                                            <label class="required form-label">Mobile</label>
-                                            <input type="text" name="product_name" class="form-control mb-2"
-                                                placeholder="Mobile" wire:model.dafer="mobile">
+                                            <label class="required form-label">{{ __('text.Mobile') }}</label>
+                                            <input type="text" class="form-control mb-2"
+                                                placeholder="{{ __('text.Mobile') }}" wire:model.dafer="mobile">
                                                 <br>
-                                                @error('mobile') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror                                        </div>
+                                                @error('mobile') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror                                        
+                                            </div>
                                         <div class="mb-10 fv-row fv-plugins-icon-container">
-                                            <label class="required form-label">Password</label>
-                                            <input type="text" name="Password" class="form-control mb-2"
-                                            livewire                           placeholder="Password" wire:model.dafer="password">
+                                            <label class="required form-label">{{ __('text.Password') }}</label>
+                                            <input type="text" class="form-control mb-2"
+                                             placeholder="{{ __('text.Password') }}" wire:model.dafer="password">
                                                 <br>
-                                                @error('password') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror                                        </div>
+                                                @error('password') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror                                       
+                                             </div>
                                         <div class="mb-10 fv-row fv-plugins-icon-container">
-                                            <label class="required form-label">Start Date</label>
-                                            <input type="date" name="product_name" class="form-control mb-2"
-                                                placeholder="Start Date" wire:model.dafer="start_date">
+                                            <label class="required form-label">{{ __('text.StartDate') }}</label>
+                                            <input type="date" class="form-control mb-2"
+                                                placeholder="{{ __('text.StartDate') }}" wire:model.dafer="start_date">
                                                 <br>
-                                                @error('start_date') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror                                        </div>
+                                                @error('start_date') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror                                       
+                                             </div>
                                         <div class="mb-10 fv-row fv-plugins-icon-container">
-                                            <label class="required form-label">End Date</label>
-                                            <input type="date" name="product_name" class="form-control mb-2"
-                                                placeholder="End Date" wire:model.dafer="end_date">
+                                            <label class="required form-label">{{ __('text.EndDate') }}</label>
+                                            <input type="date" class="form-control mb-2"
+                                                placeholder="{{ __('text.EndDate') }}" wire:model.dafer="end_date">
                                                 <br>
-                                                @error('end_date') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror                                        </div>
+                                                @error('end_date') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror                                        
+                                            </div>
                                         <div class="mb-10 fv-row fv-plugins-icon-container">
-                                            <label class="required form-label">Price</label>
-                                            <input type="text" name="product_name" class="form-control mb-2"
-                                                placeholder="Price" wire:model.dafer="price">
+                                            <label class="required form-label">{{ __('text.Price') }}</label>
+                                            <input type="text" class="form-control mb-2"
+                                                placeholder="{{ __('text.Price') }}" wire:model.dafer="price">
                                                 <br>
-                                                @error('price') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror                                        </div>
+                                                @error('price') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror                                        
+                                        </div>
+                                        <div class="mb-10 fv-row fv-plugins-icon-container">
+                                            <label class="required form-label">{{ __('text.type') }}</label>
+                                            <select class="form-control ps-10"
+                                                    wire:model="type">
+                                                    <option value="order">order</option>
+                                                    <option value="viwe" selected>view</option>
+                                            </select>
+                                            <br>
+                                            @error('price') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror                                        
+                                        </div>
+                                        <div class="mb-10 fv-row fv-plugins-icon-container">
+                                            <label class="required form-label">theme</label>
+                                            <select class="form-control ps-10" wire:model="theme">
+                                                    <option value="1">1</option>
+                                            </select>
+                                            <br>
+                                            @error('price') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror                                        
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="d-flex justify-content-end">
-                        <a href="/metronic8/demo1/../demo1/apps/ecommerce/catalog/products.html"
-                            id="kt_ecommerce_add_product_cancel" class="btn btn-light me-5">Cancel</a>
                         <button type="submit" id="kt_ecommerce_add_product_submit" class="btn btn-primary">
-                            <span class="indicator-label">Save Changes</span>
+                            <span class="indicator-label">{{ __('text.SaveChanges') }}</span>
                             <span class="indicator-progress" wire:loading>Please wait...
                                 <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                         </button>
