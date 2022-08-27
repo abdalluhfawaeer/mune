@@ -135,7 +135,7 @@
     function showPosition(position) {
         url = "http://maps.google.com/maps?q="+position.coords.latitude+","+position.coords.longitude;
         text +="location: "+url;
-        window.location.href = "https://wa.me/918789529215?text="+text;
+        window.location.href = "https://wa.me/"+{{ $menu->user->mobile }}+"?text="+text;
     }
     </script>
     <script src="{{ url('front/checkout.js') }}"></script>
