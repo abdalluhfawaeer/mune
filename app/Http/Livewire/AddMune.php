@@ -90,7 +90,7 @@ class AddMune extends Component
         if ($this->id_m == 0) {
             \QrCode::size(500)
                 ->format('png')
-                ->generate('codingdriver.com', public_path('qrcode/qrcode_'.$menu_id.'.png'));
+                ->generate('menuface.com/'.$this->product_name.'/'.$menu_id, public_path('qrcode/qrcode_'.$menu_id.'.png'));
         }
 
         Mune::where('id',$menu_id)->update([
