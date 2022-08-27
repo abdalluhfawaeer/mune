@@ -7,12 +7,12 @@ use App\Http\Controllers\MuneCoutroller;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\OrderController;
 
-//Route::middleware('local.set')->get('/', function () {
-//    return redirect('/' . app()->getLocale());
-//})->name('home');
-
 Route::get('/login', function () {
     return view('login');
+});
+
+Route::get('/', function () {
+    return view('lading');
 });
 
 Route::middleware('lang')->get('/dashboard', function () {
