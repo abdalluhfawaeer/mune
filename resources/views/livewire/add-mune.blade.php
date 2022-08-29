@@ -8,7 +8,7 @@
         </div>
     </div>
     <br><br><br>
-    <div id="kt_app_content" class="app-content flex-column-fluid">
+    <div id="kt_app_content" class="app-content flex-column-fluid"> 
         <div id="kt_app_content_container" class="app-container container-xxl">
             <div id="kt_ecommerce_add_product_form"
                 class="form d-flex flex-column flex-lg-row fv-plugins-bootstrap5 fv-plugins-framework">

@@ -8,7 +8,7 @@
                 </svg>
             </span>
         </span>
-        <span class="menu-title">__{{'text.add_menu'}}</span>
+        <span class="menu-title">{{ __('text.add_menu')}}  </span>
     </a>
 </div>
 <div class="menu-item">
@@ -21,7 +21,7 @@
                 </svg>
             </span>
         </span>
-        <span class="menu-title">Mune</span>
+        <span class="menu-title">{{ __('text.menu')}} </span>
     </a>
 </div>
 <div class="menu-item">
@@ -34,7 +34,7 @@
                 </svg>
             </span>
         </span>
-        <span class="menu-title">Add Saels</span>
+        <span class="menu-title">{{ __('text.add_sales') }}</span>
     </a>
 </div>
 
@@ -48,7 +48,7 @@
                 </svg>
             </span>
         </span>
-        <span class="menu-title">Saels Report</span>
+        <span class="menu-title">{{ __('text.SaelsReport') }}</span>
     </a>
 </div>
 
@@ -62,6 +62,6 @@
                 </svg>
             </span>
         </span>
-        <span class="menu-title">Menu Report</span>
+        <span class="menu-title">{{ __('text.MenuReport') }}</span>
     </a>
 </div>

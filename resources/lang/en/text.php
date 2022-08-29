@@ -58,8 +58,11 @@ return [
    'required' => 'Required',
    'not_required' => 'Not Required',
    'total' => 'Total',
-   'date' => 'Date',
+   'date' => 'Date', 
    'OrderCount' => 'Order Count',
    'last_date' => 'Last Date',
    'qty' => 'Qty',
+   'SaelsReport' => 'Saels Report',
+   'MenuReport' => 'Menu Report',
+   'message' => 'successfully updated.',
 ];

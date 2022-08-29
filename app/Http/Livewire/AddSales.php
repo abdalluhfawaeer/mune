@@ -46,13 +46,12 @@ class AddSales extends Component
         ],[
             'name' => $this->name,
             'email' => $this->email,
-            'password' => Hash::make($this->password),
             'role' => 'sales',
             'mobile' => $this->mobile,
         ]);
         if ($this->show_pass == 0) {
             $this->reset(['name','email','password','mobile']);
         }
-        session()->flash('message', 'Post successfully updated.');
+        session()->flash('message',  __('text.message'));
     }
 }

@@ -54,8 +54,7 @@ class CustomizeMune extends Component
     }
 
     public function save() {
-        $this->rules['email'] = 'required|email|unique:users,email,'.Auth()->user()->id;
-        $this->rules['mobile'] = 'required|unique:users,mobile,'.Auth()->user()->id;
+        // $this->rules['mobile'] = 'required|unique:users,mobile,'.Auth()->user()->id;
 
         $this->validate();
         
@@ -83,6 +82,6 @@ class CustomizeMune extends Component
             'twitter' => $this->twitter,
         ]);
 
-        session()->flash('message', 'Post successfully updated.');
+        session()->flash('message',  __('text.message'));
     }
 }

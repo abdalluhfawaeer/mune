@@ -166,6 +166,6 @@ class EditItem extends Component
                 ]);
             }
         }
-        session()->flash('message', 'Post successfully updated.');
+        session()->flash('message', __('text.message'));
     }
 }

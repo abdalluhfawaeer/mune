@@ -131,7 +131,7 @@ class AddItem extends Component
             }
         }
         
-        session()->flash('message', 'Post successfully updated.');
+        session()->flash('message', __('text.message'));
         $this->reset([
             'name_ar',
             'name_en',

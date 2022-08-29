@@ -70,7 +70,6 @@ class AddMune extends Component
         $id = User::updateOrCreate(['id' => $this->user_id],[
             'name' => $this->name,
             'email' => $this->email,
-            'password' => Hash::make($this->password),
             'role' => 'mune',
             'mobile' => $this->mobile,
         ])->id;
@@ -103,7 +102,7 @@ class AddMune extends Component
             'menu_id' => $menu_id,
         ]);
 
-        session()->flash('message', 'Post successfully updated.');
+        session()->flash('message',  __('text.message'));
         if ($this->id_m ==0 )
             $this->reset(['name','email','product_name','price','mobile','password','start_date','end_date']);
     }
