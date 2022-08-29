@@ -139,7 +139,9 @@
                     <span class="text" style="opacity: 0.6;" id="add_{{ $v->id }}">{{ $add->name_en }} - ({{ $add->price }} JD)</span>
                 </label>
                 @endforeach
-            </div>
+            </div>  <link rel="stylesheet" href="{{ url('front/index.css') }}">
+            <link rel="stylesheet" href="{{ url('front/checkout.css') }}">
+            <link rel="stylesheet" href="{{ url('front/nav.css') }}">
         </div>
         @endif
         <input type="hidden" id="checkd" value="0">
@@ -167,7 +169,7 @@
         };
 
         var header = document.getElementById("nav");
-        var myTopnav = document.getElementById("myTopnav");
+        var myTopnav = document.getElementById("myTopnav"); 
         var carsds = document.getElementById("carsds");
         var sticky = header.offsetTop;
 

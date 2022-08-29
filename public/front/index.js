@@ -24,7 +24,7 @@ function addProduct(){
         if (required.value > 0) {
             if ($('div.checkbox-group.required :radio:checked').length > 0) {
                 pushStore();
-                toastr.success('Click Button');
+                toastr.success('Click Button'); 
             } else {
                 toastr.error('p rr ');
             }

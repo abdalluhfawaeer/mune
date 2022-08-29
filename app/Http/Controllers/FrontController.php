@@ -2,17 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Addition;
 use App\Models\Counter;
 use App\Models\Mune;
 use App\Models\Viwe;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class FrontController extends Controller
 {
     public function viwe(Request $request) {
         $menu = Mune::where('name',$request->name)->where('id',$request->id)->first();
+        $addition = Addition::where('menu_id',$menu->id)->first();
+        $request->session()->put('theme', $addition->theme ?? 0);
+        $date = Carbon::parse($menu->end_date);
+        $now = Carbon::now();
         if (!empty($menu)) {
-            if ($menu->staus == 'active') {
+            if ($menu->staus == 'active' && !$date->lessThan($now)) {
                 $counter = Counter::where('menu_id',$request->id)->first();
                 $counter = empty($counter) ? 0 : $counter->counter;
                 Counter::updateOrCreate([
@@ -32,7 +38,7 @@ class FrontController extends Controller
                     'id' => $request->id
                 ]);
             } else {
-                return view('ladeng');
+                return view('lading');
             }
         } else {
             return view('ladeng');

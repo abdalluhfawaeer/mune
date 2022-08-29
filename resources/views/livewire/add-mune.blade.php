@@ -93,6 +93,7 @@
                                             <label class="required form-label">theme</label>
                                             <select class="form-control ps-10" wire:model="theme">
                                                     <option value="1">1</option>
+                                                    <option value="2">2</option>
                                             </select>
                                             <br>
                                             @error('price') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror                                        
