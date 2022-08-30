@@ -4,7 +4,7 @@
             <div data-kt-swapper="true" data-kt-swapper-mode="prepend"
                 data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
                 class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
-                <h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">Dashboard
+                <h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">{{ __('text.sales') }}
                     <span class="h-20px border-1 border-gray-200 border-start ms-3 mx-2 me-1"></span>
                 </h1>
             </div>
@@ -27,8 +27,8 @@
                                     </div>
                                     <div class="card-body pt-0">
                                         <div class="mb-10 fv-row fv-plugins-icon-container">
-                                            <label class="required form-label">Email</label>
-                                            <input type="email" name="product_name" class="form-control mb-2"
+                                            <label class="required form-label">{{ __('text.Email') }}</label>
+                                            <input type="email" name="{{ __('text.Email') }}" class="form-control mb-2"
                                                 placeholder="Email" wire:model.dafer="email">
                                             <br>
                                             @error('email')
@@ -36,8 +36,8 @@
                                             @enderror
                                         </div>
                                         <div class="mb-10 fv-row fv-plugins-icon-container">
-                                            <label class="required form-label">name</label>
-                                            <input type="name" name="product_name" class="form-control mb-2"
+                                            <label class="required form-label">{{ __('text.name') }}</label>
+                                            <input type="name" name="{{ __('text.name') }}" class="form-control mb-2"
                                                 placeholder="Email" wire:model.dafer="name">
                                             <br>
                                             @error('name')
@@ -45,8 +45,8 @@
                                             @enderror
                                         </div>
                                         <div class="mb-10 fv-row fv-plugins-icon-container">
-                                            <label class="required form-label">Mobile</label>
-                                            <input type="text" name="product_name" class="form-control mb-2"
+                                            <label class="required form-label">{{ __('text.Mobile') }}</label>
+                                            <input type="text" name="{{ __('text.Mobile') }}" class="form-control mb-2"
                                                 placeholder="Mobile" wire:model.dafer="mobile">
                                             <br>
                                             @error('mobile')
@@ -55,8 +55,8 @@
                                         </div>
                                         @if ($show_pass == 0)
                                             <div class="mb-10 fv-row fv-plugins-icon-container">
-                                                <label class="required form-label">Password</label>
-                                                <input type="text" name="Password" class="form-control mb-2" livewire
+                                                <label class="required form-label">{{ __('text.Password') }}</label>
+                                                <input type="text" name="{{ __('text.Password') }}" class="form-control mb-2" livewire
                                                     placeholder="Password" wire:model.dafer="password" required>
                                                 <br>
                                                 @error('password')

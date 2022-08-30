@@ -59,4 +59,5 @@ Route::middleware('lang')->controller(AdminController::class)->group(function ()
     Route::get('/admin/menu/report', 'menuReport');
     Route::get('/admin/menu/customer/{id}', 'menuCustomer');
     Route::get('/admin/menu/report/order/{id}', 'menuOrder');
+    Route::get('/admin/report/customer', 'customerReport');
 });

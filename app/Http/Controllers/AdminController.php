@@ -35,4 +35,8 @@ class AdminController extends Controller
             'id' => $request->id
         ]);
     }
+
+    public function customerReport() {
+        return view('admin.menu-customer');
+    }
 }

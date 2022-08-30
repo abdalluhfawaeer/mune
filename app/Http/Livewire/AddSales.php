@@ -41,15 +41,17 @@ class AddSales extends Component
             $this->rules['email'] = 'unique:users,email';
         }
 
-        User::updateOrCreate([
+        $id = User::updateOrCreate([
             'id' => $this->show_pass
         ],[
             'name' => $this->name,
             'email' => $this->email,
             'role' => 'sales',
             'mobile' => $this->mobile,
-        ]);
+        ])->id;
+
         if ($this->show_pass == 0) {
+            User::where('id',$id)->update(['password' => Hash::make($this->password)]);
             $this->reset(['name','email','password','mobile']);
         }
         session()->flash('message',  __('text.message'));

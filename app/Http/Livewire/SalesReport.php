@@ -37,7 +37,7 @@ class SalesReport extends Component
             DB::raw('sum(CASE WHEN mune.staus = "not_active" THEN mune.price ELSE 0 END) as total_not'),
         ]);
 
-        $user = $user->leftJoin('mune','mune.currint_user','users.id');
+        $user = $user->leftJoin('mune','mune.currint_user','users.id'); 
 
 
         if (!empty($this->status)) {

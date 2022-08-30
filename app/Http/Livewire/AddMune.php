@@ -74,6 +74,10 @@ class AddMune extends Component
             'mobile' => $this->mobile,
         ])->id;
 
+        if ($this->id_m == 0) {
+            User::where('id',$id)->update(['password' => Hash::make($this->password)]);
+        }
+
         $menu_id = Mune::updateOrCreate(['id' => $this->id_m],[
             'name' => $this->product_name,
             'price' => $this->price,
@@ -83,7 +87,7 @@ class AddMune extends Component
             'user_id' => $id,
             'currint_user' => Auth()->id(),
             'desc' => 'd',
-            'qr_code' => 'qr',
+            'qr_code' => 'qr', 
         ])->id;
 
         if ($this->id_m == 0) {

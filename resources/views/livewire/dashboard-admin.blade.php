@@ -73,7 +73,7 @@
                                             </div>
                                             <div class="m-0">
                                                 <span class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1">{{ $this->view['total_page_main'] }}</span>
-                                                <span class="text-gray-500 fw-semibold fs-6">{{ __('text.total_page_menu') }}</span>
+                                                <span class="text-gray-500 fw-semibold fs-6">{{ __('text.total_page_main') }}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -373,7 +373,7 @@
                                 <span class="card-label fw-bold text-dark">{{ __('text.Customer') }}</span>
                             </h3>
                             <div class="card-toolbar">
-                                <a href="admin/report/customer" class="btn btn-sm btn-light">{{ __('text.all_customer') }}</a>
+                                <a href="/admin/report/customer" class="btn btn-sm btn-light">{{ __('text.all_customer') }}</a>
                             </div>
                         </div>
                         <div class="card-body pt-6">
