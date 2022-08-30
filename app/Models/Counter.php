@@ -33,7 +33,8 @@ class Counter extends Model
 
 	protected $fillable = [
 		'counter',
-		'menu_id'
+		'menu_id',
+		'admin',
 	];
 
 	public function mune()
