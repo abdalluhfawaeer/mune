@@ -47,6 +47,18 @@ class MuneCoutroller extends Controller
         ]);
     }
 
+    public function addcategory(Request $request) {
+        return view('mune.add-category' ,[
+            'id' => 0
+        ]);
+    }
+
+    public function editcategory(Request $request) {
+        return view('mune.add-category' ,[
+            'id' => $request->id
+        ]);
+    }
+
     public function showMenu() {
         $menu = Mune::where('user_id',auth()->user()->id)->first();
         return redirect()->route('showMenu', ['name' => $menu->name , 'id' => $menu->id]);

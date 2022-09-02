@@ -8,7 +8,7 @@
                             <div data-kt-swapper="true" data-kt-swapper-mode="prepend"
                                 data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
                                 class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
-                                <h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">{{ __('text.customize') }}
+                                <h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">{{ __('text.add_category') }}
                                     <span class="h-20px border-1 border-gray-200 border-start ms-3 mx-2 me-1"></span>
                                 </h1>
                             </div>
@@ -22,7 +22,7 @@
                                         <div class="card card-flush py-4">
                                             <div class="card-header">
                                                 <div class="card-title">
-                                                    <h2>{{ __('text.logo') }}</h2>
+                                                    <h2>{{ __('text.photo') }}</h2>
                                                 </div>
                                             </div>
                                             <div class="card-body text-center pt-0">
@@ -41,13 +41,14 @@
                                                     </span>
                                                 </div>
                                                 <div class="text-muted fs-7">Only *.png, *.jpg and *.jpeg image accepted</div>
+                                                @error('img') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror
                                             </div>
                                         </div>
                                     </div>
                                     <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
                                         <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 fw-semibold mb-n2" role="tablist">
                                             <li class="nav-item" role="presentation">
-                                                <a class="nav-link text-active-primary pb-4 active" data-bs-toggle="tab" href="#kt_ecommerce_add_product_general" aria-selected="true" role="tab">{{ __('text.customize') }}</a>
+                                                <a class="nav-link text-active-primary pb-4 active" data-bs-toggle="tab" href="#kt_ecommerce_add_product_general" aria-selected="true" role="tab">{{ __('text.add_category') }}</a>
                                             </li>
                                         </ul>
                                         <div class="tab-content">
@@ -56,58 +57,29 @@
                                                     <div class="card card-flush py-4">
                                                         <div class="card-header">
                                                             <div class="card-title">
-                                                                <h2>{{ __('text.customize') }}</h2>
+                                                                <h2>{{ __('text.add_category') }}</h2>
                                                             </div>
                                                         </div>
                                                         <div class="card-body pt-0">
                                                             <div class="mb-10 fv-row fv-plugins-icon-container">
-                                                                <label class="required form-label">{{ __('text.URLLink') }}</label>
-                                                                <input type="text" name="product_name" class="form-control mb-2" placeholder="{{ __('text.MenuName') }}" wire:model.dafer="product_name">
-                                                                @error('product_name') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror
+                                                                <label class="required form-label">{{ __('text.name_ar') }}</label>
+                                                                <input type="text" name="product_name" class="form-control mb-2" placeholder="{{ __('text.name_ar') }}" wire:model.dafer="name_ar">
+                                                                @error('name_ar') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror
                                                                 <div class="fv-plugins-message-container invalid-feedback"></div></div>
+                                                                <div class="mb-10 fv-row fv-plugins-icon-container">
+                                                                    <label class="required form-label">{{ __('text.name_en') }}</label>
+                                                                    <input type="text" name="product_name" class="form-control mb-2" placeholder="{{ __('text.name_en') }}" wire:model.dafer="name_en">
+                                                                    @error('name_en') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror
+                                                                    <div class="fv-plugins-message-container invalid-feedback"></div></div>
                                                             <div class="mb-10 fv-row fv-plugins-icon-container">
-                                                                    <label class="required form-label">{{ __('text.Mode') }}</label>
-                                                                    <select class="form-control  ps-10" wire:model.dafer="color">
-                                                                        <option value="" selected>{{ __('text.Mode') }}</option>
-                                                                        <option value="Light" selected>{{ __('text.Light') }}</option>
-                                                                        <option value="Dark" selected>{{ __('text.Dark') }}</option>
-                                                                    </select>
-                                                                    @error('color') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror
-                                                            <div class="fv-plugins-message-container invalid-feedback"></div></div>
-                                                            <div class="mb-10 fv-row fv-plugins-icon-container">
-                                                                <label class="required form-label">{{ __('text.LinkwithWhatsAppnumber') }}</label>
-                                                                <input type="text" name="product_name" class="form-control mb-2" placeholder="{{ __('text.Mobile') }}" wire:model.dafer="mobile">
-                                                                @error('mobile') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror
-                                                                <div class="fv-plugins-message-container invalid-feedback"></div></div>
-                                                            <div class="mb-10 fv-row fv-plugins-icon-container">
-                                                                <label class="required form-label">{{ __('text.Description') }}</label>
-                                                                <input type="text" name="product_name" class="form-control mb-2" placeholder="{{ __('text.Description') }}" wire:model.dafer="desc">
-                                                                @error('desc') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror
-                                                            <div class="fv-plugins-message-container invalid-feedback"></div></div>
-                                                            <div class="mb-10 fv-row fv-plugins-icon-container">
-                                                                <label class="required form-label">{{ __('text.Email') }}</label>
-                                                                <input type="text" name="product_name" class="form-control mb-2" placeholder="{{ __('text.Email') }}" wire:model.dafer="email" disabled>
-                                                                @error('email') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror
-                                                            <div class="fv-plugins-message-container invalid-feedback"></div></div>
-                                                            <div class="mb-10 fv-row fv-plugins-icon-container">
-                                                                <label class="required form-label">faecbook</label>
-                                                                <input type="text" name="product_name" class="form-control mb-2" placeholder="faecbook" wire:model.dafer="faecbook">
-                                                            <div class="fv-plugins-message-container invalid-feedback"></div></div>
-                                                            <div class="mb-10 fv-row fv-plugins-icon-container">
-                                                                <label class="required form-label">youtube</label>
-                                                                <input type="text" name="product_name" class="form-control mb-2" placeholder="youtube" wire:model.dafer="youtube">
-                                                            <div class="fv-plugins-message-container invalid-feedback"></div></div>
-                                                            <div class="mb-10 fv-row fv-plugins-icon-container">
-                                                                <label class="required form-label">instagram</label>
-                                                                <input type="text" name="product_name" class="form-control mb-2" placeholder="instagram" wire:model.dafer="instagram">
-                                                            <div class="fv-plugins-message-container invalid-feedback"></div></div>
-                                                            <div class="mb-10 fv-row fv-plugins-icon-container">
-                                                                <label class="required form-label">twitter</label>
-                                                                <input type="text" name="product_name" class="form-control mb-2" placeholder="twitter" wire:model.dafer="twitter">
-                                                            <div class="fv-plugins-message-container invalid-feedback"></div></div>
-                                                            <div class="mb-10 fv-row fv-plugins-icon-container">
-                                                                <label class="required form-label">google maps link</label>
-                                                                <input type="text" name="product_name" class="form-control mb-2" placeholder="google maps link" wire:model.dafer="maps">
+                                                                    <label class="required form-label">{{ __('text.status') }}</label>
+                                                                    <select class="form-control form-control-solid ps-10"
+                                                                            wire:model="status">
+                                                                            <option value="">{{ __('text.status') }}</option>
+                                                                            <option value="active" selected>{{ __('text.active') }}</option>
+                                                                            <option value="not_active">{{ __('text.not_active') }}</option>
+                                                                        </select>
+                                                                    @error('status') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror
                                                             <div class="fv-plugins-message-container invalid-feedback"></div></div>
                                                         </div>
                                                     </div>

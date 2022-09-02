@@ -81,4 +81,7 @@ return [
    'new' => 'جديد ',
    'OrderDetails' => 'تفاصيل الطلب',
    'OrderHistory' => 'الطلبات السابقة',
+   'Mode' => 'الوضع',
+   'Light' => 'ابيض',
+   'Dark' => 'اسود',
 ]; 

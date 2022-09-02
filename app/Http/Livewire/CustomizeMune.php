@@ -23,8 +23,9 @@ class CustomizeMune extends Component
     public $password = "";
     public $password_c = "";
     public $photo;
-    public $img = '';
+    public $img;
     public $color_text = '';
+    public $maps = '';
     public $faecbook = ''; public $youtube ='';public $instagram='';public $twitter='';
 
     protected $rules = [
@@ -58,7 +59,7 @@ class CustomizeMune extends Component
 
         $this->validate();
         
-        $logo = empty($this->photo) ? $this->img : $this->photo->store('public/'.$this->mune_id);
+        $logo = empty($this->img) ? $this->img : $this->img->store('public/'.$this->mune_id);
         $logo = str_replace('public/','',$logo);
         
         Mune::where('id',$this->mune_id)->update([
@@ -80,6 +81,7 @@ class CustomizeMune extends Component
             'youtube' => $this->youtube,
             'instagram' => $this->instagram,
             'twitter' => $this->twitter,
+            'maps' => $this->maps,
         ]);
 
         session()->flash('message',  __('text.message'));

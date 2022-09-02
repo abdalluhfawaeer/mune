@@ -37,7 +37,7 @@
                                                 <input type="text" class="form-control form-control-solid ps-10"
                                                     wire:model="name_en_search" placeholder="{{ __('text.name_en') }}">
                                             </div>
-                                            <div class="position-relative w-md-400px me-md-2">
+                                            <div class="position-relative w-md-400px me-md-2"> 
                                                 <span
                                                     class="svg-icon svg-icon-3 svg-icon-gray-500 position-absolute top-50 translate-middle ms-6">
                                                     <svg width="24" height="24" viewBox="0 0 24 24"
@@ -62,82 +62,10 @@
                                                     <option value="not_active">{{ __('text.not_active') }}</option>
                                                 </select>
                                             </div>
-
-                                            <div class="position-relative w-md-400px me-md-2">
-                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                    data-bs-target="#kt_modal_1">
-                                                    {{ __('text.add_category') }}
-                                                </button>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 </form>
-                                <!-- Modal-->
-                                <div class="modal fade" tabindex="-1" id="kt_modal_1" wire:ignore.self>
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h3 class="modal-title">{{ __('text.add_category') }}</h3>
-                                                <div class="btn btn-icon btn-sm btn-active-light-primary ms-2"
-                                                    data-bs-dismiss="modal" aria-label="Close">
-                                                    <span class="svg-icon svg-icon-1"></span>
-                                                </div>
-                                            </div>
-
-                                            <div class="modal-body">
-                                                <div class="mb-10">
-                                                    <label for="exampleFormControlInput1"
-                                                        class="required form-label">{{ __('text.name_ar') }}</label>
-                                                    <input type="text" class="form-control form-control-solid"
-                                                        placeholder="{{ __('text.name_ar') }}" wire:model="name_ar" />
-                                                    <br>
-                                                    @error('name_ar')
-                                                        <span class="alert alert-danger"
-                                                            role="alert">{{ $message }}</span>
-                                                    @enderror
-                                                </div>
-                                                <div class="mb-10">
-                                                    <label for="exampleFormControlInput1"
-                                                        class="required form-label">{{ __('text.name_en') }}</label>
-                                                    <input type="text" class="form-control form-control-solid"
-                                                        placeholder="{{ __('text.name_en') }}" wire:model="name_en" />
-                                                    <br>
-                                                    @error('name_en')
-                                                        <span class="alert alert-danger"
-                                                            role="alert">{{ $message }}</span>
-                                                    @enderror
-                                                </div>
-                                                <div class="mb-10">
-                                                    <label for="exampleFormControlInput1"
-                                                        class="required form-label">{{ __('text.photo') }}</label>
-                                                    <input type="file" class="form-control form-control-solid"
-                                                        placeholder="{{ __('text.photo') }}" wire:model="photo" />
-                                                    <br>
-                                                    @error('photo')
-                                                        <span class="alert alert-danger"
-                                                            role="alert">{{ $message }}</span>
-                                                    @enderror
-                                                </div>
-                                                <div class="mb-10">
-                                                    <label for="exampleFormControlInput1"
-                                                        class="required form-label">{{ __('text.status') }}</label>
-                                                    <select class="form-control form-control-solid ps-10"
-                                                        wire:model="status">
-                                                        <option value="active" selected>{{ __('text.active') }}</option>
-                                                        <option value="not_active">{{ __('text.not_active') }}</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-light"
-                                                    data-bs-dismiss="modal">{{ __('text.Close') }}</button>
-                                                <button type="button" class="btn btn-primary" wire:click="save">{{ __('text.SaveChanges') }}</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="card card-flush">
                                     <div class="card-body pt-0">
                                         <div id="kt_ecommerce_sales_table_wrapper"
@@ -181,7 +109,7 @@
                                                                     @endif
                                                                 </td>
                                                                 <td class="text-end">
-                                                                    <a wire:click="set_data({{ $item->id }})"
+                                                                    <a  href="/mune/category/edit/{{ $item->id }}"
                                                                         class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"
                                                                         data-bs-toggle="modal"
                                                                         data-bs-target="#edit_{{ $item->id }}">

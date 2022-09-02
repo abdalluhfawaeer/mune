@@ -81,4 +81,7 @@ return [
    'new' => 'new',
    'OrderDetails' => 'Order Details',
    'OrderHistory' => 'Order History',
-];
+   'Mode' => 'Mode',
+   'Light' => 'Light',
+   'Dark' => 'Dark',
+]; 

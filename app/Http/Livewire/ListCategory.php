@@ -11,10 +11,8 @@ use Livewire\WithFileUploads;
 
 class ListCategory extends Component
 {
-    use WithPagination,WithFileUploads;
+    use WithPagination;
 
-    public $name_ar = '';
-    public $name_en = '';
     public $status = 'active';
     public $status_search = '';
     public $name_ar_search = '';
@@ -25,11 +23,6 @@ class ListCategory extends Component
     public $menu;
 
     protected $paginationTheme = 'bootstrap';
-
-    protected $rules = [
-        'name_ar' => 'required',
-        'name_en' => 'required',
-    ];
 
     public function mount() {
         $this->menu = Mune::with('user')->where('user_id',Auth()->user()->id)->first();
@@ -42,20 +35,7 @@ class ListCategory extends Component
         ]);
     }
 
-    public function save() { 
-        $this->validate();
-        $logo = empty($this->photo) ? $this->img : $this->photo->store('public/'.$this->menu->id);
-        $logo = str_replace('public/','',$logo);
-        Category::create([
-            'name_ar' => $this->name_ar,
-            'name_en' => $this->name_en,
-            'staus' => $this->status,
-            'menu_id' => $this->menu->id,
-            'img' => $logo,
-        ]);
-        session()->flash('message', 'Post successfully updated.');
-        $this->reset(['name_ar','name_en','photo']);
-    }
+
 
     public function query() {
         $list = Category::where('menu_id',$this->menu->id);
@@ -71,33 +51,16 @@ class ListCategory extends Component
         if (!empty($this->name_en_search)) {
             $list = $list->where('name_en',$this->name_en_search);
         }
+
+        $list = $list->orderBy('id','desc')->paginate(5);
         $this->resetPage();
-        return  $list->paginate(5);
+        return  $list;    
     }
 
     public function delete($id) {
-        Category::where('id',$id)->delete();
-    }
-
-    public function set_data($id) {
-        $cat = Category::where('id',$id)->first();
-        $this->name_ar = $cat->name_ar;
-        $this->name_en = $cat->name_en;
-        $this->status = $cat->staus;
-        $this->img = $cat->img;
-    }
-
-    public function edit($id) {
-        $this->validate();
-        $logo = empty($this->photo) ? $this->img : $this->photo->store('public/'.$this->menu->id);
-        $logo = str_replace('public/','',$logo);
-
+        $status = Category::where('id',$id)->first()->staus;
         Category::where('id',$id)->update([
-            'name_ar' => $this->name_ar,
-            'name_en' => $this->name_en,
-            'staus' => $this->status,
-            'img' => $logo,
+            'staus' => ($status == 'not_active') ? 'active' : 'not_active',
         ]);
-        session()->flash('message', 'Post successfully updated.');
     }
 }
