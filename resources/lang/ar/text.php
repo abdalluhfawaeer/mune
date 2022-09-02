@@ -76,4 +76,9 @@ return [
    'By' => 'بواسطة',
    'LinkwithWhatsAppnumber' => 'الربط مع رقم الواتس اب',
    'URLLink' => 'الاسم في الرابط',
+   'cancelled' => 'ألغيت',
+   'confirmed' => 'تم تأكيد',
+   'new' => 'جديد ',
+   'OrderDetails' => 'تفاصيل الطلب',
+   'OrderHistory' => 'الطلبات السابقة',
 ]; 

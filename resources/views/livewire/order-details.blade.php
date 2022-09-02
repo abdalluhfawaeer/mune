@@ -8,7 +8,7 @@
                             <div data-kt-swapper="true" data-kt-swapper-mode="prepend"
                                 data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
                                 class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
-                                <h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">Order Details
+                                <h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">{{ __('text.OrderDetails') }}
                                     <span class="h-20px border-1 border-gray-200 border-start ms-3 mx-2 me-1"></span>
                                 </h1>
                             </div>
@@ -17,35 +17,31 @@
                     <div id="kt_app_content" class="app-content flex-column-fluid">
                         <div id="kt_app_content_container" class="app-container container-xxl">
                             <div class="d-flex flex-column gap-7 gap-lg-10">
-                                <div class="d-flex flex-wrap flex-stack gap-5 gap-lg-10">
+                                <div class="d-flex flex-wrap flex-stack gap-5 gap-lg-10" wire:ignore.self>
                                     <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 fw-semibold mb-lg-n2 me-auto"
                                         role="tablist">
                                         <li class="nav-item" role="presentation">
                                             <a class="nav-link text-active-primary pb-4 active" data-bs-toggle="tab"
                                                 href="#kt_ecommerce_sales_order_summary" aria-selected="true"
-                                                role="tab">Order Summary</a>
+                                                role="tab">{{ __('text.OrderDetails') }}</a>
                                         </li>
                                         <li class="nav-item" role="presentation">
                                             <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab"
                                                 href="#kt_ecommerce_sales_order_history" aria-selected="false"
-                                                role="tab" tabindex="-1">Order History</a>
+                                                role="tab" tabindex="-1">{{ __('text.OrderHistory') }}</a>
                                         </li>
                                     </ul>
                                    
-                                    <button href="/metronic8/demo1/../demo1/apps/ecommerce/sales/edit-order.html"
-                                        class="btn btn-success btn-sm me-lg-n7">Edit Order</button>
-                                    <button href="/metronic8/demo1/../demo1/apps/ecommerce/sales/add-order.html"
-                                        class="btn btn-primary btn-sm">Add New Order</button>
-                                    <button href="/metronic8/demo1/../demo1/apps/ecommerce/sales/edit-order.html"
-                                        class="btn btn-success btn-sm me-lg-n7">Edit Order</button>
-                                    <button href="/metronic8/demo1/../demo1/apps/ecommerce/sales/add-order.html"
-                                        class="btn btn-primary btn-sm">Add New Order</button>
+                                    <button wire:click="changeStatus('confirmed')"
+                                        class="btn btn-success btn-sm me-lg-n7">{{ __('text.confirmed') }}</button>
+                                    <button wire:click="changeStatus('cancelled')"
+                                        class="btn btn-danger btn-sm">{{ __('text.cancelled') }}</button>
                                 </div>
-                                <div class="d-flex flex-column flex-xl-row gap-7 gap-lg-10">
+                                <div class="d-flex flex-column flex-xl-row gap-7 gap-lg-10" wire:ignore.self>
                                     <div class="card card-flush py-4 flex-row-fluid">
                                         <div class="card-header">
                                             <div class="card-title">
-                                                <h2>Order Details #{{ $order->id }}</h2>
+                                                <h2>{{ __('text.OrderDetails') }} #{{ $order->id }}</h2>
                                             </div>
                                         </div>
                                         <div class="card-body pt-0">
@@ -68,7 +64,7 @@
                                                                                 fill="currentColor"></path>
                                                                         </svg>
                                                                     </span>
-                                                                    Date Added
+                                                                    {{ __('text.date') }}
                                                                 </div>
                                                             </td>
                                                             <td class="fw-bold text-end">{{ $order->created_at }}</td>
@@ -91,7 +87,7 @@
                                                                                 fill="currentColor"></path>
                                                                         </svg>
                                                                     </span>
-                                                                    Order ID
+                                                                    ID
                                                                 </div>
                                                             </td>
                                                             <td class="fw-bold text-end">#{{ $order->id }}</td>
@@ -104,7 +100,7 @@
                                     <div class="card card-flush py-4 flex-row-fluid">
                                         <div class="card-header">
                                             <div class="card-title">
-                                                <h2>Customer Details</h2>
+                                                <h2>{{ __('text.Customer') }}</h2>
                                             </div>
                                         </div>
                                         <div class="card-body pt-0">
@@ -131,7 +127,7 @@
                                                                             </rect>
                                                                         </svg>
                                                                     </span>
-                                                                    Customer
+                                                                    {{ __('text.name') }}
                                                                 </div>
                                                             </td>
                                                             <td class="fw-bold text-end">
@@ -154,7 +150,7 @@
                                                                                 fill="currentColor"></path>
                                                                         </svg>
                                                                     </span>
-                                                                    Phone
+                                                                    {{ __('text.Mobile') }}
                                                                 </div>
                                                             </td>
                                                             <td class="fw-bold text-end">{{ $order->customer->mobile }}</td>
@@ -167,7 +163,7 @@
                                     <div class="card card-flush py-4 flex-row-fluid">
                                         <div class="card-header">
                                             <div class="card-title">
-                                                <h2>Documents</h2>
+                                                <h2>{{ __('text.status') }}</h2>
                                             </div>
                                         </div>
                                         <div class="card-body pt-0">
@@ -190,7 +186,7 @@
                                                                                 fill="currentColor"></path>
                                                                         </svg>
                                                                     </span>
-                                                                    Type
+                                                                    {{ __('text.type') }}
                                                                 </div>
                                                             </td>
                                                             <td class="fw-bold text-end">
@@ -216,7 +212,7 @@
                                                                                 fill="currentColor"></path>
                                                                         </svg>
                                                                     </span>
-                                                                    Status
+                                                                    {{ __('text.status') }}
                                                                 </div>
                                                             </td>
                                                             <td class="fw-bold text-end">
@@ -256,41 +252,7 @@
                                                             </thead>
                                                             <tbody class="fw-semibold text-gray-600">
                                                                 @foreach ($order_details as $details)    
-                                                                    <tr>
-                                                                        <td>
-                                                                            <div class="d-flex align-items-center">
-                                                                                <a class="symbol symbol-50px">
-                                                                                    <span class="symbol-label"
-                                                                                        style="background-image:url({{ asset('storage/' . $details->item_img) }});"></span>
-                                                                                </a>
-                                                                                <div class="ms-5">
-                                                                                    <a class="fw-bold text-gray-600 text-hover-primary">{{ $details->item_title }}</a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </td>
-                                                                        <td>{{ $details->qty }}</td>
-                                                                        <td>{{ $details->price }} JD</td>
-                                                                        <td>{{ $details->item_title }}</td>
-                                                                        <td>
-                                                                            <a href="/mune/item/edit/{{ $details->id }}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" target="blank">
-                                                                                <span class="svg-icon svg-icon-3">
-                                                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                                        <path opacity="0.3" d="M21.4 8.35303L19.241 10.511L13.485 4.755L15.643 2.59595C16.0248 2.21423 16.5426 1.99988 17.0825 1.99988C17.6224 1.99988 18.1402 2.21423 18.522 2.59595L21.4 5.474C21.7817 5.85581 21.9962 6.37355 21.9962 6.91345C21.9962 7.45335 21.7817 7.97122 21.4 8.35303ZM3.68699 21.932L9.88699 19.865L4.13099 14.109L2.06399 20.309C1.98815 20.5354 1.97703 20.7787 2.03189 21.0111C2.08674 21.2436 2.2054 21.4561 2.37449 21.6248C2.54359 21.7934 2.75641 21.9115 2.989 21.9658C3.22158 22.0201 3.4647 22.0084 3.69099 21.932H3.68699Z" fill="currentColor"></path>
-                                                                                        <path d="M5.574 21.3L3.692 21.928C3.46591 22.0032 3.22334 22.0141 2.99144 21.9594C2.75954 21.9046 2.54744 21.7864 2.3789 21.6179C2.21036 21.4495 2.09202 21.2375 2.03711 21.0056C1.9822 20.7737 1.99289 20.5312 2.06799 20.3051L2.696 18.422L5.574 21.3ZM4.13499 14.105L9.891 19.861L19.245 10.507L13.489 4.75098L4.13499 14.105Z" fill="currentColor"></path>
-                                                                                    </svg>
-                                                                                </span>
-                                                                            </a>
-                                                                            <a href="#" wire:click="delete({{ $details->id }})" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
-                                                                                <span class="svg-icon svg-icon-3">
-                                                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                                        <path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="currentColor"></path>
-                                                                                        <path opacity="0.5" d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z" fill="currentColor"></path>
-                                                                                        <path opacity="0.5" d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z" fill="currentColor"></path>
-                                                                                    </svg>
-                                                                                </span>
-                                                                            </a>
-                                                                        </td>
-                                                                    </tr>
+                                                                    @livewire('order-details-item',['item'=>$details], key(rand(10, 1000000)))
                                                                 @endforeach
                                                                 <tr>
                                                                     <td colspan="4"
@@ -307,12 +269,12 @@
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="kt_ecommerce_sales_order_history"
-                                        role="tab-panel">
+                                        role="tab-panel" wire:ignore.self>
                                         <div class="d-flex flex-column gap-7 gap-lg-10">
                                             <div class="card card-flush py-4 flex-row-fluid">
                                                 <div class="card-header">
                                                     <div class="card-title">
-                                                        <h2>Order History</h2>
+                                                        <h2>{{ __('text.OrderHistory') }}</h2>
                                                     </div>
                                                 </div>
                                                 <div class="card-body pt-0">

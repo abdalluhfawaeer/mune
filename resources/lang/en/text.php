@@ -76,4 +76,9 @@ return [
    'By' => 'By',
    'LinkwithWhatsAppnumber' => 'Link with WhatsApp number',
    'URLLink' => 'URL Link',
+   'cancelled' => 'Cancelled',
+   'confirmed' => 'Confirmed',
+   'new' => 'new',
+   'OrderDetails' => 'Order Details',
+   'OrderHistory' => 'Order History',
 ];

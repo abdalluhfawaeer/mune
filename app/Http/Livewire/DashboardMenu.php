@@ -29,8 +29,6 @@ class DashboardMenu extends Component
     public $menu_id = '';
 
     public function mount() {
-        $this->start_date = new Carbon('first day of this month');
-        $this->end_date = new Carbon('last day of this month');
         $this->select_menu = Mune::select('id','name')->get();
     }
 
@@ -43,13 +41,7 @@ class DashboardMenu extends Component
             $this->user = User::where('id',auth()->user()->id)->first();
             $this->menu = Mune::where('user_id',auth()->user()->id)->first();
         }
-        $this->total_view = Viwe::where('menu_id',$this->menu->id)->whereBetween('created_at',[$this->start_date,$this->end_date])->count();
-        $this->total_view_real = Counter::where('menu_id',$this->menu->id)->whereBetween('created_at',[$this->start_date,$this->end_date])->first();
-        $this->total_view_real = empty($this->total_view_real) ? 0 : $this->total_view_real->counter;
-        $this->total_order = Order::where('menu_id',$this->menu->id)->whereBetween('created_at',[$this->start_date,$this->end_date])->count();
-        $this->total_order_jd = Order::where('menu_id',$this->menu->id)->whereBetween('created_at',[$this->start_date,$this->end_date])->sum('total');
-        $this->order = Order::join('customer','customer.id','orders.customer_id')->where('orders.menu_id',$this->menu->id)->limit(6)->orderBy('orders.id','desc')->get();
-        $this->customer = Customer::where('menu_id',$this->menu->id)->limit(6)->orderBy('id','desc')->get();
+        $this->query();
         $this->qrdcode = 'qrcode_'.$this->menu->id.'.png';
         $this->menu_id = $this->menu->id;
         return view('livewire.dashboard-menu');
@@ -58,5 +50,30 @@ class DashboardMenu extends Component
     public function setDate($start_date ,$end_date) {
         $this->start_date = $start_date;
         $this->end_date = $end_date;
+    }
+
+    public function query() {
+        $this->total_view = Viwe::where('menu_id',$this->menu->id);
+        $this->total_view_real = Counter::where('menu_id',$this->menu->id);
+        $this->total_order = Order::where('menu_id',$this->menu->id);
+        $this->total_order_jd = Order::where('menu_id',$this->menu->id);
+        $this->order = Order::join('customer','customer.id','orders.customer_id');
+        $this->customer = Customer::where('menu_id',$this->menu->id);
+
+        if (!empty($this->start_date) && !empty($this->end_date)) {
+            $this->total_view = $this->total_view->whereBetween('created_at',[$this->start_date,$this->end_date]);
+            $this->total_view_real = $this->total_view_real->whereBetween('created_at',[$this->start_date,$this->end_date]);
+            $this->total_order = $this->total_order->whereBetween('created_at',[$this->start_date,$this->end_date]);
+            $this->total_order_jd = $this->total_order_jd->whereBetween('created_at',[$this->start_date,$this->end_date]);
+            $this->order = $this->order->whereBetween('orders.created_at',[$this->start_date,$this->end_date]);
+            $this->customer = $this->customer->whereBetween('created_at',[$this->start_date,$this->end_date]);
+        }
+
+        $this->total_view = $this->total_view->count();
+        $this->total_view_real = $this->total_view_real->first()->counter ?? 0;
+        $this->total_order = $this->total_order->count();
+        $this->total_order_jd = $this->total_order_jd->sum('total');
+        $this->order = $this->order->limit(6)->orderBy('orders.id','desc')->get();
+        $this->customer = $this->customer->limit(6)->orderBy('id','desc')->get();
     }
 }

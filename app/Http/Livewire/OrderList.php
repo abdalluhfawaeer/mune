@@ -33,7 +33,7 @@ class OrderList extends Component
 
     public function query()
     {
-        $list = Order::select('orders.id as order_id','orders.*','customer.*');
+        $list = Order::select('orders.id as order_id','orders.*','customer.*','orders.created_at as order_date');
 
         $list = $list->join('customer','customer.id','orders.customer_id')->where('orders.menu_id',$this->menu_id);
 

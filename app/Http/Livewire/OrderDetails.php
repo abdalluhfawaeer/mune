@@ -15,6 +15,7 @@ class OrderDetails extends Component
     public $order_details = [];
     public $order_history = [];
     public $total = 0;
+    protected $listeners = ['refreshOrderDetails' => '$refresh'];
 
     public function mount($id) {
         $this->order_id = $id;
@@ -24,8 +25,13 @@ class OrderDetails extends Component
     }
     
     public function render()
-    {
+    { 
         return view('livewire.order-details');
     } 
 
+    public function changeStatus($status) {
+        Order::where('id',$this->order_id)->update([
+            'status' => $status
+        ]);
+    }
 }
