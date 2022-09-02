@@ -64,8 +64,7 @@
                                             @if (auth()->user()->role == 'admin')
                                             <div class="position-relative w-md-400px me-md-2">
                                                 <select class="form-control form-control-solid ps-10" wire:model="sales">
-                                                    <option value="" selected>{{ __('text.sales ') }}</option>
-                                                    <option value="admin" >admin</option>
+                                                    <option value="" selected>{{ __('text.sales') }}</option>
                                                     @foreach ($user_sales as $sales)
                                                         <option value="{{ $sales->id }}">{{ $sales->name }}</option>
                                                     @endforeach
@@ -114,6 +113,7 @@
                                                         <th>theme</th>
                                                         <th>{{ __('text.type') }}</th>
                                                         <th>{{ __('text.Price') }}</th>
+                                                        <th>{{ __('text.By') }}</th>
                                                         <th></th>
                                                     </tr>
                                                 </thead>
@@ -154,7 +154,10 @@
                                                         <td data-kt-ecommerce-order-filter="order_id">
                                                             <a class="text-gray-800 text-hover-primary fs-5 fw-bold">{{ $item->price }}JD</a>
                                                         </td>
-                                                        <td class="text-end">
+                                                        <td data-kt-ecommerce-order-filter="order_id">
+                                                            <a class="text-gray-800 text-hover-primary fs-5 fw-bold">{{ $this->currintUser($item->currint_user) }}</a>
+                                                        </td>
+                                                        <td class="text-end d-flex">
                                                             <a href="/{{ $item->name }}/{{ $item->id }}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" target="blank">
                                                                 <span class="svg-icon svg-icon-3">
                                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

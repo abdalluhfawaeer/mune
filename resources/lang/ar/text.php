@@ -5,7 +5,7 @@ return [
    'add_sales' => 'اضافة موظف مبيعات',
    'sales_report' => 'تقرير موظفين المبيعات',
    'menu_report' => 'تقرير المنيو',
-   'dashboard' => 'لوحة التحكم',
+   'dashboard' => 'لوحة القيادة',
    'logut' => 'تسجيل الخروج',
    'sales' => 'موظف مبيعات',
    'MenuActive' => 'المنيو المفعل',
@@ -72,5 +72,8 @@ return [
    'total_menu_not_acvtiv_jd' => 'مجموع المنيو الغيرر فعال',
    'total_sales_active' => 'عدد المندوبين الفاعلين',
    'total_sales_not_active' => 'عدد المندوبين الغير فعالين ',
-   'all_ales' => 'All Sales',
+   'all_ales' => 'جميع المندوبين',
+   'By' => 'بواسطة',
+   'LinkwithWhatsAppnumber' => 'الربط مع رقم الواتس اب',
+   'URLLink' => 'الاسم في الرابط',
 ]; 

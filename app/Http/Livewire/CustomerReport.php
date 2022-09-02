@@ -29,9 +29,10 @@ class CustomerReport extends Component
     }
 
     public function query() {
-        $select = ['customer.name as name','customer.mobile as mobile',DB::raw('sum(orders.total) as total'),DB::raw('count(orders.id) as order_count')];
+        $select = ['mune.name as mune_name','customer.name as name','customer.mobile as mobile',DB::raw('sum(orders.total) as total'),DB::raw('count(orders.id) as order_count')];
         $customer = Customer::select($select);
         $customer = $customer->join('orders','orders.customer_id','customer.id');
+        $customer = $customer->join('mune','mune.id','customer.menu_id');
 
         if (!empty($this->name)) {
             $customer = $customer->where('customer.name', 'like', '%' . $this->name . '%');

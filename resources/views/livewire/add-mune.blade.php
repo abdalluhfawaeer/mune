@@ -38,26 +38,29 @@
                                             @error('name') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror
                                         </div>
                                         <div class="mb-10 fv-row fv-plugins-icon-container">
-                                            <label class="required form-label">{{ __('text.MenuName') }}</label>
+                                            <label class="required form-label">{{ __('text.URLLink') }}</label>
                                             <input type="text" class="form-control mb-2"
-                                                placeholder="{{ __('text.MenuName') }}" wire:model.dafer="product_name">
+                                                placeholder="{{ __('text.URLLink') }}" wire:model.dafer="product_name">
                                                 <br>
                                             @error('product_name') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror
                                         </div>
                                         <div class="mb-10 fv-row fv-plugins-icon-container">
-                                            <label class="required form-label">{{ __('text.Mobile') }}</label>
+                                            <label class="required form-label">{{ __('text.LinkwithWhatsAppnumber') }}</label>
                                             <input type="text" class="form-control mb-2"
-                                                placeholder="{{ __('text.Mobile') }}" wire:model.dafer="mobile">
+                                                placeholder="{{ __('text.LinkwithWhatsAppnumber') }}" wire:model.dafer="mobile">
                                                 <br>
                                                 @error('mobile') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror                                        
                                             </div>
-                                        <div class="mb-10 fv-row fv-plugins-icon-container">
-                                            <label class="required form-label">{{ __('text.Password') }}</label>
-                                            <input type="text" class="form-control mb-2"
-                                             placeholder="{{ __('text.Password') }}" wire:model.dafer="password">
-                                                <br>
-                                                @error('password') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror                                       
+                                            @if ($id_m == 0)
+                                            <div class="mb-10 fv-row fv-plugins-icon-container">
+                                                <label class="required form-label">{{ __('text.Password') }}</label>
+                                                <input type="text" class="form-control mb-2"
+                                                placeholder="{{ __('text.Password') }}" wire:model.dafer="password">
+                                                    <br>
+                                                    @error('password') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror                                       
                                              </div>
+                                            @endif
+                                           
                                         <div class="mb-10 fv-row fv-plugins-icon-container">
                                             <label class="required form-label">{{ __('text.StartDate') }}</label>
                                             <input type="date" class="form-control mb-2"

@@ -72,5 +72,8 @@ return [
    'total_menu_not_acvtiv_jd' => 'Total Menu Not Active',
    'total_sales_active' => 'Count Sales Acvtive',
    'total_sales_not_active' => 'Count Sales Not Active',
-   'all_ales' => 'جميع المندوبين',
+   'all_ales' => 'all Sales',
+   'By' => 'By',
+   'LinkwithWhatsAppnumber' => 'Link with WhatsApp number',
+   'URLLink' => 'URL Link',
 ];

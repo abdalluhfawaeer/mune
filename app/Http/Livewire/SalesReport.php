@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Mune;
 use Livewire\Component;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -19,6 +20,7 @@ class SalesReport extends Component
     public $status = '';
     public $start_date = '';
     public $end_date = '';
+    public $currint_user = [];
 
     public function render()
     {
@@ -72,4 +74,9 @@ class SalesReport extends Component
         $this->start_date = $start_date;
         $this->end_date = $end_date;
     }
+
+    public function modal($id) {
+        $this->currint_user = Mune::with('user','additions')->where('currint_user',$id)->get();
+    }
 }
+ 

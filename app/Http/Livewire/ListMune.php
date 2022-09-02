@@ -63,7 +63,7 @@ class ListMune extends Component
 
         if (!empty($this->b_name)) {
             $list = $list->whereHas('user',function ($q) {
-                $q->where('name', 'like', '%' . $this->b_name . '%');
+                $q->where('name', 'like', '%' . $this->b_name . '%'); 
             });
         }
 
@@ -101,5 +101,9 @@ class ListMune extends Component
         Mune::where('id',$id)->update([
             'staus' => ($status == 'not_active') ? 'active' : 'not_active',
         ]);
+    }
+
+    public function currintUser($id) {
+        return User::find($id)->name;
     }
 }

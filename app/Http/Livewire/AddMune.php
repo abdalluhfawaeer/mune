@@ -6,6 +6,7 @@ use App\Models\Addition;
 use Livewire\Component;
 use App\Models\Mune;
 use App\Models\User;
+use Carbon\Carbon;
 use Hash;
 use Illuminate\Support\Facades\Auth;
 use Livewire\WithFileUploads;
@@ -44,13 +45,12 @@ class AddMune extends Component
             $this->name = $mune->user->name;
             $this->product_name = $mune->name;
             $this->mobile = $mune->user->mobile;;
-            $this->password = '';
-            $this->start_date = $mune->start_date;
-            $this->end_date = $mune->end_date;
             $this->price = $mune->price;
             $this->user_id = $mune->user->id;
             $this->theme = $mune->additions->theme;
             $this->type = $mune->additions->type;
+            $this->start_date = Carbon::create($mune->start_date)->format('Y-m-d');
+            $this->end_date = Carbon::create($mune->end_date)->format('Y-m-d');
         } 
     }
     public function render()
@@ -62,7 +62,7 @@ class AddMune extends Component
         if ($this->id_m == 0) {
             $this->rules['email'] = 'required|unique:users';
             $this->rules['password'] = 'required';
-            $this->rules['password'] = 'required|unique:users';
+            // $this->rules['password'] = 'required|unique:users';
         }
     
         $this->validate();
@@ -81,7 +81,7 @@ class AddMune extends Component
         $menu_id = Mune::updateOrCreate(['id' => $this->id_m],[
             'name' => $this->product_name,
             'price' => $this->price,
-            'staus' => 'active',
+            'staus' => 'not_active',
             'start_date' => $this->start_date,
             'end_date' => $this->end_date,
             'user_id' => $id,

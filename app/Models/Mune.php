@@ -37,7 +37,8 @@ class Mune extends Model
 	protected $casts = [
 		'price' => 'float',
 		'user_id' => 'int',
-		'currint_user' => 'int'
+		'currint_user' => 'int',
+		'start_date' => 'date:Y-m-d'
 	];
 
 	protected $dates = [

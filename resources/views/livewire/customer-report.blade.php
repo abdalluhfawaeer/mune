@@ -84,8 +84,8 @@
                                                         <th>{{ __('text.name')}} </th>
                                                         <th>{{ __('text.Mobile') }}</th>
                                                         <th>{{ __('text.OrderCount') }}</th>
-                                                        <th>{{ __('text.OrderTotal') }}</th>
-                                                       
+                                                        <th>{{ __('text.OrderTotal') }}</th> 
+                                                        <th>{{ __('text.menu') }}</th> 
                                                     </tr>
                                                 </thead>
                                                 <tbody class="fw-semibold text-gray-600">
@@ -103,7 +103,9 @@
                                                         <td data-kt-ecommerce-order-filter="order_id">
                                                             <a class="text-gray-800 text-hover-primary fs-5 fw-bold">{{ $item->total }}</a>
                                                         </td>
-                                                        
+                                                        <td data-kt-ecommerce-order-filter="order_id">
+                                                            <a class="text-gray-800 text-hover-primary fs-5 fw-bold">{{ $item->mune_name }}</a>
+                                                        </td>
                                                     </tr>
                                                     @endforeach
                                                 </tbody>
