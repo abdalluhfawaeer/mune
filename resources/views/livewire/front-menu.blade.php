@@ -43,7 +43,7 @@
     <div id="navopen">
     <div class="topnav" id="myTopnav" style="display: none">
         <a href="#home"><img class="logo2" src="{{ asset('storage/' . $menu->logo) }}" alt=""></a>
-        <a href="#news">News</a>
+        <a href="#news">News</a> 
         <a href="#contact">Contact</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction1()">
           <i class="fa fa-bars"></i>
