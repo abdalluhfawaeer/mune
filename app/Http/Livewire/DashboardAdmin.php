@@ -21,6 +21,7 @@ class DashboardAdmin extends Component
     public $ranking = [];
     public $menu = [];
     public $order = [];
+    public $order_status = [];
 
     public function mount() {
         $this->user = User::where('id',auth()->user()->id)->first();
@@ -29,6 +30,7 @@ class DashboardAdmin extends Component
     public function render()
     {
         $this->query();
+        $this->orderStatus();
         return view('livewire.dashboard-admin');
     }
 
@@ -100,5 +102,32 @@ class DashboardAdmin extends Component
         $this->ranking['menu'] = $this->ranking['menu']->groupBy('mune.id')->get();
         $this->menu = $this->menu->orderBy('id','desc')->get();
         $this->order = $this->order->orderBy('id','desc')->get();
+    }
+
+    public function orderStatus() {
+        $this->order_status = [
+            'cancelled' => Order::where('status','cancelled'),
+            'cancelled_jd' => Order::where('status','cancelled'),
+            'confirmed' => Order::where('status','confirmed'),
+            'confirmed_jd' => Order::where('status','cancelled'),
+            'new' => Order::where('status','new'),
+            'new_jd' => Order::where('status','cancelled'),
+        ];
+
+        if (!empty($this->start_date) && !empty($this->end_date)) {
+            $this->order_status['cancelled'] = $this->order_status['cancelled']->whereBetween('created_at',[$this->start_date,$this->end_date]);
+            $this->order_status['cancelled_jd'] = $this->order_status['cancelled_jd']->whereBetween('created_at',[$this->start_date,$this->end_date]);
+            $this->order_status['confirmed'] = $this->order_status['confirmed']->whereBetween('created_at',[$this->start_date,$this->end_date]);
+            $this->order_status['confirmed_jd'] = $this->order_status['confirmed_jd']->whereBetween('created_at',[$this->start_date,$this->end_date]);
+            $this->order_status['new'] = $this->order_status['new']->whereBetween('created_at',[$this->start_date,$this->end_date]);
+            $this->order_status['new_jd'] = $this->order_status['new_jd']->whereBetween('created_at',[$this->start_date,$this->end_date]);
+        }
+
+        $this->order_status['cancelled'] = $this->order_status['cancelled']->count();
+        $this->order_status['cancelled_jd'] = $this->order_status['cancelled_jd']->sum('total');
+        $this->order_status['confirmed'] = $this->order_status['confirmed']->count();
+        $this->order_status['confirmed_jd'] = $this->order_status['confirmed_jd']->sum('total');
+        $this->order_status['new'] = $this->order_status['new']->count();
+        $this->order_status['new_jd'] = $this->order_status['new_jd']->sum('total');
     }
 }

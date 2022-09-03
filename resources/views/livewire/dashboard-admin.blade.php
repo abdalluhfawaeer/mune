@@ -16,33 +16,7 @@
             <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">                        
             </div>
             <div class="d-flex align-items-center gap-2 gap-lg-3">
-                <div class="mb-0">
-                    <input class="form-control form-control" placeholder="Pick date rage" id="kt_daterangepicker_4"/>
-                </div>
-                <script>
-                    var start = moment();
-                    var end = moment().endOf("month");
-
-                    function cb(start, end) {
-                        $("#kt_daterangepicker_4").html(start.format("MMMM D, YYYY") + " - " + end.format("MMMM D, YYYY"));
-                        @this.setDate(start.format("YYYY-MM-DD"),end.format("YYYY-MM-DD"));
-                    }
-
-                    $("#kt_daterangepicker_4").daterangepicker({
-                        startDate: start,
-                        endDate: end,
-                        ranges: {
-                        "Today": [moment(), moment()],
-                        "Yesterday": [moment().subtract(1, "days"), moment().subtract(1, "days")],
-                        "Last 7 Days": [moment().subtract(6, "days"), moment()],
-                        "Last 30 Days": [moment().subtract(29, "days"), moment()],
-                        "This Month": [moment().startOf("month"), moment().endOf("month")],
-                        "Last Month": [moment().subtract(1, "month").startOf("month"), moment().subtract(1, "month").endOf("month")]
-                        }
-                    }, cb);
-
-                    cb(start, end);
-                </script>
+                <x-date-filter />
             </div>
         </div>
     </div>
@@ -307,6 +281,128 @@
                     </div>
                 </div>
             </div>
+            <div class="row gy-5 g-xl-10">
+                <div class="col-sm-6 col-xl-2 mb-xl-10">
+                    <div class="card h-lg-100">
+                        <div class="card-body d-flex justify-content-between align-items-start flex-column">
+                            <div class="m-0">
+                                <span class="svg-icon svg-icon-2hx svg-icon-gray-600">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path opacity="0.3" d="M14 3V21H10V3C10 2.4 10.4 2 11 2H13C13.6 2 14 2.4 14 3ZM7 14H5C4.4 14 4 14.4 4 15V21H8V15C8 14.4 7.6 14 7 14Z" fill="currentColor"></path>
+                                        <path d="M21 20H20V8C20 7.4 19.6 7 19 7H17C16.4 7 16 7.4 16 8V20H3C2.4 20 2 20.4 2 21C2 21.6 2.4 22 3 22H21C21.6 22 22 21.6 22 21C22 20.4 21.6 20 21 20Z" fill="currentColor"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="d-flex flex-column my-7">
+                                <span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">{{ $order_status['new'] }}</span>
+                                <div class="m-0">
+                                    <span class="fw-semibold fs-6 text-gray-400">{{ __('text.Order') }} {{ __('text.new') }}</span>
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-2 mb-xl-10">
+                    <div class="card h-lg-100">
+                        <div class="card-body d-flex justify-content-between align-items-start flex-column">
+                            <div class="m-0">
+                                <span class="svg-icon svg-icon-2hx svg-icon-gray-600">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path opacity="0.3" d="M14 3V21H10V3C10 2.4 10.4 2 11 2H13C13.6 2 14 2.4 14 3ZM7 14H5C4.4 14 4 14.4 4 15V21H8V15C8 14.4 7.6 14 7 14Z" fill="currentColor"></path>
+                                        <path d="M21 20H20V8C20 7.4 19.6 7 19 7H17C16.4 7 16 7.4 16 8V20H3C2.4 20 2 20.4 2 21C2 21.6 2.4 22 3 22H21C21.6 22 22 21.6 22 21C22 20.4 21.6 20 21 20Z" fill="currentColor"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="d-flex flex-column my-7">
+                                <span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">{{ $order_status['new_jd'] }} JD</span>
+                                <div class="m-0">
+                                    <span class="fw-semibold fs-6 text-gray-400">{{ __('text.Order') }} {{ __('text.new') }}</span>
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-2 mb-xl-10">
+                    <div class="card h-lg-100">
+                        <div class="card-body d-flex justify-content-between align-items-start flex-column">
+                            <div class="m-0">
+                                <span class="svg-icon svg-icon-2hx svg-icon-gray-600">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path opacity="0.3" d="M14 3V21H10V3C10 2.4 10.4 2 11 2H13C13.6 2 14 2.4 14 3ZM7 14H5C4.4 14 4 14.4 4 15V21H8V15C8 14.4 7.6 14 7 14Z" fill="currentColor"></path>
+                                        <path d="M21 20H20V8C20 7.4 19.6 7 19 7H17C16.4 7 16 7.4 16 8V20H3C2.4 20 2 20.4 2 21C2 21.6 2.4 22 3 22H21C21.6 22 22 21.6 22 21C22 20.4 21.6 20 21 20Z" fill="currentColor"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="d-flex flex-column my-7">
+                                <span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">{{ $order_status['confirmed'] }}</span>
+                                <div class="m-0">
+                                    <span class="fw-semibold fs-6 text-gray-400">{{ __('text.Order') }} {{ __('text.confirmed') }}</span>
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-2 mb-xl-10">
+                    <div class="card h-lg-100">
+                        <div class="card-body d-flex justify-content-between align-items-start flex-column">
+                            <div class="m-0">
+                                <span class="svg-icon svg-icon-2hx svg-icon-gray-600">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path opacity="0.3" d="M14 3V21H10V3C10 2.4 10.4 2 11 2H13C13.6 2 14 2.4 14 3ZM7 14H5C4.4 14 4 14.4 4 15V21H8V15C8 14.4 7.6 14 7 14Z" fill="currentColor"></path>
+                                        <path d="M21 20H20V8C20 7.4 19.6 7 19 7H17C16.4 7 16 7.4 16 8V20H3C2.4 20 2 20.4 2 21C2 21.6 2.4 22 3 22H21C21.6 22 22 21.6 22 21C22 20.4 21.6 20 21 20Z" fill="currentColor"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="d-flex flex-column my-7">
+                                <span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">{{ $order_status['confirmed_jd'] }} JD</span>
+                                <div class="m-0">
+                                    <span class="fw-semibold fs-6 text-gray-400">{{ __('text.Order') }} {{ __('text.confirmed') }}</span>
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-2 mb-xl-10">
+                    <div class="card h-lg-100">
+                        <div class="card-body d-flex justify-content-between align-items-start flex-column">
+                            <div class="m-0">
+                                <span class="svg-icon svg-icon-2hx svg-icon-gray-600">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path opacity="0.3" d="M14 3V21H10V3C10 2.4 10.4 2 11 2H13C13.6 2 14 2.4 14 3ZM7 14H5C4.4 14 4 14.4 4 15V21H8V15C8 14.4 7.6 14 7 14Z" fill="currentColor"></path>
+                                        <path d="M21 20H20V8C20 7.4 19.6 7 19 7H17C16.4 7 16 7.4 16 8V20H3C2.4 20 2 20.4 2 21C2 21.6 2.4 22 3 22H21C21.6 22 22 21.6 22 21C22 20.4 21.6 20 21 20Z" fill="currentColor"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="d-flex flex-column my-7">
+                                <span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">{{ $order_status['cancelled'] }}</span>
+                                <div class="m-0">
+                                    <span class="fw-semibold fs-6 text-gray-400">{{ __('text.Order') }} {{ __('text.cancelled') }}</span>
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-2 mb-xl-10">
+                    <div class="card h-lg-100">
+                        <div class="card-body d-flex justify-content-between align-items-start flex-column">
+                            <div class="m-0">
+                                <span class="svg-icon svg-icon-2hx svg-icon-gray-600">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path opacity="0.3" d="M14 3V21H10V3C10 2.4 10.4 2 11 2H13C13.6 2 14 2.4 14 3ZM7 14H5C4.4 14 4 14.4 4 15V21H8V15C8 14.4 7.6 14 7 14Z" fill="currentColor"></path>
+                                        <path d="M21 20H20V8C20 7.4 19.6 7 19 7H17C16.4 7 16 7.4 16 8V20H3C2.4 20 2 20.4 2 21C2 21.6 2.4 22 3 22H21C21.6 22 22 21.6 22 21C22 20.4 21.6 20 21 20Z" fill="currentColor"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="d-flex flex-column my-7">
+                                <span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">{{ $order_status['cancelled_jd'] }} JD</span>
+                                <div class="m-0">
+                                    <span class="fw-semibold fs-6 text-gray-400">{{ __('text.Order') }} {{ __('text.cancelled') }}</span>
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+            </div>  
             <div class="row g-5 g-xl-10">
                 <div class="col-xl-4 mb-xl-10">
                     <div class="card h-xl-100">

@@ -110,9 +110,7 @@
                                                                 </td>
                                                                 <td class="text-end">
                                                                     <a  href="/mune/category/edit/{{ $item->id }}"
-                                                                        class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"
-                                                                        data-bs-toggle="modal"
-                                                                        data-bs-target="#edit_{{ $item->id }}">
+                                                                        class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
                                                                         <span class="svg-icon svg-icon-3">
                                                                             <svg width="24" height="24"
                                                                                 viewBox="0 0 24 24" fill="none"
@@ -147,85 +145,6 @@
                                                                     </a>
                                                                 </td>
                                                             </tr>
-                                                            <div class="modal fade" tabindex="-1"
-                                                                id="edit_{{ $item->id }}" wire:ignore.self>
-                                                                <div class="modal-dialog">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <h3 class="modal-title">{{ __('text.add_category') }}</h3>
-                                                                            <div class="btn btn-icon btn-sm btn-active-light-primary ms-2"
-                                                                                data-bs-dismiss="modal"
-                                                                                aria-label="Close">
-                                                                                <span
-                                                                                    class="svg-icon svg-icon-1"></span>
-                                                                            </div>
-                                                                        </div>
-
-                                                                        <div class="modal-body">
-                                                                            <div class="mb-10">
-                                                                                <label for="exampleFormControlInput1"
-                                                                                    class="required form-label">{{ __('text.name_ar') }}</label>
-                                                                                <input type="text"
-                                                                                    class="form-control form-control-solid"
-                                                                                    placeholder="{{ __('text.name_ar') }}"
-                                                                                    wire:model="name_ar" />
-                                                                                <br>
-                                                                                @error('name_ar')
-                                                                                    <span class="alert alert-danger"
-                                                                                        role="alert">{{ $message }}</span>
-                                                                                @enderror
-                                                                            </div>
-                                                                            <div class="mb-10">
-                                                                                <label for="exampleFormControlInput1"
-                                                                                    class="required form-label">{{ __('text.name_en') }}</label>
-                                                                                <input type="text"
-                                                                                    class="form-control form-control-solid"
-                                                                                    placeholder="{{ __('text.name_en') }}"
-                                                                                    wire:model="name_en" />
-                                                                                <br>
-                                                                                @error('name_en')
-                                                                                    <span class="alert alert-danger"
-                                                                                        role="alert">{{ $message }}</span>
-                                                                                @enderror
-                                                                            </div>
-                                                                            <div class="mb-10">
-                                                                                <label for="exampleFormControlInput1"
-                                                                                    class="required form-label">{{ __('text.photo') }}</label>
-                                                                                <input type="file"
-                                                                                    class="form-control form-control-solid"
-                                                                                    placeholder="Example input"
-                                                                                    wire:model="photo" />
-                                                                                <br>
-                                                                                @error('photo')
-                                                                                    <span class="alert alert-danger"
-                                                                                        role="alert">{{ $message }}</span>
-                                                                                @enderror
-                                                                            </div>
-                                                                            <div class="mb-10">
-                                                                                <label for="exampleFormControlInput1"
-                                                                                    class="required form-label">{{ __('text.status') }}</label>
-                                                                                <select
-                                                                                    class="form-control form-control-solid ps-10"
-                                                                                    wire:model="status">
-                                                                                    <option value="active" selected>
-                                                                                        {{ __('text.active') }}</option>
-                                                                                    <option value="not_active">
-                                                                                        {{ __('text.not_active') }}</option>
-                                                                                </select>
-                                                                            </div>
-                                                                        </div>
-
-                                                                        <div class="modal-footer">
-                                                                            <button type="button"
-                                                                                class="btn btn-light"
-                                                                                data-bs-dismiss="modal">{{ __('text.Close') }}</button>
-                                                                            <button type="button"
-                                                                                class="btn btn-primary"
-                                                                                wire:click="edit({{ $item->id }})">{{ __('text.SaveChanges') }}</button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
                                                         @endforeach
                                                     </tbody>
                                                 </table>

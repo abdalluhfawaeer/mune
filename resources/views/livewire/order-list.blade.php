@@ -50,27 +50,13 @@
                                             <div class="position-relative w-md-400px me-md-2">
                                                     <select class="form-control form-control-solid ps-10" wire:model="status">
                                                         <option value="" selected>{{ __('text.status') }}</option>
-                                                        <option value="active">active</option>
-                                                        <option value="not_active">not_active</option>
+                                                        <option value="new">{{ __('text.new') }}</option>
+                                                        <option value="confirmed">{{ __('text.confirmed') }}</option>
+                                                        <option value="cancelled">{{ __('text.cancelled') }}</option>
                                                     </select>
                                             </div>
                                             <div class="position-relative w-md-400px me-md-2">
-                                                <span class="svg-icon svg-icon-3 svg-icon-gray-500 position-absolute top-50 translate-middle ms-6">
-                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="currentColor"></rect>
-                                                        <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor"></path>
-                                                    </svg>
-                                                </span>
-                                                <input type="date" class="form-control form-control-solid ps-10" name="search" wire:model="start_date" placeholder="start_date">
-                                            </div>
-                                            <div class="position-relative w-md-400px me-md-2">
-                                                <span class="svg-icon svg-icon-3 svg-icon-gray-500 position-absolute top-50 translate-middle ms-6">
-                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="currentColor"></rect>
-                                                        <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor"></path>
-                                                    </svg>
-                                                </span>
-                                                <input type="date" class="form-control form-control-solid ps-10" name="search" wire:model="end_date" placeholder="end_date">
+                                                <x-date-filter />
                                             </div>
                                         </div>
                                     </div>
@@ -112,12 +98,13 @@
                                                             <a class="text-gray-800 text-hover-primary fs-5 fw-bold">{{ $item->type }}</a>
                                                         </td>
                                                         <td data-kt-ecommerce-order-filter="order_id">
-                                                            <a class="badge badge-light-success">{{ $item->status }}</a>
-                                                            {{-- @if ($item->staus == 'active')
-                                                                <a class="badge badge-light-success">{{ $item->staus }}</a>
+                                                            @if ($item->status == 'confirmed')
+                                                                <a class="badge badge-light-success">{{ $item->status }}</a>
+                                                            @elseif($item->status == 'cancelled')
+                                                                <a class="badge badge-light-danger">{{ $item->status }}</a>
                                                             @else
-                                                                <a class="badge badge-light-danger">{{ $item->staus }}</a>
-                                                            @endif --}}
+                                                                <a class="badge badge-light-info">{{ $item->status }}</a>
+                                                            @endif
                                                         </td>
                                                         <td data-kt-ecommerce-order-filter="order_id">
                                                             <a class="text-gray-800 text-hover-primary fs-5 fw-bold">{{ $item->total }}</a>

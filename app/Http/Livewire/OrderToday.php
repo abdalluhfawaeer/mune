@@ -14,7 +14,11 @@ class OrderToday extends Component
     protected $paginationTheme = 'bootstrap';
 
     public $menu_id = 0;
-
+    public $id_mune = '';
+    public $name = '';
+    public $status = '';
+    public $mobile = '';
+    
     protected $listeners = ['refreshOrderList' => '$refresh'];
 
     public function mount() {
@@ -35,6 +39,22 @@ class OrderToday extends Component
 
         $list = $list->join('customer','customer.id','orders.customer_id');
         $list = $list->whereDate('orders.created_at', Carbon::today());
+
+        if (!empty($this->id_mune)) {
+            $list = $list->where('orders.id', $this->id_mune);
+        }
+
+        if (!empty($this->name)) {
+            $list = $list->where('customer.name', 'like', '%' . $this->name . '%');
+        }
+
+        if (!empty($this->mobile)) {
+            $list = $list->where('customer.mobile', 'like', '%' . $this->mobile . '%');
+        }
+
+        if (!empty($this->status)) {
+            $list = $list->where('orders.status', $this->status);
+        }
         $list = $list->orderBy('orders.id','desc')->where('orders.menu_id',$this->menu_id)->paginate(10);
         $this->resetPage();
         return  $list;

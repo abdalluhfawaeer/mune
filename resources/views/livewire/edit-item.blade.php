@@ -24,9 +24,7 @@
                                 </div>
                             </div>
                             <div class="card-body text-center pt-0">
-                                <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3"
-                                    data-kt-image-input="true"
-                                    style="background-image:url({{ asset('storage/' . $this->img) }})">
+                                <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3" data-kt-image-input="true" style="background-image:url({{ method_exists($this->photo, 'temporaryUrl') ? $this->photo->temporaryUrl() : asset("storage/". $this->photo) }})">
                                     <div class="image-input-wrapper w-150px h-150px"></div>
                                     <label
                                         class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
@@ -63,8 +61,13 @@
                                     <h2>{{ __('text.status') }}</h2>
                                 </div>
                                 <div class="card-toolbar">
+                                    @if ($status == 'active')
                                     <div class="rounded-circle bg-success w-15px h-15px"
+                                    id="kt_ecommerce_add_product_status"></div>
+                                    @else
+                                    <div class="rounded-circle bg-danger w-15px h-15px"
                                         id="kt_ecommerce_add_product_status"></div>
+                                    @endif
                                 </div>
                             </div>
                             <div class="card-body pt-0">
@@ -152,8 +155,14 @@
                                                     wire:model.dafer="cat">
                                                     <option value="" selected>{{ __('text.category') }}</option>
                                                     @foreach ($category as $cat)
-                                                        <option value="{{ $cat->id }}" selected>
-                                                            {{ $cat->name }}</option>
+                                                    @if (app()->getLocale() == 'ar')
+                                                    <option value="{{ $cat->id }}" selected>
+                                                        {{ $cat->name_ar }}</option>
+                                                    @else 
+                                                    <option value="{{ $cat->id }}" selected>
+                                                        {{ $cat->name_en }}</option>
+                                                    @endif
+                                                        
                                                     @endforeach
                                                 </select>
                                             </div>
