@@ -14,7 +14,6 @@ class FrontController extends Controller
     public function viwe(Request $request) {
         $menu = Mune::where('name',$request->name)->where('id',$request->id)->first();
         $addition = Addition::where('menu_id',$menu->id)->first();
-        $request->session()->put('theme', $addition->theme ?? 0);
         $date = Carbon::parse($menu->end_date);
         $now = Carbon::now();
         if (!empty($menu)) {
@@ -33,6 +32,9 @@ class FrontController extends Controller
                     'ip_address' => $request->ip(),
                     'menu_id' => $request->id
                 ]);
+                $request->session()->put('theme', $addition->theme ?? 0);
+                $request->session()->put('color', $menu->color ?? 0);
+                $request->session()->put('menu_id', $menu->id ?? 0);
                 return view('gust.front' ,[
                     'name' => $request->id,
                     'id' => $request->id

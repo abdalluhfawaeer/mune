@@ -41,7 +41,11 @@ class ThemeTwo extends Component
     public function modal($item_id) {
         $item = Item::where('id',$item_id)->first();
         $this->photo = $item->img; 
-        $this->title = $item->name_en; 
+        if (app()->getLocale() == 'en') {
+            $this->title = $item->name_en; 
+        } else {
+            $this->title = $item->name_ar; 
+        }
         $this->price = $item->price; 
         $this->desc = $item->desc; 
         $this->item_id = $item->id; 

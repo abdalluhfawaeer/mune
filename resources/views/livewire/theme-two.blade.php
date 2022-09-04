@@ -9,7 +9,11 @@
             <p class="desc" style="opacity: 0.6;">{{ $menu->desc }}</p>
         </center>
         <div class="r">
-            <a href="/lang/ar" class="link">AR</a> 
+            @if (app()->getLocale() == 'en')
+                <a href="/lang/ar" class="link">AR</a> 
+            @else
+                <a href="/lang/en" class="link">EN</a> 
+            @endif
         </div>
     </div>
     <div id="navopen">
@@ -30,7 +34,11 @@
         @foreach ($category as $cat)
             <div class="cat" wire:click="item({{ $cat->id }})" >
                 <img src="{{ asset('storage/' . $cat->img) }}" class="btni">
-                <p>{{ $cat->name_en }}</p>
+                @if (app()->getLocale() == 'en')
+                    <p>{{ $cat->name_en }}</p>
+                @else
+                    <p>{{ $cat->name_ar }}</p>
+                @endif
             </div>
         @endforeach
     </div>
@@ -43,7 +51,11 @@
                     <img src="{{ asset('storage/' . $item->img) }}" class="btni">
                 </div>
                 <div class="right">
-                    <p class="title">{{ $item->name_en }}</p>
+                    @if (app()->getLocale() == 'en')
+                        <p class="title">{{ $item->name_en }}</p>
+                    @else
+                        <p class="title">{{ $item->name_ar }}</p>
+                    @endif
                     <p>{{ $item->price }}</p>
                 </div>
             </div>
@@ -67,28 +79,55 @@
         @if($open)<style>body {overflow: hidden;}</style>@else<style>body {overflow: unset;}</style>@endif
          <!-- Modal content -->
          <div class="modal-content">
-            <span class="close" wire:click="close_model">&times;</span>
+            <span class="close" wire:click="close_model" onclick="close_model()">&times;</span>
         </div>
         <img class="modeli" src="{{ asset('storage/' . $photo) }}" alt="Smash">
         <h2 class="title">{{ $title }}</h2>
-        <center><p class="desc" style="opacity: 0.6;">{{ $desc }}</p></center>
+        <center>
+            <p class="desc" style="opacity: 0.6;">{{ $desc }}</p>
+            <div class="qty">
+                <button id="dec" class="btnq"
+                    style="border-bottom-left-radius: 12px;border-top-left-radius: 12px;">-</button>
+                <input name="qty" type="number" value="1" class="textnumber" id="qty" max="1" readonly>
+                <button id="inc" class="btnq"
+                    style="border-bottom-right-radius: 12px;border-top-right-radius: 12px;">+</button>
+            </div>
+        </center>
         <section class="light"` style="margin-bottom: 300px;" id="form_calc">
         @if (count($variations) > 0)
             @foreach ($variations as $v)
                 @if (count($v->variations_adds) > 1)
                 <div class="check">
-                    <h3>{{ $v->title_en }} <span style="opacity: 0.6;color:red;font-size:12px"> {{ ($v->req==1) ? 'required' : '' }} </span></h3>
+                    @if (app()->getLocale() == 'en')
+                        <h3>{{ $v->title_en }} <span style="opacity: 0.6;color:red;font-size:12px"> {{ ($v->req==1) ? 'required' : '' }} </span></h3>
+                    @else
+                        <h3>{{ $v->title_ar }} <span style="opacity: 0.6;color:red;font-size:12px"> {{ ($v->req==1) ? 'required' : '' }} </span></h3>
+                    @endif
                     <hr>
                     @if ($v->req == 1)
                         <input type="hidden" id="required" value="1">
                     @endif
                     <div class="checkbox-group {{ ($v->req==1) ? 'required' : '' }}">
                     @foreach ($v->variations_adds as $key => $add)
+                    @if (app()->getLocale() == 'en')
                         <label>
                             <input type="radio" name="{{ $v->id }}" id="add_v" value="{{ $add->price }}" title="{{ $add->title_en }}" id_v="{{ $v->id }}" onclick="ShowHideDiv(this)">
                             <span class="design"></span>
-                            <span class="text" style="opacity: 0.6;" id="add_{{ $v->id }}">{{ $add->title_en }} - ({{ $add->price }} JD)</span>
+                            <span class="text" style="opacity: 0.6; width:100%" id="add_{{ $v->id }}">
+                                <span style="float: right;">{{ $add->price }} JD</span>
+                                <span style="float: left;">{{ $add->title_en }}</span>
+                            </span>
                         </label>
+                    @else
+                        <label>
+                            <input type="radio" name="{{ $v->id }}" id="add_v" value="{{ $add->price }}" title="{{ $add->title_ar }}" id_v="{{ $v->id }}" onclick="ShowHideDiv(this)">
+                            <span class="design"></span>
+                            <span class="text" style="opacity: 0.6; width:100%" id="add_{{ $v->id }}">
+                                <span style="float: right;">{{ $add->price }} JD</span>
+                                <span style="float: left;">{{ $add->title_en }}</span>
+                            </span>
+                        </label>
+                    @endif
                     @endforeach
                     </div>
                 </div>
@@ -100,15 +139,29 @@
         @endif
         @if (count($adds) > 0)
         <div class="check">
-            <h3>Adds</h3>
+            <h3>{{ __('text.additions') }}</h3>
             <hr>
             <div class="">
                 @foreach ($adds as $add)
+                @if (app()->getLocale() == 'en')
                 <label>
                     <input type="checkbox" name="adds" id="add_v" value="{{ $add->price }}" id_v="{{ $add->id }}" title="{{ $add->name_en }}" onclick="ShowHideDiv(this)">
                     <span class="design"></span>
-                    <span class="text" style="opacity: 0.6;" id="add_{{ $v->id }}">{{ $add->name_en }} - ({{ $add->price }} JD)</span>
+                    <span class="text" style="opacity: 0.6; width:100%" id="add_{{ $v->id }}">
+                        <span style="float: right;">{{ $add->price }} JD</span>
+                        <span style="float: left;">{{ $add->name_en }}</span>
+                    </span>
                 </label>
+                @else
+                <label>
+                    <input type="checkbox" name="adds" id="add_v" value="{{ $add->price }}" id_v="{{ $add->id }}" title="{{ $add->name_ar }}" onclick="ShowHideDiv(this)">
+                    <span class="design"></span>
+                    <span class="text" style="opacity: 0.6; width:100%" id="add_{{ $v->id }}">
+                        <span style="float: right;">{{ $add->price }} JD</span>
+                        <span style="float: left;">{{ $add->name_ar }}</span>
+                    </span>
+                </label>
+                @endif
                 @endforeach
             </div>  <link rel="stylesheet" href="{{ url('front/index.css') }}">
             <link rel="stylesheet" href="{{ url('front/checkout.css') }}">
@@ -118,40 +171,174 @@
         <input type="hidden" id="checkd" value="0">
         </section>
         <div class="mybutton">
-            <input type="text" class="textuuuu" placeholder="note">
-            <div class="qty">
-                <button id="dec" class="btnq"
-                    style="border-bottom-left-radius: 12px;border-top-left-radius: 12px;">-</button>
-                <input name="qty" type="number" value="1" class="textnumber" id="qty" max="1" readonly>
-                <button id="inc" class="btnq"
-                    style="border-bottom-right-radius: 12px;border-top-right-radius: 12px;">+</button>
-            </div>
+            <input type="text" class="textuuuu" placeholder="{{ __('text.note') }}" id="notes">
             <input type="hidden" id="item_id" value="{{ $item_id }}">
             <input type="hidden" id="item_img" value="{{ $photo }}">
             <input type="hidden" id="item_title" value="{{ $title }}">
             <input type="hidden" id="item_price" value="{{ $price }}">
-            <button class="curt" id='curt' style="font-weight:bold" onclick="addProduct()">Add to cart <span>{{ $price }}</span>JD</button>
+            <button class="curt" id='curt' style="font-weight:bold" onclick="addProduct()">
+                <span style="float: right;padding: 10px;">{{ $price }} JD</span>
+                <span style="float: left;padding: 10px;">{{ __('text.add_to') }}</span>
+            </button>
         </div>
     </div>
-    <script src="{{ url('front/index.js') }}"></script>
+    <script>
+        function open_panel($id) {
+            var panel = document.getElementById($id);
+            var actv = document.getElementById('act_' + $id);
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+                actv.classList.remove("actives");
+            } else {
+                panel.style.display = "block";
+                actv.classList.add("actives");
+            }
+        }
+
+        function close_model() {
+            var item_id = $('#notes').val('');
+        }
+
+        function open_model() {
+            document.getElementById("navopen").style.display = 'block';    
+        }
+
+        function open_model2() {
+            document.getElementById("navopen").style.display = 'none';    
+        }
+
+        function addProduct(){
+            var required = document.getElementById('required');
+            if (required != null) {
+                if (required.value > 0) {
+                    if ($('div.checkbox-group.required :radio:checked').length > 0) {
+                        pushStore();
+                        toastr.success("{{ __('text.sccsses') }}"); 
+                    } else {
+                        toastr.error("{{ __('text.required') }}");
+                    }
+                }
+            } else {
+                pushStore();
+                toastr.success("{{ __('text.sccsses') }}"); 
+            }
+        }
+
+        function pushStore() {
+            var item_id = $('#item_id').val();
+            var notes = $('#notes').val();
+            var key = $('#key');
+            if (key !=null) { key = key.val(); } else { key = 0; }
+            var item_price = $('#item_price').val();
+            var price = 0;
+            var price_checked = 0;
+            let acc = [];
+            $('input[type=checkbox], input[type=radio]').each( function() {
+                if( $(this).is(':checked') ) {
+                    acc.push({
+                        'title' : $(this).attr("title") ,
+                        'v_id' : $(this).attr("id_v") ,
+                        'v_price' : parseFloat($(this).val()),
+                    });
+                    price_checked += parseFloat($(this).val());
+                }
+            });
+            
+            var item_img = $('#item_img').val();
+            var item_title = $('#item_title').val();
+            var qty = $('#qty').val();
+
+            price = parseFloat(item_price) * parseInt(qty);
+            price_checked = qty * price_checked;
+            price = price + price_checked;
+
+            let products_{{ $menu->id }} = [];
+            if(localStorage.getItem('products_'+{{ $menu->id }})){
+                products_{{ $menu->id }} = JSON.parse(localStorage.getItem('products_'+{{ $menu->id }}));
+            }
+            products_{{ $menu->id }}.push(
+            {
+                'item_id' : item_id ,
+                'item_img' : item_img ,
+                'item_title' : item_title ,
+                'item_price' : price ,
+                'price' : price ,
+                'random' : parseInt((Math.random() * 1000000)),
+                'qty' : qty ,
+                'notes' : notes ,
+                'acc' : acc ,
+            });
+            localStorage.setItem('products_'+{{ $menu->id }}, JSON.stringify(products_{{ $menu->id }}));
+        }
+
+        function removeProduct(productId){
+            let storageProducts = JSON.parse(localStorage.getItem('products'));
+            console.log(storageProducts);
+            if (storageProducts != null) {
+                let products_{{ $menu->id }} = storageProducts.filter(products_{{ $menu->id }} => products_{{ $menu->id }}.item_id !== productId );
+                localStorage.setItem('products_'+{{ $menu->id }}, JSON.stringify(products_{{ $menu->id }}));
+            }
+        }
+
+        $("#form_calc").change(function() {
+            var qty = parseInt($('#qty').val());
+            var checkd = 0;
+            var totalPrice   = parseFloat($('#item_price').val()),
+            values       = [];
+            $('input[type=checkbox], input[type=radio]').each( function() {
+            if( $(this).is(':checked') ) {
+                values.push($(this).val());
+                checkd += parseFloat($(this).val());
+                }
+            });
+            totalPrice = totalPrice * qty;
+            checkd = qty * checkd;
+            totalPrice = totalPrice + checkd;
+            $("#curt span").text(totalPrice);  
+            $('#checkd').val(checkd)
+        });   
+
+        $("#inc").click(function(){
+            var qty = parseInt($('#qty').val());
+            var checkd = parseFloat($('#checkd').val());
+            var totalPrice   = parseFloat($('#item_price').val());
+            qty++;
+            totalPrice = totalPrice * qty;
+            checkd = qty * checkd;
+            totalPrice = totalPrice + checkd;
+            $("#curt span").text(totalPrice);  
+            $('#qty').val(qty);
+        });
+
+        $("#dec").click(function(){
+            var qty = parseInt($('#qty').val());
+            var checkd = parseFloat($('#checkd').val());
+            var totalPrice   = parseFloat($('#item_price').val());
+            qty--;
+            if (qty > 0) {
+                totalPrice = totalPrice * qty;
+                checkd = qty * checkd;
+                totalPrice = totalPrice + checkd;
+                $("#curt span").text(totalPrice);  
+                $('#qty').val(qty);
+            }
+        });
+    </script>
     <script>
         window.onscroll = function() {
             myFunction()
         };
 
         var myTopnav = document.getElementById("myTopnav"); 
-        // var carsds = document.getElementById("carsds");
         var sticky = myTopnav.offsetTop;
 
         function myFunction() {
             
             if (window.pageYOffset > sticky) {
                 myTopnav.classList.add("sticky1");
-                // carsds.classList.add("carsds");
                 myTopnav.style.display = 'block';
             } else {
                 myTopnav.classList.remove("sticky1");
-                // carsds.classList.remove("carsds");
                 myTopnav.style.display = 'none';
             }
         }

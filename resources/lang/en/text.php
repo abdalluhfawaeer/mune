@@ -84,4 +84,8 @@ return [
    'Mode' => 'Mode',
    'Light' => 'Light',
    'Dark' => 'Dark',
+   'required' => 'Please select from the required',
+   'sccsses' => 'Successfully added to cart',
+   'add_to' => 'Add to cart',
+   'note' => 'Add Notes',
 ]; 

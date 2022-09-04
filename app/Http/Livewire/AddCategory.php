@@ -11,7 +11,7 @@ class AddCategory extends Component
 {
     use WithFileUploads;
 
-    public $img = '';
+    public $img = '';   
     public $name_ar = '';
     public $name_en = '';
     public $status = '';
@@ -43,7 +43,7 @@ class AddCategory extends Component
     public function save() { 
         $menu_id = Mune::with('user')->where('user_id',Auth()->user()->id)->first()->id;
         $this->validate();
-        $logo = empty($this->img) ? $this->img : $this->img->store('public/'.$menu_id);
+        $logo = !method_exists($this->img, 'temporaryUrl') ? $this->img : $this->img->store('public/'.$menu_id);
         $logo = str_replace('public/','',$logo);
         Category::updateOrCreate([
             'menu_id' => $menu_id,
