@@ -177,7 +177,7 @@
             <input type="hidden" id="item_title" value="{{ $title }}">
             <input type="hidden" id="item_price" value="{{ $price }}">
             <button class="curt" id='curt' style="font-weight:bold" onclick="addProduct()">
-                <span style="float: right;padding: 10px;">{{ $price }} JD</span>
+                <span style="float: right;padding: 10px;" id="jd">{{ $price }} JD</span>
                 <span style="float: left;padding: 10px;">{{ __('text.add_to') }}</span>
             </button>
         </div>
@@ -294,7 +294,7 @@
             totalPrice = totalPrice * qty;
             checkd = qty * checkd;
             totalPrice = totalPrice + checkd;
-            $("#curt span").text(totalPrice);  
+            $("#jd").text(totalPrice + ' JD');  
             $('#checkd').val(checkd)
         });   
 
@@ -306,7 +306,7 @@
             totalPrice = totalPrice * qty;
             checkd = qty * checkd;
             totalPrice = totalPrice + checkd;
-            $("#curt span").text(totalPrice);  
+            $("#jd").text(totalPrice + ' JD');  
             $('#qty').val(qty);
         });
 
@@ -319,7 +319,7 @@
                 totalPrice = totalPrice * qty;
                 checkd = qty * checkd;
                 totalPrice = totalPrice + checkd;
-                $("#curt span").text(totalPrice);  
+                $("#jd").text(totalPrice + 'JD');  
                 $('#qty').val(qty);
             }
         });
