@@ -84,11 +84,11 @@ class ListMune extends Component
         }
 
         if (!empty($this->start_date)) {
-            $list = $list->where('start_date', 'like', '%' . $this->start_date . '%');
+            $list = $list->whereBetween('start_date',[$this->start_date,$this->end_date]);
         }
 
         if (!empty($this->end_date)) {
-            $list = $list->where('end_date', 'like', '%' . $this->end_date . '%');
+            $list = $list->whereBetween('end_date',[$this->start_date,$this->end_date]);
         }
 
         $list = $list->paginate(10);
@@ -105,5 +105,10 @@ class ListMune extends Component
 
     public function currintUser($id) {
         return User::find($id)->name;
+    }
+
+    public function setDate($start_date ,$end_date) {
+        $this->start_date = $start_date;
+        $this->end_date = $end_date;
     }
 }

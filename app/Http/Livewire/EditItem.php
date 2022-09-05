@@ -86,8 +86,7 @@ class EditItem extends Component
 
     public function save() {
         $this->validate();
-
-        $img = empty($this->photo) ? $this->img : $this->photo->store('public/'.$this->menu->id);
+        $img = !method_exists($this->photo, 'temporaryUrl') ? $this->img : $this->photo->store('public/'.$this->menu->id);
         $img = str_replace('public/','',$img);
         $item_id = $this->item_id;
         Item::where('id',$this->item_id)->update([

@@ -19,16 +19,16 @@
     <div class="d-flex flex-column flex-root" id="kt_app_root">
         <style>
             body {
-                background-image: url('media/bg4.jpg');
+                /* background-image: url('media/bg4.jpg'); */
+                background-color: #a8e842;
             }
         </style>
         <div class="d-flex flex-column flex-column-fluid flex-lg-row">
             <div class="d-flex flex-center w-lg-50 pt-15 pt-lg-0 px-10">
                 <div class="d-flex flex-column">
-                    <a href="/metronic8/demo1/../demo1/index.html" class="mb-7">
-                        <img alt="Logo" src="/metronic8/demo1/assets/media/logos/custom-3.svg" />
+                    <a href="/" class="mb-7">
+                        <img alt="Logo" src="{{ url('mf_logo.png') }}" width="500"/>
                     </a>
-                    <h2 class="text-white fw-normal m-0">Branding tools designed for your business</h2>
                 </div>
             </div>
             <div class="d-flex flex-center w-lg-50 p-10">
@@ -38,10 +38,7 @@
                             @csrf
                             <div class="text-center mb-11">
                                 <h1 class="text-dark fw-bolder mb-3">Sign In</h1>
-                                <div class="text-gray-500 fw-semibold fs-6">Your Social Campaigns</div>
-                            </div>
-                            <div class="separator separator-content my-14">
-                                <span class="w-125px text-gray-500 fw-semibold fs-7">Or with email</span>
+                                <div class="text-gray-500 fw-semibold fs-6">Menu Face</div>
                             </div>
                             <div class="fv-row mb-8">
                                 <input type="text" placeholder="Email" name="email" autocomplete="off"

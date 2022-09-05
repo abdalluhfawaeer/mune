@@ -51,6 +51,8 @@ class FrontController extends Controller
         $menu = Mune::where('name',$request->name)->where('id',$request->id)->first();
         if (!empty($menu)) {
             if ($menu->staus == 'active') {
+                $request->session()->put('color', $menu->color ?? 0);
+                $request->session()->put('menu_id', $menu->id ?? 0);
                 return view('gust.checkout' ,[
                     'name' => $request->id,
                     'id' => $request->id
@@ -67,6 +69,8 @@ class FrontController extends Controller
         $menu = Mune::where('name',$request->name)->where('id',$request->id)->first();
         if (!empty($menu)) {
             if ($menu->staus == 'active') {
+                $request->session()->put('color', $menu->color ?? 0);
+                $request->session()->put('menu_id', $menu->id ?? 0);
                 return view('gust.send' ,[
                     'name' => $request->id,
                     'id' => $request->id
