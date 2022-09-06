@@ -38,9 +38,12 @@ class DashboardMenu extends Component
         if ($this->select_menu_id > 0) {
             $this->menu = Mune::where('id',$this->select_menu_id)->first();
             $this->user = User::where('id',$this->menu->user_id)->first();
-        } else {
+        } elseif(Auth()->user()->role == 'mune') {
             $this->user = User::where('id',auth()->user()->id)->first();
             $this->menu = Mune::where('user_id',auth()->user()->id)->first();
+        } elseif(Auth()->user()->role == 'admin') {
+            $this->user = User::first();
+            $this->menu = Mune::first();
         }
         $this->query();
         $this->orderStatus();
@@ -59,8 +62,8 @@ class DashboardMenu extends Component
         $this->total_view_real = Counter::where('menu_id',$this->menu->id);
         $this->total_order = Order::where('menu_id',$this->menu->id);
         $this->total_order_jd = Order::where('menu_id',$this->menu->id);
-        $this->order = Order::join('customer','customer.id','orders.customer_id');
-        $this->customer = Customer::where('menu_id',$this->menu->id);
+        $this->order = Order::join('customer','customer.id','orders.customer_id')->where('orders.menu_id',$this->menu->id);
+        $this->customer = Customer::where('menu_id',$this->menu->id)->where('menu_id',$this->menu->id);
 
         if (!empty($this->start_date) && !empty($this->end_date)) {
             $this->total_view = $this->total_view->whereBetween('created_at',[$this->start_date,$this->end_date]);

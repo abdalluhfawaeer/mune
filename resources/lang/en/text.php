@@ -102,5 +102,6 @@ return [
    'type_error' => 'Please select the type of receipt',
    'Address_error' => 'Address field is required',
    'table_error' => 'Please write the table number',
+   'notes' => 'Note',
    // '' => '',
 ]; 

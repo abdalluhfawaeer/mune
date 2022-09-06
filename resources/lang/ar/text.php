@@ -102,6 +102,7 @@ return [
    'type_error' => 'يرجى اختيار نوع الاستلام',
    'table_error' => 'يرجى كتابة رقم الطاولة',
    'Address_error' => 'حقل العنوان مطلوب',
+   'notes' => 'الملاحظة',
    // 'Address_error' => '',
    // 'name_error' => '',
    // 'name_error' => '',

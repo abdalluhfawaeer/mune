@@ -46,7 +46,9 @@ class Order extends Model
 		'delviry',
 		'status',
 		'menu_id',
-		'customer_id'
+		'customer_id',
+		'table_number',
+		'address',
 	];
 
 	public function customer()

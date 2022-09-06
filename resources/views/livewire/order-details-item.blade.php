@@ -15,6 +15,7 @@
         wire:model="qty" placeholder="{{ __('text.qty') }}">
     </td>
     <td>{{ $item->price }} JD</td>
+    <td>{{ $item->note }}</td>
     <td>
         <table class="fw-semibold text-gray-600">
             @foreach ($acc as $value => $key)

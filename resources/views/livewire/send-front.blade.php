@@ -180,30 +180,30 @@
 
                 text +="hello " + name + "%0A";
                 text +="welcam to rewadsad%0A";
-                promiseB = @this.sends(name, mobile,cart,type)
-                order_id = promiseB.then(function(result) {
-                    return result + 1;
-                });
-                console.log(order_id);
-                text +="number order" + order_id;
-                text +="%0A";
-                for (var i = 0; i < cart.length; i++){
-                    text += "item " + cart[i].item_title + " Qty " + cart[i].qty +"x "+"price "+cart[i].item_price+"%0A";
-                    if (cart[i].acc !=null) {
-                        for (var j = 0; j < cart[i].acc; j++){
-                            text += " acc " + cart[i].acc[j].title + " price " + cart[i].acc[j].v_price +",";
+                promiseB = @this.sends(name, mobile,cart,type,tablenumber,address)
+                Livewire.on('order_id',(id) => {
+                    order_id = id;
+                    text += "number order" + order_id;
+                    text += "%0A";
+
+                    for (var i = 0; i < cart.length; i++){
+                         text += "item " + cart[i].item_title + " Qty " + cart[i].qty +"x "+"price "+cart[i].item_price+"%0A";
+                            if (cart[i].acc !=null) {
+                                for (var j = 0; j < cart[i].acc; j++){
+                                    text += " acc " + cart[i].acc[j].title + " price " + cart[i].acc[j].v_price +",";
+                                }
                         }
+                        text += "%0A";
                     }
-                    text +="%0A";
-                }
-                text +="%0A";
-                if($('#yes').is(':checked')) {
-                    if (navigator.geolocation) {
-                        navigator.geolocation.getCurrentPosition(showPosition);
-                    } 
-                } else {
-                    window.location.href = "https://wa.me/"+{{ $menu->user->mobile }}+"?text="+text;
-                }
+                    text +=             "%0A";
+                    if($('#yes').is(':checked')) {
+                        if (navigator.geolocation) {
+                            navigator.geolocation.getCurrentPosition(showPosition);
+                        } 
+                    } else {
+                        window.location.href = "https://wa.me/"+{{ $menu->user->mobile }}+"?text="+text;
+                    }
+                });
             }
            
     }

@@ -33,10 +33,12 @@
     <div class="wrapper">
 		<div class="project">
 			<div class="shop">
-				
+				<div class="box">
+
+				</div>
 			</div>
 			<div class="right-bar">
-				<p><span>{{ __('text.total') }}</span> <span id="total">141 JD</span></p>
+				<p><span>{{ __('text.total') }}</span> <span id="total">0 JD</span></p>
 				<a href="/{{ $menu->name }}/{{ $menu->id }}/send"><i class="fa fa-shopping-cart"></i>{{ __('text.Checkout') }}</a>
 			</div>
 		</div>
@@ -55,7 +57,7 @@
         <a href="" class="endtext">powered by <span>menuface.com</span></a>
      </div>
 	<script>
-		function myFunction() {
+		function fetchCart() {
 			const cart = JSON.parse(localStorage.getItem('products_'+{{ $menu->id }}));
 			var acc ;
 			var acc_name = '';
@@ -113,7 +115,7 @@
 				}
 			}
 			localStorage.setItem('products_'+{{ $menu->id }}, JSON.stringify(cart));
-			myFunction();
+			fetchCart();
 		}
 
 		function removeProduct(random){
@@ -122,10 +124,10 @@
 				let products = storageProducts.filter(product => product.random !== random );
 				localStorage.setItem('products_'+{{ $menu->id }}, JSON.stringify(products));
 			}
-			myFunction();
+			fetchCart();
 		}
 
-		myFunction();
+		fetchCart();
 	</script>
 	<script src="{{ url('front/navopen.js') }}"></script>
 </div>

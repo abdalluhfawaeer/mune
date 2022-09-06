@@ -59,7 +59,7 @@ class CustomizeMune extends Component
 
         $this->validate();
         
-        $logo = !method_exists($this->img, 'temporaryUrl') ? $this->img : $this->img->store('public/'.$menu_id);
+        $logo = !method_exists($this->img, 'temporaryUrl') ? $this->img : $this->img->store('public/'.$this->mune_id);
         $logo = str_replace('public/','',$logo);
         
         Mune::where('id',$this->mune_id)->update([

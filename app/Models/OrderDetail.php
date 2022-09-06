@@ -47,7 +47,8 @@ class OrderDetail extends Model
 		'item_title',
 		'qty',
 		'price',
-		'acc'
+		'acc',
+		'note',
 	];
 
 	public function item()

@@ -17,6 +17,7 @@ class OrderToday extends Component
     public $id_mune = '';
     public $name = '';
     public $status = '';
+    public $type = '';
     public $mobile = '';
     
     protected $listeners = ['refreshOrderList' => '$refresh'];
@@ -55,6 +56,11 @@ class OrderToday extends Component
         if (!empty($this->status)) {
             $list = $list->where('orders.status', $this->status);
         }
+
+        if (!empty($this->type)) {
+            $list = $list->where('orders.type', $this->type);
+        }
+
         $list = $list->orderBy('orders.id','desc')->where('orders.menu_id',$this->menu_id)->paginate(10);
         $this->resetPage();
         return  $list;

@@ -19,6 +19,7 @@ class OrderList extends Component
     public $name = '';
     public $status = '';
     public $mobile = '';
+    public $type = '';
 
     protected $listeners = ['refreshOrderList' => '$refresh'];
 
@@ -60,6 +61,10 @@ class OrderList extends Component
 
         if (!empty($this->start_date)) {
             $list = $list->whereBetween('orders.created_at',[$this->start_date,$this->end_date]);
+        }
+
+        if (!empty($this->type)) {
+            $list = $list->where('orders.type', $this->type);
         }
 
 

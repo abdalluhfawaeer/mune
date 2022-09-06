@@ -56,6 +56,14 @@
                                                     </select>
                                             </div>
                                             <div class="position-relative w-md-400px me-md-2">
+                                                <select class="form-control form-control-solid ps-10" wire:model="type">
+                                                    <option value="" selected>{{ __('text.type') }}</option>
+                                                    <option value="delvairy">{{ __('text.Delivery') }}</option>
+                                                    <option value="table">{{ __('text.from_the_table') }}</option>
+                                                    <option value="from_restaurant">{{ __('text.restaurant') }}</option>
+                                                </select>
+                                            </div>
+                                            <div class="position-relative w-md-400px me-md-2">
                                                 <x-date-filter />
                                             </div>
                                         </div>
@@ -79,6 +87,11 @@
                                                         <th>{{ __('text.status') }}</th>
                                                         <th>{{ __('text.total') }}</th>
                                                         <th>{{ __('text.date') }}</th>
+                                                        @if($type == 'delvairy')
+                                                        <th>{{ __('text.address') }}</th>
+                                                        @elseif($type == 'table')
+                                                        <th>{{ __('text.tablenumber') }}</th>
+                                                        @endif
                                                         <th></th>
                                                     </tr>
                                                 </thead>
@@ -95,16 +108,22 @@
                                                             <a class="text-gray-800 text-hover-primary fs-5 fw-bold">{{ $item->mobile }}</a>
                                                         </td>
                                                         <td data-kt-ecommerce-order-filter="order_id">
-                                                            <a class="text-gray-800 text-hover-primary fs-5 fw-bold">{{ $item->type }}</a>
+                                                            @if ($item->type == 'from_restaurant')
+                                                                <a class="badge badge-light-success">{{ __('text.restaurant') }}</a>
+                                                            @elseif($item->type == 'delvairy')
+                                                                <a class="badge badge-light-danger">{{ __('text.Delivery') }}</a>
+                                                            @else
+                                                                <a class="badge badge-light-info">{{ __('text.from_the_table') }}</a>
+                                                            @endif
                                                         </td>
                                                         <td data-kt-ecommerce-order-filter="order_id">
                                                             @if ($item->status == 'confirmed')
-                                                                <a class="badge badge-light-success">{{ $item->status }}</a>
-                                                            @elseif($item->status == 'cancelled')
-                                                                <a class="badge badge-light-danger">{{ $item->status }}</a>
-                                                            @else
-                                                                <a class="badge badge-light-info">{{ $item->status }}</a>
-                                                            @endif
+                                                                    <a class="badge badge-light-success">{{ __('text.confirmed') }}</a>
+                                                                @elseif($item->status == 'cancelled')
+                                                                    <a class="badge badge-light-danger">{{ __('text.cancelled') }}</a>
+                                                                @else
+                                                                    <a class="badge badge-light-info">{{ __('text.new') }}</a>
+                                                                @endif
                                                         </td>
                                                         <td data-kt-ecommerce-order-filter="order_id">
                                                             <a class="text-gray-800 text-hover-primary fs-5 fw-bold">{{ $item->total }}</a>
@@ -112,6 +131,15 @@
                                                         <td data-kt-ecommerce-order-filter="order_id">
                                                             <a class="text-gray-800 text-hover-primary fs-5 fw-bold">{{ $item->order_date }}</a>
                                                         </td>
+                                                        @if($type == 'delvairy')
+                                                            <td data-kt-ecommerce-order-filter="order_id">
+                                                                <a class="text-gray-800 text-hover-primary fs-5 fw-bold">{{ $item->address }}</a>
+                                                            </td>
+                                                        @elseif($type == 'table')
+                                                            <td data-kt-ecommerce-order-filter="order_id">
+                                                                <a class="text-gray-800 text-hover-primary fs-5 fw-bold">{{ $item->table_number }}</a>
+                                                            </td>                                                        
+                                                        @endif
                                                         <td class="text-end">
                                                             <a href="/order/detail/{{ $item->order_id }}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" target="blank">
                                                                 <span class="svg-icon svg-icon-3">

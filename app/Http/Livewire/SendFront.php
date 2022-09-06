@@ -21,7 +21,7 @@ class SendFront extends Component
         return view('livewire.send-front');
     }
 
-    public function sends($name, $mobile,$data ,$type = 'from')
+    public function sends($name, $mobile,$data ,$type = 'from' ,$number_table = 0,$address = '')
     {
         $mobile = '962'.substr($mobile, -9);
         $total = 0;
@@ -39,7 +39,9 @@ class SendFront extends Component
             'delviry' => 0,
             'status' => 'new',
             'menu_id' => $this->menu->id,
-            'customer_id' => $customer->id
+            'customer_id' => $customer->id,
+            'table_number' => $number_table,
+            'address' => $address,
         ])->id;
 
         foreach($data as $item) {
@@ -50,7 +52,8 @@ class SendFront extends Component
                 'item_title' => $item['item_title'],
                 'qty' => $item['qty'],
                 'price' => $item['item_price'],
-                'acc' => $item['acc']
+                'acc' => $item['acc'],
+                'notes' => $item['notes'],
             ]);
             $total += $item['item_price'];
         }
@@ -59,6 +62,6 @@ class SendFront extends Component
             'total' => $total
         ]);
         
-        return $order_id;
+        $this->emit('order_id',$order_id);
     }
 }
