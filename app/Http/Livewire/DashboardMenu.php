@@ -10,6 +10,7 @@ use App\Models\Order;
 use App\Models\User;
 use App\Models\Viwe;
 use Carbon\Carbon;
+use App\Models\Addition;
 
 class DashboardMenu extends Component
 {
@@ -27,6 +28,7 @@ class DashboardMenu extends Component
     public $select_menu_id = 0;
     public $qrdcode = '';
     public $menu_id = '';
+    public $type = '';
     public $order_status = [];
 
     public function mount() {
@@ -38,13 +40,17 @@ class DashboardMenu extends Component
         if ($this->select_menu_id > 0) {
             $this->menu = Mune::where('id',$this->select_menu_id)->first();
             $this->user = User::where('id',$this->menu->user_id)->first();
+            $addition = Addition::where('menu_id',$this->menu->id)->first();
         } elseif(Auth()->user()->role == 'mune') {
             $this->user = User::where('id',auth()->user()->id)->first();
             $this->menu = Mune::where('user_id',auth()->user()->id)->first();
+            $addition = Addition::where('menu_id',$this->menu->id)->first();
         } elseif(Auth()->user()->role == 'admin') {
             $this->user = User::first();
             $this->menu = Mune::first();
+            $addition = Addition::where('menu_id',$this->menu->id)->first();
         }
+        $this->type = $addition->type;
         $this->query();
         $this->orderStatus();
         $this->qrdcode = 'qrcode_'.$this->menu->id.'.png';

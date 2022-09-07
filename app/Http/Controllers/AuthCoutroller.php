@@ -7,6 +7,8 @@ use App\Models\User;
 use Hash;
 use Illuminate\Support\Facades\Auth;
 use Session;
+use App\Models\Mune;
+use App\Models\Addition;
 
 class AuthCoutroller extends Controller
 {
@@ -19,6 +21,11 @@ class AuthCoutroller extends Controller
    
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
+            if(Auth()->user()->role == 'mune') {
+                $menu = Mune::where('user_id',Auth()->user()->id)->first();
+                $addition = Addition::where('menu_id',$menu->id)->first();
+                $request->session()->put('type', $addition->type ?? 0);
+            }
             return redirect()->intended('dashboard')
                         ->withSuccess('You have Successfully loggedin');
         }

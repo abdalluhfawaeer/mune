@@ -82,6 +82,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @if ($type == 'order')
                                     <div class="col-6">
                                         <div class="bg-gray-100 bg-opacity-70 rounded-2 px-6 py-5">
                                             <div class="symbol symbol-30px me-5 mb-8">
@@ -118,11 +119,13 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                @if ($type == 'order')
                 <div class="col-xl-8 mb-5 mb-xl-10">
                     <div class="row g-5 g-xl-10">
                         <div class="card h-xl-100">
@@ -164,7 +167,9 @@
                         </div>
                     </div>
                 </div>
+                @endif
             </div>
+            @if ($type == 'order')
             <div class="row gy-5 g-xl-10">
                 <div class="col-sm-6 col-xl-2 mb-xl-10">
                     <div class="card h-lg-100">
@@ -287,7 +292,9 @@
                     </div>
                 </div>
             </div>  
+            @endif
             <div class="row g-5 g-xl-10">
+                @if ($type == 'order')
                 <div class="col-xl-4 mb-xl-10">
                     <div class="card h-xl-100">
                         <div class="card-header border-0 pt-5">
@@ -322,6 +329,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
                 <div class="col-xl-8 mb-5 mb-xl-10">
                     <div class="card card-flush h-xl-100">
                         <div class="card-header pt-5">

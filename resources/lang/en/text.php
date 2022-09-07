@@ -103,5 +103,8 @@ return [
    'Address_error' => 'Address field is required',
    'table_error' => 'Please write the table number',
    'notes' => 'Note',
-   // '' => '',
+   'view_cart' => 'View Cart',
+   'back' => 'Back To Shopping',
+   'sorry' => 'Unfortunately, the basket is empty',
+   'check_send' => 'The request has been sent successfully',
 ]; 

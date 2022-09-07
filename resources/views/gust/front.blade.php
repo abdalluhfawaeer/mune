@@ -5,4 +5,5 @@
   @else
   @livewire('theme-two',['name'=>$name,'id'=>$id])
   @endif
+  @stack('scripts')
 </div>

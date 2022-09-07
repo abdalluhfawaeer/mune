@@ -46,7 +46,7 @@
     <center>
     <div class="cards">
         @foreach ($items as $item)
-            <div class="card" wire:click="modal({{ $item->id }})">
+            <div class="card" wire:click="modal({{ $item->id }})" onclick="hideButton()">
                 <div class="letf">
                     <img src="{{ asset('storage/' . $item->img) }}" class="btni">
                 </div>
@@ -61,7 +61,14 @@
             </div>
         @endforeach
     </div>
-</center>
+    </center>
+    <div class="button_cart" wire:ignore>
+        <button class="button_carts">
+            <span id="cart_r" style="float: right;"></span>
+                <a href="/{{ $menu->name }}/{{ $menu->id }}/checkout">{{ __('text.view_cart') }}</a>
+            <span id="cart_l" style="float: left;"></span>
+        </button>
+    </div>
     <div class="footer">
         <b>{{ $menu->name }}</b>
         <br>
@@ -182,8 +189,29 @@
             </button>
         </div>
     </div>
+    @push('scripts')
     <script>
+        fetchCart();
+		function fetchCart() {
+			const cart = JSON.parse(localStorage.getItem('products_'+{{ $menu->id }}));
+			var total = 0;
+            if (cart != null) {
+                if (cart.length > 0) {
+			    $('.button_cart').css('display','block');
+                for (var i = 0; i < cart.length; i++) {
+				    total += cart[i].item_price;
+			    }
+			    $('#cart_r').text(total+' JD');
+			    $('#cart_l').text(cart.length);
+                 } else {
+			        $('.button_cart').css('display','none');
+                }
+            } else {
+                $('.button_cart').css('display','none');
+            }
+		}
         function open_panel($id) {
+            fetchCart();
             var panel = document.getElementById($id);
             var actv = document.getElementById('act_' + $id);
             if (panel.style.display === "block") {
@@ -196,6 +224,7 @@
         }
 
         function close_model() {
+            fetchCart();
             var item_id = $('#notes').val('');
         }
 
@@ -207,19 +236,27 @@
             document.getElementById("navopen").style.display = 'none';    
         }
 
+        function hideButton() {
+            $('.button_cart').css('display','none');
+        }
+
         function addProduct(){
             var required = document.getElementById('required');
             if (required != null) {
                 if (required.value > 0) {
                     if ($('div.checkbox-group.required :radio:checked').length > 0) {
                         pushStore();
+                        @this.close_model();
+                        fetchCart();
                         toastr.success("{{ __('text.sccsses') }}"); 
                     } else {
-                        toastr.error("{{ __('text.required_checkout ') }}");
+                        toastr.error("{{ __('text.required_checkout') }}");
                     }
                 }
             } else {
                 pushStore();
+                @this.close_model();
+                fetchCart();
                 toastr.success("{{ __('text.sccsses') }}"); 
             }
         }
@@ -324,5 +361,6 @@
             }
         });
     </script>
+    @endpush
     <script src="{{ url('front/navopen.js') }}"></script>
 </div>

@@ -186,3 +186,19 @@ body {
         width: 516px;
     }
   }
+  .button_carts {
+    width: 100%;
+    position: fixed;
+    z-index: 10000;
+    bottom: 25px;
+    background-color: #121212;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .button_cart a {
+    text-decoration: none;
+    color: white;
+  }

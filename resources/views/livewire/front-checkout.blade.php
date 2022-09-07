@@ -25,12 +25,12 @@
             <a href="javascript:void(0);" class="icon" onclick="myFunction1()">
               <i class="fa fa-bars"></i>
             </a>
-            <a href="/{{ $menu->name }}/{{ $menu->id }}" class="icon" style="right: 54px;">
+            	<a href="/{{ $menu->name }}/{{ $menu->id }}" class="icon" style="right: 54px;">
                 <i class="fa-sharp fa-solid fa-house"></i>
               </a>
           </div>
     </div>
-    <div class="wrapper">
+    <div class="wrapper" style="display: none">
 		<div class="project">
 			<div class="shop">
 				<div class="box">
@@ -41,6 +41,16 @@
 				<p><span>{{ __('text.total') }}</span> <span id="total">0 JD</span></p>
 				<a href="/{{ $menu->name }}/{{ $menu->id }}/send"><i class="fa fa-shopping-cart"></i>{{ __('text.Checkout') }}</a>
 			</div>
+		</div>
+	</div>
+	<div class="empty">
+		<img src="{{ url('emp1t.png') }}" alt="" width="100%">
+		<center>
+			<h3>{{ __('text.sorry') }}</h3>
+			<br>
+		</center>
+		<div class="right-bar" style="height: 50px">
+			<a href="/{{ $menu->name }}/{{ $menu->id }}"><i class="fa fa-shopping-cart"></i>{{ __('text.back') }}</a>
 		</div>
 	</div>
 	<div class="footer">
@@ -125,9 +135,27 @@
 				localStorage.setItem('products_'+{{ $menu->id }}, JSON.stringify(products));
 			}
 			fetchCart();
+			checkCart();
 		}
 
 		fetchCart();
+		checkCart();
+
+		function checkCart() {
+			const cart = JSON.parse(localStorage.getItem('products_'+{{ $menu->id }}));
+            if (cart != null) {
+				if (cart.length == 0) {
+					$('.wrapper').css('display','none');
+					$('.empty').css('display','block');
+				} else {
+					$('.wrapper').css('display','block');
+					$('.empty').css('display','none');
+				}
+			} else {
+				$('.wrapper').css('display','none');
+				$('.empty').css('display','block');
+			}
+		}
 	</script>
 	<script src="{{ url('front/navopen.js') }}"></script>
 </div>

@@ -63,6 +63,7 @@
         <span class="menu-title">{{ __('text.add_item') }}</span>
     </a>
 </div>
+@if (session()->get('type') == 'order')
 <div class="menu-item">
     <a class="menu-link" href="/menu/order/today"   data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
         <span class="menu-icon">
@@ -102,6 +103,7 @@
         <span class="menu-title">{{ __('text.Customer') }}</span>
     </a>
 </div>
+@endif
 <div class="menu-item">
     <a class="menu-link" href="/click/mune/show" target="_blank"  data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
         <span class="menu-icon">
