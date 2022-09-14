@@ -15,6 +15,9 @@ class OrderDetails extends Component
     public $order_details = [];
     public $order_history = [];
     public $total = 0;
+    public $status_befor = 0; 
+    public $menu = []; 
+
     protected $listeners = ['refreshOrderDetails' => '$refresh'];
 
     public function mount($id) {
@@ -22,6 +25,7 @@ class OrderDetails extends Component
         $this->order = Order::with('customer')->where('id',$id)->first();
         $this->order_details = OrderDetail::where('order_id',$this->order->id)->get();
         $this->order_history = Order::where('customer_id',$this->order->customer->id)->get();
+        $this->menu = Mune::where('id',$this->order->menu_id)->first();
     }
     
     public function render()
@@ -30,8 +34,11 @@ class OrderDetails extends Component
     } 
 
     public function changeStatus($status) {
+        $this->status_befor = $this->order->status;
         Order::where('id',$this->order_id)->update([
-            'status' => $status
+            'status' => $status,
+            'status_befor' => $this->status_befor,
         ]);
+        $this->emit('refreshOrderDetails');
     }
 }

@@ -99,7 +99,12 @@
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab"
                                     href="#kt_ecommerce_add_product_advanced" aria-selected="false" tabindex="-1"
-                                    role="tab">{{ __('text.additions') }}</a>
+                                    role="tab">{{ __('text.add_one_option') }}</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab"
+                                    href="#kt_ecommerce_add_product_advanced_2" aria-selected="false" tabindex="-2"
+                                    role="tab">{{ __('text.add_multiple_option') }}</a>
                             </li>
                         </ul>
                         <div class="tab-content">
@@ -180,407 +185,114 @@
                                             <div class="card-title">
                                                 <h2>{{ __('text.additions') }}</h2>
                                             </div>
+                                            <button class="btn btn-success btn-sm" wire:click.prevent="add({{$i}})" style="height: 40px"><i class="fa-sharp fa-solid fa-plus"></i></button>
                                         </div>
                                         <div class="card-body pt-0">
                                             <div class="">
-                                                <label class="form-label">{{ __('text.add_one_option') }}</label>
                                                 <div id="kt_ecommerce_add_product_options">
-                                                    <div class="form-group">
-                                                        <div data-repeater-list="kt_ecommerce_add_product_options"
-                                                            class="d-flex flex-column gap-3">
-                                                            <div
-                                                                class="form-group d-flex flex-wrap align-items-center gap-5">
-                                                                <div class="w-100 w-md-200px">
-                                                                    <input type="text"
-                                                                        class="form-control mw-100 w-200px"
-                                                                        placeholder="{{ __('text.title_ar') }}" wire:model='title.0'>
-                                                                </div>
-                                                                <div class="w-100 w-md-200px">
-                                                                    <input type="text"
-                                                                        class="form-control mw-100 w-200px"
-                                                                        placeholder="{{ __('text.title_en') }}"
-                                                                        wire:model='title_en.0'>
-                                                                </div>
-                                                                <div class="w-100 w-md-200px">
-                                                                    <select class="form-control form-control-solid"
-                                                                        wire:model.dafer="req.0">
-                                                                        <option value="">{{ __('text.status') }}</option>
-                                                                        <option value="1">{{ __('text.required') }}</option>
-                                                                        <option value="0" selected>{{ __('text.not_required') }}</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group p-5">
-                                                        <div class="d-flex flex-column gap-3">
-                                                            <div
-                                                                class="form-group d-flex flex-wrap align-items-center gap-5">
-                                                                <div class="w-100 w-md-200px">
-                                                                    <input type="text"
-                                                                        class="form-control mw-100 w-200px"
-                                                                        placeholder="{{ __('text.name_ar') }}" wire:model='name.0'>
-                                                                </div>
-                                                                <div class="w-100 w-md-200px">
-                                                                    <input type="text"
-                                                                        class="form-control mw-100 w-200px"
-                                                                        placeholder="{{ __('text.name_en') }}"
-                                                                        wire:model='name_en_a.0'>
-                                                                </div>
-                                                                <div class="w-100 w-md-200px">
-                                                                    <input type="number" step="any"
-                                                                        class="form-control mw-100 w-200px"
-                                                                        placeholder="{{ __('text.Price') }}" wire:model='price_a.0'>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <br>
-                                                        <div class="d-flex flex-column gap-3">
-                                                            <div
-                                                                class="form-group d-flex flex-wrap align-items-center gap-5">
-                                                                <div class="w-100 w-md-200px">
-                                                                    <input type="text"
-                                                                        class="form-control mw-100 w-200px"
-                                                                        placeholder="{{ __('text.name_ar') }}" wire:model='name.1'>
-                                                                </div>
-                                                                <div class="w-100 w-md-200px">
-                                                                    <input type="text"
-                                                                        class="form-control mw-100 w-200px"
-                                                                        placeholder="{{ __('text.name_en') }}"
-                                                                        wire:model='name_en_a.1'>
-                                                                </div>
-                                                                <div class="w-100 w-md-200px">
-                                                                    <input type="number" step="any"
-                                                                        class="form-control mw-100 w-200px"
-                                                                        placeholder="{{ __('text.Price') }}" wire:model='price_a.1'>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <br>
-                                                        <div class="d-flex flex-column gap-3">
-                                                            <div
-                                                                class="form-group d-flex flex-wrap align-items-center gap-5">
-                                                                <div class="w-100 w-md-200px">
-                                                                    <input type="text"
-                                                                        class="form-control mw-100 w-200px"
-                                                                        placeholder="{{ __('text.name_ar') }}" wire:model='name.2'>
-                                                                </div>
-                                                                <div class="w-100 w-md-200px">
-                                                                    <input type="text"
-                                                                        class="form-control mw-100 w-200px"
-                                                                        placeholder="{{ __('text.name_en') }}"
-                                                                        wire:model='name_en_a.2'>
-                                                                </div>
-                                                                <div class="w-100 w-md-200px">
-                                                                    <input type="number" step="any"
-                                                                        class="form-control mw-100 w-200px"
-                                                                        placeholder="{{ __('text.Price') }}" wire:model='price_a.2'>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <br>
-                                                        <div class="d-flex flex-column gap-3">
-                                                            <div
-                                                                class="form-group d-flex flex-wrap align-items-center gap-5">
-                                                                <div class="w-100 w-md-200px">
-                                                                    <input type="text"
-                                                                        class="form-control mw-100 w-200px"
-                                                                        placeholder="{{ __('text.name_ar') }}" wire:model='name.3'>
-                                                                </div>
-                                                                <div class="w-100 w-md-200px">
-                                                                    <input type="text"
-                                                                        class="form-control mw-100 w-200px"
-                                                                        placeholder="{{ __('text.name_en') }}"
-                                                                        wire:model='name_en_a.3'>
-                                                                </div>
-                                                                <div class="w-100 w-md-200px">
-                                                                    <input type="number" step="any"
-                                                                        class="form-control mw-100 w-200px"
-                                                                        placeholder="{{ __('text.Price') }}" wire:model='price_a.3'>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="">
-                                                    <label class="form-label">{{ __('text.add_one_option') }}</label>
-                                                    <div id="kt_ecommerce_add_product_options">
+                                                    @foreach($inputs as $key => $value)
                                                         <div class="form-group">
-                                                            <div
-                                                                class="form-group d-flex flex-wrap align-items-center gap-5">
-                                                                <div class="w-100 w-md-200px">
-                                                                    <input type="text"
-                                                                        class="form-control mw-100 w-200px"
-                                                                        placeholder="{{ __('text.title_ar') }}" wire:model='title.1'>
-                                                                </div>
-                                                                <div class="w-100 w-md-200px">
-                                                                    <input type="number" step="any"
-                                                                        class="form-control mw-100 w-200px"
-                                                                        placeholder="{{ __('text.title_en') }}"
-                                                                        wire:model='title_en.1'>
-                                                                </div>
-                                                                <div class="w-100 w-md-200px">
-                                                                    <select class="form-control form-control-solid"
-                                                                        wire:model.dafer="req.1">
-                                                                        <option value="">{{ __('text.status') }}</option>
-                                                                        <option value="1">{{ __('text.required') }}</option>
-                                                                        <option value="0" selected>{{ __('text.not_required') }}</option>
-                                                                    </select>
+                                                            <div data-repeater-list="kt_ecommerce_add_product_options" class="d-flex flex-column gap-3">
+                                                                <div class="form-group d-flex flex-wrap align-items-center gap-5">
+                                                                    <div class="w-100 w-md-200px">
+                                                                        <input type="text" class="form-control mw-100 w-200px"
+                                                                            placeholder="{{ __('text.title_ar') }}" wire:model='title.{{ $value }}'>
+                                                                    </div>
+                                                                    <div class="w-100 w-md-200px">
+                                                                        <input type="text" class="form-control mw-100 w-200px"
+                                                                            placeholder="{{ __('text.title_en') }}" wire:model='title_en.{{ $value }}'>
+                                                                    </div>
+                                                                    <div class="w-100 w-md-200px">
+                                                                        <select class="form-control form-control-solid" wire:model.dafer="req.{{ $value }}">
+                                                                            <option value="">{{ __('text.status') }}</option>
+                                                                            <option value="1">{{ __('text.required') }}</option>
+                                                                            <option value="0" selected>{{ __('text.not_required') }}</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                        <button class="btn btn-danger btn-sm" wire:click.prevent="remove({{$key}})"><i class="fa-sharp fa-solid fa-trash"></i></button>
+                                                                        <button class="btn btn-success btn-sm" wire:click.prevent="add2({{$key}},{{ $y}})"><i class="fa-sharp fa-solid fa-plus"></i></button>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group p-5">
-                                                            <div class="d-flex flex-column gap-3">
-                                                                <div
-                                                                    class="form-group d-flex flex-wrap align-items-center gap-5">
-                                                                    <div class="w-100 w-md-200px">
-                                                                        <input type="text"
-                                                                            class="form-control mw-100 w-200px"
-                                                                            placeholder="{{ __('text.name_ar') }}" wire:model='name.4'>
+                                                            @if (isset($inputs_a[$key])) 
+                                                                @foreach ($inputs_a[$key] as $key2 => $values)
+                                                                    <div class="d-flex flex-column gap-3">
+                                                                        <div class="form-group d-flex flex-wrap align-items-center gap-5">
+                                                                            <div class="w-100 w-md-200px">
+                                                                                <input type="text" class="form-control mw-100 w-200px"
+                                                                                    placeholder="{{ __('text.name_ar') }}" wire:model='name.{{ $value }}.{{ $values }}'>
+                                                                            </div>
+                                                                            <div class="w-100 w-md-200px">
+                                                                                <input type="text" class="form-control mw-100 w-200px"
+                                                                                    placeholder="{{ __('text.name_en') }}" wire:model='name_en_a.{{ $value }}.{{ $values }}'>
+                                                                            </div>
+                                                                            <div class="w-100 w-md-200px">
+                                                                                <input type="number" step="any" class="form-control mw-100 w-200px"
+                                                                                    placeholder="{{ __('text.Price') }}" wire:model='price_a.{{ $value }}.{{ $values }}'>
+                                                                            </div>
+                                                                            <div class="col-md-2">
+                                                                                <button class="btn btn-danger btn-sm" wire:click.prevent="remove2({{$key2}},{{ $key }})"><i class="fa-sharp fa-solid fa-trash"></i></button>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
-                                                                    <div class="w-100 w-md-200px">
-                                                                        <input type="text"
-                                                                            class="form-control mw-100 w-200px"
-                                                                            placeholder="{{ __('text.name_en') }}"
-                                                                            wire:model='name_en_a.4'>
-                                                                    </div>
-                                                                    <div class="w-100 w-md-200px">
-                                                                        <input type="number" step="any"
-                                                                            class="form-control mw-100 w-200px"
-                                                                            placeholder="{{ __('text.Price') }}"
-                                                                            wire:model='price_a.4'>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <br>
-                                                            <div class="d-flex flex-column gap-3">
-                                                                <div
-                                                                    class="form-group d-flex flex-wrap align-items-center gap-5">
-                                                                    <div class="w-100 w-md-200px">
-                                                                        <input type="text"
-                                                                            class="form-control mw-100 w-200px"
-                                                                            placeholder="{{ __('text.name_ar') }}" wire:model='name.5'>
-                                                                    </div>
-                                                                    <div class="w-100 w-md-200px">
-                                                                        <input type="text"
-                                                                            class="form-control mw-100 w-200px"
-                                                                            placeholder="{{ __('text.name_en') }}"
-                                                                            wire:model='name_en_a.5'>
-                                                                    </div>
-                                                                    <div class="w-100 w-md-200px">
-                                                                        <input type="number" step="any"
-                                                                            class="form-control mw-100 w-200px"
-                                                                            placeholder="{{ __('text.Price') }}"
-                                                                            wire:model='price_a.5'>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <br>
-                                                            <div class="d-flex flex-column gap-3">
-                                                                <div
-                                                                    class="form-group d-flex flex-wrap align-items-center gap-5">
-                                                                    <div class="w-100 w-md-200px">
-                                                                        <input type="text"
-                                                                            class="form-control mw-100 w-200px"
-                                                                            placeholder="{{ __('text.name_ar') }}" wire:model='name.6'>
-                                                                    </div>
-                                                                    <div class="w-100 w-md-200px">
-                                                                        <input type="text"
-                                                                            class="form-control mw-100 w-200px"
-                                                                            placeholder="{{ __('text.name_en') }}"
-                                                                            wire:model='name_en_a.6'>
-                                                                    </div>
-                                                                    <div class="w-100 w-md-200px">
-                                                                        <input type="number" step="any"
-                                                                            class="form-control mw-100 w-200px"
-                                                                            placeholder="{{ __('text.Price') }}"
-                                                                            wire:model='price_a.6'>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <br>
-                                                            <div class="d-flex flex-column gap-3">
-                                                                <div
-                                                                    class="form-group d-flex flex-wrap align-items-center gap-5">
-                                                                    <div class="w-100 w-md-200px">
-                                                                        <input type="text"
-                                                                            class="form-control mw-100 w-200px"
-                                                                            placeholder="{{ __('text.name_ar') }}" wire:model='name.7'>
-                                                                    </div>
-                                                                    <div class="w-100 w-md-200px">
-                                                                        <input type="text"
-                                                                            class="form-control mw-100 w-200px"
-                                                                            placeholder="{{ __('text.name_en') }}"
-                                                                            wire:model='name_en_a.7'>
-                                                                    </div>
-                                                                    <div class="w-100 w-md-200px">
-                                                                        <input type="number" step="any"
-                                                                            class="form-control mw-100 w-200px"
-                                                                            placeholder="{{ __('text.Price') }}"
-                                                                            wire:model='price_a.7'>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                                    <br>
+                                                                @endforeach
+                                                            @endif
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="">
-                                                    <label class="form-label">{{ __('text.add_one_option') }}</label>
-                                                    <div id="kt_ecommerce_add_product_options">
-                                                        <div class="form-group">
-                                                            <div
-                                                                class="form-group d-flex flex-wrap align-items-center gap-5">
-                                                                <div class="w-100 w-md-200px">
-                                                                    <input type="text"
-                                                                        class="form-control mw-100 w-200px"
-                                                                        placeholder="{{ __('text.title_ar') }}" wire:model='title.2'>
-                                                                </div>
-                                                                <div class="w-100 w-md-200px">
-                                                                    <input type="text"
-                                                                        class="form-control mw-100 w-200px"
-                                                                        placeholder="{{ __('text.title_en') }}"
-                                                                        wire:model='title_en.2'>
-                                                                </div>
-                                                                <div class="w-100 w-md-200px">
-                                                                    <select class="form-control form-control-solid"
-                                                                        wire:model.dafer="req.2">
-                                                                        <option value="">{{ __('text.status') }}</option>
-                                                                        <option value="1">{{ __('text.required') }}</option>
-                                                                        <option value="0" selected>{{ __('text.not_required') }}</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group p-5">
-                                                            <div
-                                                                class="form-group d-flex flex-wrap align-items-center gap-5">
-                                                                <div class="w-100 w-md-200px">
-                                                                    <input type="text"
-                                                                        class="form-control mw-100 w-200px"
-                                                                        placeholder="{{ __('text.name_ar') }}" wire:model='name.8'>
-                                                                </div>
-                                                                <div class="w-100 w-md-200px">
-                                                                    <input type="text"
-                                                                        class="form-control mw-100 w-200px"
-                                                                        placeholder="{{ __('text.name_en') }}"
-                                                                        wire:model='name_en_a.8'>
-                                                                </div>
-                                                                <div class="w-100 w-md-200px">
-                                                                    <input type="number" step="any" step="any"
-                                                                        class="form-control mw-100 w-200px"
-                                                                        placeholder="{{ __('text.Price') }}" wire:model='price_a.8' >
-                                                                </div>
-                                                            </div>
-                                                            <br>
-                                                            <div
-                                                                class="form-group d-flex flex-wrap align-items-center gap-5">
-                                                                <div class="w-100 w-md-200px">
-                                                                    <input type="text"
-                                                                        class="form-control mw-100 w-200px"
-                                                                        placeholder="{{ __('text.name_ar') }}" wire:model='name.9'>
-                                                                </div>
-                                                                <div class="w-100 w-md-200px">
-                                                                    <input type="text"
-                                                                        class="form-control mw-100 w-200px"
-                                                                        placeholder="{{ __('text.name_en') }}"
-                                                                        wire:model='name_en_a.9'>
-                                                                </div>
-                                                                <div class="w-100 w-md-200px">
-                                                                    <input type="number" step="any"
-                                                                        class="form-control mw-100 w-200px"
-                                                                        placeholder="{{ __('text.Price') }}" wire:model='price_a.9'>
-                                                                </div>
-                                                            </div>
-                                                            <br>
-                                                            <div class="d-flex flex-column gap-3">
-                                                                <div
-                                                                    class="form-group d-flex flex-wrap align-items-center gap-5">
-                                                                    <div class="w-100 w-md-200px">
-                                                                        <input type="text"
-                                                                            class="form-control mw-100 w-200px"
-                                                                            placeholder="{{ __('text.name_ar') }}"
-                                                                            wire:model='name.10'>
-                                                                    </div>
-                                                                    <div class="w-100 w-md-200px">
-                                                                        <input type="text"
-                                                                            class="form-control mw-100 w-200px"
-                                                                            placeholder="{{ __('text.name_en') }}"
-                                                                            wire:model='name_en_a.10'>
-                                                                    </div>
-                                                                    <div class="w-100 w-md-200px">
-                                                                        <input type="number" step="any"
-                                                                            class="form-control mw-100 w-200px"
-                                                                            placeholder="{{ __('text.Price') }}"
-                                                                            wire:model='price_a.10'>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <br>
-                                                            <div class="d-flex flex-column gap-3">
-                                                                <div
-                                                                    class="form-group d-flex flex-wrap align-items-center gap-5">
-                                                                    <div class="w-100 w-md-200px">
-                                                                        <input type="text"
-                                                                            class="form-control mw-100 w-200px"
-                                                                            placeholder="{{ __('text.name_ar') }}"
-                                                                            wire:model='name.11'>
-                                                                    </div>
-                                                                    <div class="w-100 w-md-200px">
-                                                                        <input type="text"
-                                                                            class="form-control mw-100 w-200px"
-                                                                            placeholder="{{ __('text.name_en') }}"
-                                                                            wire:model='name_en_a.11'>
-                                                                    </div>
-                                                                    <div class="w-100 w-md-200px">
-                                                                        <input type="number" step="any"
-                                                                            class="form-control mw-100 w-200px"
-                                                                            placeholder="{{ __('text.Price') }}"
-                                                                            wire:model='price_a.11'>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="">
-                                                        <label class="form-label">{{ __('text.add_multiple_option') }}</label>
-                                                        <div id="kt_ecommerce_add_product_options">
-                                                            <div class="form-group p-5">
-                                                                @for ($i =0 ;$i<=15;$i++)
-                                                                <div
-                                                                    class="form-group d-flex flex-wrap align-items-center gap-5">
-                                                                    <div class="w-100 w-md-200px">
-                                                                        <input type="text"
-                                                                            class="form-control mw-100 w-200px"
-                                                                            placeholder="{{ __('text.name_ar') }}" wire:model='adds_name.{{ $i }}'>
-                                                                    </div>
-                                                                    <div class="w-100 w-md-200px">
-                                                                        <input type="text"
-                                                                            class="form-control mw-100 w-200px"
-                                                                            placeholder="{{ __('text.name_en') }}"
-                                                                            wire:model='adds_name_en.{{ $i }}'>
-                                                                    </div>
-                                                                    <div class="w-100 w-md-200px">
-                                                                        <input type="number" step="any"
-                                                                            class="form-control mw-100 w-200px"
-                                                                            placeholder="{{ __('text.Price') }}"
-                                                                            wire:model='adds_price.{{ $i }}'>
-                                                                    </div>
-                                                                </div>
-                                                                <br>
-                                                                @endfor
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
+                                                        <br>
+                                                    @endforeach
                                                 </div>
                                             </div>
                                         </div>
 
                                     </div>
                                 </div>
-                                @if (session()->has('message'))
+                                
+                                <div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="kt_ecommerce_add_product_advanced_2" role="tab-panel"
+                                wire:ignore.self>
+                                <div class="d-flex flex-column gap-7 gap-lg-10">
+                                    <div class="card card-flush py-4">
+                                        <div class="card-header">
+                                            <div class="card-title">
+                                                <h2>{{ __('text.add_multiple_option') }}</h2>
+                                            </div>
+                                        </div>
+                                        <div class="card-body pt-0">
+                                            <div class="">
+                                                <div id="kt_ecommerce_add_product_options">
+                                                    <div class="form-group p-5">
+                                                        @for ($i =0 ;$i<=30;$i++) <div class="form-group d-flex flex-wrap align-items-center gap-5">
+                                                            <div class="w-100 w-md-200px">
+                                                                <input type="text" class="form-control mw-100 w-200px"
+                                                                    placeholder="{{ __('text.name_ar') }}" wire:model='adds_name.{{ $i }}'>
+                                                            </div>
+                                                            <div class="w-100 w-md-200px">
+                                                                <input type="text" class="form-control mw-100 w-200px"
+                                                                    placeholder="{{ __('text.name_en') }}" wire:model='adds_name_en.{{ $i }}'>
+                                                            </div>
+                                                            <div class="w-100 w-md-200px">
+                                                                <input type="number" step="any" class="form-control mw-100 w-200px"
+                                                                    placeholder="{{ __('text.Price') }}" wire:model='adds_price.{{ $i }}'>
+                                                            </div>
+                                                    </div>
+                                                    <br>
+                                                    @endfor
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div>
+                                </div>
+                            </div>
+                            @if (session()->has('message'))
                                     <script>
                                         toastr.options = {
                                             "closeButton": true,
@@ -603,9 +315,6 @@
                                         toastr.success("{{ session('message') }}");
                                     </script>
                                 @endif
-                                <div>
-                                </div>
-                            </div>
                         </div>
                         <br>
                     </div>

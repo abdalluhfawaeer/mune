@@ -38,6 +38,10 @@ class EditItem extends Component
     public $adds_name = [];
     public $adds_name_en = [];
     public $adds_price = [];
+    public $inputs = [];
+    public $inputs_a = [];
+    public $i = 0;
+    public $y = 0;
 
     protected $rules = [
         'name_ar' => 'required',
@@ -45,6 +49,32 @@ class EditItem extends Component
         'cat' => 'required',
         'price' => 'required',
     ];
+
+    public function add($i)
+    {
+        $i = $i + 1;
+        $this->i = $i;
+        array_push($this->inputs ,$i);
+    }
+
+    public function add2($key,$y)
+    {
+        $y = $y + 1;
+        $this->y = $y;
+        $this->inputs_a[$key][] = $y;
+    }
+
+    public function remove($i)
+    {
+        unset($this->inputs[$i]);
+        $i = $i + 1;
+        unset($this->title[$i]);
+    }
+
+    public function remove2($key ,$ke)
+    {
+        unset($this->inputs_a[$ke][$key]);
+    }
 
     public function mount($item_id) {
         $this->menu = Mune::with('user')->where('user_id',Auth()->user()->id)->first();
@@ -62,14 +92,16 @@ class EditItem extends Component
         $this->item_id = $item_id;
         $variation = Variation::with('variations_adds')->where('item_id',$item_id)->get();
         $adds = Add::where('item_id',$item_id)->get();
-        foreach ($variation as $value) {
+        foreach ($variation as $key => $value) {
+            $this->add($this->i);
             $this->title[$value->sort] = $value->title_ar;
             $this->title_en[$value->sort] = $value->title_en;
             $this->req[$value->sort] = $value->req;
-            foreach ($value->variations_adds as $add) {
-                $this->name[$add->sort] = $add->title_ar;
-                $this->name_en_a[$add->sort] = $add->title_en;
-                $this->price_a[$add->sort] = $add->price;
+            foreach ($value->variations_adds as $v => $add) {
+                $this->add2($value->sort,$this->y);
+                $this->name[$value->sort][$this->y] = $add->title_ar;
+                $this->name_en_a[$value->sort][$this->y] = $add->title_en;
+                $this->price_a[$value->sort][$this->y] = $add->price;
             }
         }
         foreach ($adds as $value) {
@@ -104,57 +136,29 @@ class EditItem extends Component
         Variation::where('item_id',$this->item_id)->delete();
         Add::where('item_id',$this->item_id)->delete();
         VariationsAdd::whereIn('variations_id',$ids)->delete();
+        $sort = 1;
         foreach ($this->title as $key => $value) {
             $variation_id = Variation::create([
                 'title_ar' => $this->title[$key] ?? '',
                 'title_en'=> $this->title_en[$key] ?? '',
-                'req' => $this->req[$key] ?? '',
-                'sort' => $key,
+                'req' => $this->req[$key] ?? 0,
+                'sort' => $sort,
                 'item_id' => $item_id
             ])->id;
-
-            if ($key == 0) {
-                for($i=0 ; $i <= 3; $i++) {
-                    if (!empty($this->name[$i])) {
-                        VariationsAdd::create([
-                            'title_ar' => $this->name[$i] ?? '',
-                            'title_en' => $this->name_en_a[$i] ?? '',
-                            'price' => $this->price_a[$i] ?? '',
-                            'sort' => $i,
-                            'variations_id' => $variation_id
-                        ]);
-                    }
+            $sort = $sort + 1;
+            if (!empty($this->name[$key])) {
+                foreach ($this->name[$key] as $v => $name ) {
+                    VariationsAdd::create([
+                        'title_ar' => $this->name[$key][$v] ?? '',
+                        'title_en' => $this->name_en_a[$key][$v] ?? '',
+                        'price' => $this->price_a[$key][$v] ?? 0,
+                        'sort' => 0,
+                        'variations_id' => $variation_id
+                    ]);
                 }
             }
-            
-            if ($key == 1) {
-                for($i=4 ; $i <= 7 ;$i++) {
-                    if (!empty($this->name[$i])) {
-                        VariationsAdd::create([
-                            'title_ar' => $this->name[$i] ?? 0,
-                            'title_en' => $this->name_en_a[$i] ?? 0,
-                            'price' => $this->price_a[$i] ?? 0,
-                            'sort' => $i,
-                            'variations_id' => $variation_id
-                        ]);
-                    }
-                }
-            } 
-
-            if ($key == 2) {
-                for($i = 8 ; $i <= 11 ; $i++) {
-                    if (!empty($this->name[$i])) {
-                        VariationsAdd::create([
-                            'title_ar' => $this->name[$i] ?? 0,
-                            'title_en' => $this->name_en_a[$i] ?? 0,
-                            'price' => $this->price_a[$i] ?? 0,
-                            'sort' => $i,
-                            'variations_id' => $variation_id
-                        ]);
-                    }
-                }
-            } 
         }
+
         for($i = 0 ; $i <= 15 ; $i++) {
             if (!empty($this->adds_name[$i])) {
                 Add::create([

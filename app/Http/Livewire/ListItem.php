@@ -63,6 +63,9 @@ class ListItem extends Component
     }
 
     public function delete($id) {
-        Item::where('id',$id)->delete();
+        $status = Item::where('id',$id)->first()->staus;
+        Item::where('id',$id)->update([
+            'staus' => ($status == 'not_active') ? 'active' : 'not_active',
+        ]);
     }
 }

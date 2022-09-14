@@ -57,10 +57,12 @@
                                             </div>
                                             <div class="position-relative w-md-400px me-md-2">
                                                 <select class="form-control form-control-solid ps-10" wire:model="type">
-                                                    <option value="" selected>{{ __('text.type') }}</option>
-                                                    <option value="delvairy">{{ __('text.Delivery') }}</option>
-                                                    <option value="table">{{ __('text.from_the_table') }}</option>
-                                                    <option value="from_restaurant">{{ __('text.restaurant') }}</option>
+                                                    <option value="" selected>{{ __('text.status') }}</option>
+                                                        <option value="Cancel">{{ __('text.Cancel') }}</option>
+                                                        <option value="Complete">{{ __('text.Complete') }}</option>
+                                                        <option value="new">{{ __('text.new') }}</option>
+                                                        <option value="Received">{{ __('text.Received') }}</option>
+                                                        <option value="WithCaptain">{{ __('text.WithCaptain') }}</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -114,12 +116,16 @@
                                                             @endif
                                                         </td>
                                                         <td data-kt-ecommerce-order-filter="order_id">
-                                                            @if ($item->status == 'confirmed')
-                                                                    <a class="badge badge-light-success">{{ __('text.confirmed') }}</a>
-                                                                @elseif($item->status == 'cancelled')
-                                                                    <a class="badge badge-light-danger">{{ __('text.cancelled') }}</a>
-                                                                @else
-                                                                    <a class="badge badge-light-info">{{ __('text.new') }}</a>
+                                                            @if ($item->status == 'Cancel')
+                                                                    <a class="badge badge-light-danger">{{ __('text.Cancel') }}</a>
+                                                                @elseif($item->status == 'Complete')
+                                                                    <a class="badge badge-light-success">{{ __('text.Complete') }}</a>
+                                                                @elseif($item->status == 'new')
+                                                                    <a class="badge badge-light-primary">{{ __('text.new') }}</a>
+                                                                @elseif($item->status == 'Received')
+                                                                    <a class="badge badge-light-info">{{ __('text.Received') }}</a>
+                                                                @elseif($item->status == 'WithCaptain')
+                                                                    <a class="badge badge-light-warning">{{ __('text.WithCaptain') }}</a>
                                                                 @endif
                                                         </td>
                                                         <td data-kt-ecommerce-order-filter="order_id">

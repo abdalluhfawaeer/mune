@@ -13,6 +13,7 @@
 		<link href="{{ url('plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
 		<link href="{{ url('css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
 		<link href="{{ url('plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css"/>
+		<script src="https://kit.fontawesome.com/187117d8c3.js" crossorigin="anonymous"></script>
 		<script src="{{ url('plugins/global/plugins.bundle.js') }}"></script>
 		@livewireStyles
 	</head>

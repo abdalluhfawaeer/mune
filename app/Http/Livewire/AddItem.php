@@ -37,6 +37,11 @@ class AddItem extends Component
     public $adds_name_en = [];
     public $adds_price = [];
 
+    public $inputs = [];
+    public $inputs_a = [];
+    public $i = 0;
+    public $y = 0;
+
     protected $rules = [
         'name_ar' => 'required',
         'name_en' => 'required',
@@ -45,9 +50,35 @@ class AddItem extends Component
         'photo' => 'required',
     ];
 
+    public function add($i)
+    {
+        $i = $i + 1;
+        $this->i = $i;
+        array_push($this->inputs ,$i);
+    }
+
+    public function add2($key,$y)
+    {
+        $y = $y + 1;
+        $this->y = $y;
+        $this->inputs_a[$key][] = $y;
+    }
+
+    public function remove($i)
+    {
+        unset($this->inputs[$i]);
+        $i = $i + 1;
+        unset($this->title[$i]);
+    }
+
+    public function remove2($key ,$ke)
+    {
+        unset($this->inputs_a[$ke][$key]);
+    }
+
     public function mount() {
         $this->menu = Mune::with('user')->where('user_id',Auth()->user()->id)->first();
-        $this->category = Category::where('menu_id',$this->menu->id)->get();
+        $this->category = Category::where('menu_id',$this->menu->id)->where('staus','active')->get();
     }
 
     public function save() {
@@ -66,57 +97,28 @@ class AddItem extends Component
             'price' => $this->price,
             'cat_id' => $this->cat,
         ])->id;
+        $sort = 1;
 
         foreach ($this->title as $key => $value) {
             $variation_id = Variation::create([
-                'title_ar' => $this->title[$key] ?? 0,
-                'title_en'=> $this->name_en_a[$key] ?? 0,
+                'title_ar' => $this->title[$key] ?? '',
+                'title_en'=> $this->title_en[$key] ?? '',
                 'req' => $this->req[$key] ?? 0,
-                'sort' => $key,
+                'sort' => $sort,
                 'item_id' => $item_id
             ])->id;
-
-            if ($key == 0) {
-                for($i=0 ; $i <= 3; $i++) {
-                    if (!empty($this->name[$i])) {
-                        VariationsAdd::create([
-                            'title_ar' => $this->name[$i] ?? 0,
-                            'title_en' => $this->name_en_a[$i] ?? 0,
-                            'price' => $this->price_a[$i] ?? 0,
-                            'sort' => $i,
-                            'variations_id' => $variation_id
-                        ]);
-                    }
+            $sort = $sort + 1;
+            if (!empty($this->name[$key])) {
+                foreach ($this->name[$key] as $v => $name ) {
+                    VariationsAdd::create([
+                        'title_ar' => $this->name[$key][$v] ?? '',
+                        'title_en' => $this->name_en_a[$key][$v] ?? '',
+                        'price' => $this->price_a[$key][$v] ?? 0,
+                        'sort' => 0,
+                        'variations_id' => $variation_id
+                    ]);
                 }
             }
-            
-            if ($key == 1) {
-                for($i=4 ; $i <= 7 ;$i++) {
-                    if (!empty($this->name[$i])) {
-                        VariationsAdd::create([
-                            'title_ar' => $this->name[$i] ?? 0,
-                            'title_en' => $this->name_en_a[$i] ?? 0,
-                            'price' => $this->price_a[$i] ?? 0,
-                            'sort' => $i,
-                            'variations_id' => $variation_id
-                        ]);
-                    }
-                }
-            } 
-
-            if ($key == 2) {
-                for($i = 8 ; $i <= 11 ; $i++) {
-                    if (!empty($this->name[$i])) {
-                        VariationsAdd::create([
-                            'title_ar' => $this->name[$i] ?? 0,
-                            'title_en' => $this->name_en_a[$i] ?? 0,
-                            'price' => $this->price_a[$i] ?? 0,
-                            'sort' => $i,
-                            'variations_id' => $variation_id
-                        ]);
-                    }
-                }
-            } 
         }
 
         for($i = 0 ; $i <= 15 ; $i++) {
@@ -151,5 +153,7 @@ class AddItem extends Component
             'name_en_a',
             'req',
         ]);
+        $this->inputs = [];
+        $this->inputs_a = [];
     }
 }

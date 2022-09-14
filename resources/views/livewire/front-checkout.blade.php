@@ -1,10 +1,11 @@
 <div>
-	<div class="top-container">
+	<div class="top-container animate__animated animate__backInDown">
         <div class="l">
             <a href="/{{ $menu->name }}/{{ $menu->id }}" class="link"><i class="fa-sharp fa-solid fa-house"></i></a>
         </div>
         <center>
-            <img class="logo" src="{{ asset('storage/' . $menu->logo) }}" alt="">
+            <img class="logo" src="{{ asset('storage/' . $menu->logo) }}" style="width: 150px;
+			height: 100px;">
             <p class="desc">{{ $menu->name }}</p>
             <p class="desc" style="opacity: 0.6;">{{ $menu->desc }}</p>
         </center>
@@ -30,7 +31,7 @@
               </a>
           </div>
     </div>
-    <div class="wrapper" style="display: none">
+    <div class="wrapper animate__animated animate__backInLeft" style="display: none">
 		<div class="project">
 			<div class="shop">
 				<div class="box">
@@ -53,7 +54,7 @@
 			<a href="/{{ $menu->name }}/{{ $menu->id }}"><i class="fa fa-shopping-cart"></i>{{ __('text.back') }}</a>
 		</div>
 	</div>
-	<div class="footer">
+	<div class="footer animate__animated animate__backInUp">
         <b>{{ $menu->name }}</b>
         <br>
         <br>

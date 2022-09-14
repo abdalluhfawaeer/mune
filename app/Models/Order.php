@@ -49,6 +49,7 @@ class Order extends Model
 		'customer_id',
 		'table_number',
 		'address',
+		'status_befor'
 	];
 
 	public function customer()

@@ -85,20 +85,20 @@ class AddMune extends Component
             'start_date' => $this->start_date,
             'end_date' => $this->end_date,
             'user_id' => $id,
-            'currint_user' => Auth()->id(),
             'desc' => '',
             'qr_code' => 'qr', 
         ])->id;
 
         if ($this->id_m == 0) {
+            Mune::where('id',$menu_id)->update(['currint_user' => Auth()->id()]);
             \QrCode::size(500)
                 ->format('png')
                 ->generate('menuface.com/'.$this->product_name.'/'.$menu_id, public_path('qrcode/qrcode_'.$menu_id.'.png'));
+        
+            Mune::where('id',$menu_id)->update([
+                'qr_code' => 'qrcode_'.$menu_id.'.png',
+            ]); 
         }
-
-        Mune::where('id',$menu_id)->update([
-            'qr_code' => 'qrcode_'.$menu_id.'.png',
-        ]);
 
         Addition::updateOrCreate(['menu_id' => $menu_id],[
             'theme' => $this->theme,

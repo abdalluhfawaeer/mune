@@ -1,5 +1,5 @@
 <div>
-    <div class="top-container">
+    <div class="top-container animate__animated animate__backInDown" >
         <div class="l">
             <a href="/{{ $menu->name }}/{{ $menu->id }}/checkout" class="link"><i class="fa-solid fa-cart-shopping"></a></i>
         </div>
@@ -30,7 +30,7 @@
               </a>
           </div>
     </div>
-    <div class="category">
+    <div class="category animate__animated animate__backInRight">
         @foreach ($category as $cat)
             <div class="cat" wire:click="item({{ $cat->id }})" >
                 <img src="{{ asset('storage/' . $cat->img) }}" class="btni">
@@ -69,7 +69,7 @@
             <span id="cart_l" style="float: left;"></span>
         </button>
     </div>
-    <div class="footer">
+    <div class="footer animate__animated animate__backInUp">
         <b>{{ $menu->name }}</b>
         <br>
         <br>
@@ -163,7 +163,7 @@
                 <label>
                     <input type="checkbox" name="adds" id="add_v" value="{{ $add->price }}" id_v="{{ $add->id }}" title="{{ $add->name_ar }}" onclick="ShowHideDiv(this)">
                     <span class="design"></span>
-                    <span class="text" style="opacity: 0.6; width:100%" id="add_{{ $v->id }}">
+                    <span class="text" style="opacity: 0.6; width:100%" id="add_{{ $add->id }}">
                         <span style="float: right;">{{ $add->price }} JD</span>
                         <span style="float: left;">{{ $add->name_ar }}</span>
                     </span>
@@ -244,7 +244,7 @@
             var required = document.getElementById('required');
             if (required != null) {
                 if (required.value > 0) {
-                    if ($('div.checkbox-group.required :radio:checked').length > 0) {
+                    if ($('*div.checkbox-group.required :radio:checked').length > 0) {
                         pushStore();
                         @this.close_model();
                         fetchCart();
