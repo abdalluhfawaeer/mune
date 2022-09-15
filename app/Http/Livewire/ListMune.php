@@ -22,6 +22,8 @@ class ListMune extends Component
     public $sales = '';
     public $type = '';
     public $user_sales  = [];
+    public $country = '';
+    public $state = '';
 
     protected $paginationTheme = 'bootstrap';
 
@@ -91,7 +93,19 @@ class ListMune extends Component
             $list = $list->whereBetween('end_date',[$this->start_date,$this->end_date]);
         }
 
-        $list = $list->paginate(10);
+        if (!empty($this->country)) {
+            $list = $list->whereHas('user',function ($q) {
+                $q->where('country', 'like', '%' . $this->country . '%'); 
+            });
+        }
+
+        if (!empty($this->state)) {
+            $list = $list->whereHas('user',function ($q) {
+                $q->where('state', 'like', '%' . $this->state . '%'); 
+            });
+        }
+
+        $list = $list->orderBy('id','DESC')->paginate(10);
         $this->resetPage();
         return  $list;
     }

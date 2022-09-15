@@ -54,13 +54,19 @@
                                                         <option value="not_active">{{ __('text.not_active') }}</option>
                                                     </select>
                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card mb-7">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
                                             <div class="position-relative w-md-400px me-md-2">
                                                 <select class="form-control form-control-solid ps-10" wire:model="type">
                                                     <option value="" selected>{{ __('text.type') }}</option>
                                                     <option value="order">order</option>
                                                     <option value="viwe" selected>view</option>
                                                 </select>
-                                        </div>
+                                            </div>
                                             @if (auth()->user()->role == 'admin')
                                             <div class="position-relative w-md-400px me-md-2">
                                                 <select class="form-control form-control-solid ps-10" wire:model="sales">
@@ -73,6 +79,9 @@
                                             @endif
                                             <div class="position-relative w-md-400px me-md-2">
                                                 <x-date-filter />
+                                            </div>
+                                            <div class="position-relative w-md-400px me-md-2" wire:ignore>
+                                                <x-contray country='JO'/>
                                             </div>
                                         </div>
                                     </div>
@@ -98,6 +107,7 @@
                                                         <th>theme</th>
                                                         <th>{{ __('text.type') }}</th>
                                                         <th>{{ __('text.Price') }}</th>
+                                                        <th>{{ __('text.country') }}</th>
                                                         <th>{{ __('text.By') }}</th>
                                                         <th></th>
                                                     </tr>
@@ -140,9 +150,12 @@
                                                             <a class="text-gray-800 text-hover-primary fs-5 fw-bold">{{ $item->price }}JD</a>
                                                         </td>
                                                         <td data-kt-ecommerce-order-filter="order_id">
+                                                            <a class="text-gray-800 text-hover-primary fs-5 fw-bold">{{ $item->user->country }} - {{ $item->user->state }}</a>
+                                                        </td>
+                                                        <td data-kt-ecommerce-order-filter="order_id">
                                                             <a class="text-gray-800 text-hover-primary fs-5 fw-bold">{{ $this->currintUser($item->currint_user) }}</a>
                                                         </td>
-                                                        <td class="text-end d-flex">
+                                                        <td class="d-flex">
                                                             <a href="/{{ $item->name }}/{{ $item->id }}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" target="blank">
                                                                 <span class="svg-icon svg-icon-3">
                                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -151,6 +164,7 @@
                                                                     </svg>
                                                                 </span>
                                                             </a>
+                                                            @if (auth()->user()->role == 'admin')
                                                             <a href="/mune/edit/{{ $item->id }}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
                                                                 <span class="svg-icon svg-icon-3">
                                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -159,7 +173,6 @@
                                                                     </svg>
                                                                 </span>
                                                             </a>
-                                                            @if (auth()->user()->role == 'admin')
                                                             <a href="#" wire:click="delete({{ $item->id }})" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
                                                                 <span class="svg-icon svg-icon-3">
                                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

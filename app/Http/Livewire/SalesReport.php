@@ -21,6 +21,8 @@ class SalesReport extends Component
     public $start_date = '';
     public $end_date = '';
     public $currint_user = [];
+    public $country = '';
+    public $state = '';
 
     public function render()
     {
@@ -33,6 +35,8 @@ class SalesReport extends Component
             'users.name',
             'users.mobile',
             'users.staus',
+            'users.country',
+            'users.state',
             DB::raw('count(CASE WHEN  mune.staus = "active" THEN mune.id END) as count_avtive'),
             DB::raw('count(CASE WHEN mune.staus = "not_active" THEN mune.id END) as count_not'),
             DB::raw('sum(CASE WHEN mune.staus = "active" THEN mune.price ELSE 0 END) as total'),
@@ -58,7 +62,15 @@ class SalesReport extends Component
             $user = $user->whereBetween('mune.created_at',[$this->start_date,$this->end_date]);
         }
 
-        $user = $user->where('role','sales')->groupBy('users.id')->paginate(10);
+        if (!empty($this->country)) {
+            $user = $user->where('users.country', 'like', '%' . $this->country . '%');
+        }
+
+        if (!empty($this->state)) {
+            $user = $user->where('users.state', 'like', '%' . $this->state . '%');
+        }
+
+        $user = $user->where('role','sales')->groupBy('users.id')->orderBy('users.id','DESC')->paginate(10);
         $this->resetPage();
         return  $user;
     }

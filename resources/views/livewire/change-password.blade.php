@@ -4,7 +4,7 @@
             <div data-kt-swapper="true" data-kt-swapper-mode="prepend"
                 data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
                 class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
-                <h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">{{ __('text.sales') }}
+                <h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">{{ __('text.changepassword') }}
                     <span class="h-20px border-1 border-gray-200 border-start ms-3 mx-2 me-1"></span>
                 </h1>
             </div>
@@ -22,51 +22,41 @@
                                 <div class="card card-flush py-4">
                                     <div class="card-header">
                                         <div class="card-title">
-                                            <h2>General</h2>
+                                            <h2>{{ __('text.changepassword') }}</h2>
                                         </div>
                                     </div>
                                     <div class="card-body pt-0">
                                         <div class="mb-10 fv-row fv-plugins-icon-container">
-                                            <label class="required form-label">{{ __('text.Email') }}</label>
-                                            <input type="email" name="{{ __('text.Email') }}" class="form-control mb-2"
-                                                placeholder="{{ __('text.Email') }}" wire:model.dafer="email">
+                                            <label class="required form-label">{{ __('text.old_password') }}</label>
+                                            <input type="text" class="form-control mb-2"
+                                                placeholder="{{ __('text.old_password') }}" wire:model.dafer="old_password">
                                             <br>
-                                            @error('email')
+                                            @error('old_password')
                                                 <span class="alert alert-danger" role="alert">{{ $message }}</span>
                                             @enderror
                                         </div>
+                                    </div>
+                                    <div class="card-body pt-0">
                                         <div class="mb-10 fv-row fv-plugins-icon-container">
-                                            <label class="required form-label">{{ __('text.name') }}</label>
-                                            <input type="name" name="{{ __('text.name') }}" class="form-control mb-2"
-                                                placeholder="{{ __('text.name') }}" wire:model.dafer="name">
+                                            <label class="required form-label">{{ __('text.newPassword') }}</label>
+                                            <input type="text"  class="form-control mb-2"
+                                                placeholder="{{ __('text.newPassword') }}" wire:model.dafer="new_password">
                                             <br>
-                                            @error('name')
+                                            @error('new_password')
                                                 <span class="alert alert-danger" role="alert">{{ $message }}</span>
                                             @enderror
                                         </div>
+                                    </div>
+                                    <div class="card-body pt-0">
                                         <div class="mb-10 fv-row fv-plugins-icon-container">
-                                            <label class="required form-label">{{ __('text.Mobile') }}</label>
-                                            <input type="text" name="{{ __('text.Mobile') }}" class="form-control mb-2"
-                                                placeholder="Mobile" wire:model.dafer="mobile">
+                                            <label class="required form-label">{{ __('text.confirmedPassword') }}</label>
+                                            <input type="text"  class="form-control mb-2"
+                                                placeholder="{{ __('text.confirmedPassword') }}" wire:model.dafer="new_password_confirmation">
                                             <br>
-                                            @error('mobile')
+                                            @error('new_password_confirmation')
                                                 <span class="alert alert-danger" role="alert">{{ $message }}</span>
                                             @enderror
                                         </div>
-                                        <div class="mb-10 fv-row fv-plugins-icon-container" wire:ignore>
-                                            <x-contray country='{{ $country }}'/>
-                                        </div>
-                                        @if ($show_pass == 0)
-                                            <div class="mb-10 fv-row fv-plugins-icon-container">
-                                                <label class="required form-label">{{ __('text.Password') }}</label>
-                                                <input type="text" name="{{ __('text.Password') }}" class="form-control mb-2" livewire
-                                                    placeholder="Password" wire:model.dafer="password" required>
-                                                <br>
-                                                @error('password')
-                                                    <span class="alert alert-danger" role="alert">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                        @endif
                                     </div>
                                 </div>
                             </div>

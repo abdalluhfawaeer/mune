@@ -25,6 +25,7 @@ Route::get('/wc', function () {
 Route::post('post-login', [AuthCoutroller::class, 'postLogin'])->name('login.post'); 
 Route::get('logout', [AuthCoutroller::class, 'logout'])->name('logout');
 Route::get('/lang/{lang}', [AuthCoutroller::class, 'lang']);
+Route::middleware('lang')->get('change-password', [AuthCoutroller::class, 'changePassword']);
 
 Route::middleware('lang')->controller(MuneCoutroller::class)->group(function () {
     Route::get('/mune/add', 'add');
@@ -59,6 +60,7 @@ Route::middleware('lang')->controller(AdminController::class)->group(function ()
     Route::get('/admin/report/sales', 'saelsReport');
     Route::get('/admin/sales/edit/{id}', 'saelsEdit');
     Route::get('/admin/menu/report', 'menuReport');
+    Route::get('/admin/menu/category-item', 'categoryItem');
     Route::get('/admin/menu/customer/{id}', 'menuCustomer');
     Route::get('/admin/menu/report/order/{id}', 'menuOrder');
     Route::get('/admin/report/customer', 'customerReport');

@@ -40,7 +40,7 @@
                                         <div class="mb-10 fv-row fv-plugins-icon-container">
                                             <label class="required form-label">{{ __('text.URLLink') }}</label>
                                             <input type="text" class="form-control mb-2"
-                                                placeholder="{{ __('text.URLLink') }}" wire:model.dafer="product_name">
+                                                placeholder="{{ __('text.URLLink') }}" wire:model.dafer="product_name" @if($id_m > 0) disabled @endif>
                                                 <br>
                                             @error('product_name') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror
                                         </div>
@@ -100,6 +100,9 @@
                                             </select>
                                             <br>
                                             @error('price') <span class="alert alert-danger" role="alert">{{ $message }}</span> @enderror                                        
+                                        </div>
+                                        <div class="mb-10 fv-row fv-plugins-icon-container" wire:ignore>
+                                            <x-contray country='{{ $country }}'/>
                                         </div>
                                     </div>
                                 </div>

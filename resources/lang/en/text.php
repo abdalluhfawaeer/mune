@@ -112,4 +112,12 @@ return [
    'check_send' => 'The request has been sent successfully',
    'Invoice' => 'Invoice',
    'PrintInvoice' => 'Print Invoice',
+   'country' => 'Country',
+   'changepassword' => 'Change Password',
+   'newPassword' => 'New Password',
+   'confirmedPassword' => 'Confirmed Password',
+   'old_password' => 'Old Password',
+   'Itemsreport' => 'Items and Category report',
+   'requestssales' => 'Request Sales',
+   'requestsmenu' => 'Request Menu',
 ]; 

@@ -74,6 +74,9 @@
                                                     cb(start, end);
                                                 </script>
                                             </div>
+                                            <div class="position-relative w-md-400px me-md-2" wire:ignore>
+                                                <x-contray country='JO'/>
+                                            </div>
                                         </div> 
                                     </div>
                                 </div>
@@ -148,6 +151,7 @@
                                                         <th>{{ __('text.total_menu_acvtiv_jd') }}</th>
                                                         <th>{{ __('text.total_menu_not_acvtiv') }}</th>
                                                         <th>{{ __('text.status') }}</th>
+                                                        <th>{{ __('text.country') }}</th>
                                                         <th class="text-end min-w-100px sorting_disabled" rowspan="1"
                                                             colspan="1" aria-label="Actions" style="width: 143.5px;">
                                                             Actions</th>
@@ -183,6 +187,9 @@
                                                             @else
                                                                 <a class="badge badge-light-danger">{{ __('text.'. $item->staus) }}</a>
                                                             @endif
+                                                        </td>
+                                                        <td data-kt-ecommerce-order-filter="order_id">
+                                                            <a class="text-gray-800 text-hover-primary fs-5 fw-bold">{{ $item->country }} - {{ $item->state }}</a>
                                                         </td>
                                                         <td class="text-end">
                                                             <a href="/admin/sales/edit/{{ $item->id }}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">

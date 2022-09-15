@@ -112,4 +112,12 @@ return [
    'check_send' => 'تم ارسال الطلب بنجاح',
    'Invoice' => 'الفاتورة',
    'PrintInvoice' => 'طباعة الفاتورة',
+   'country' => 'البلد',
+   'changepassword' => 'تغير كلمة السر',
+   'newPassword' => 'كلمة السر الجديدة',
+   'confirmedPassword' => 'تاكيد كلمة السر',
+   'old_password' => 'كلمة السر القديمة',
+   'Itemsreport' => 'تقرير الاصناف والعناصر',
+   'requestssales' => 'طلبات التوظيف',
+   'requestsmenu' => 'طلبات المنيو',
 ]; 

@@ -27,6 +27,8 @@ class AddMune extends Component
     public $user_id = 0;
     public $type = 'order';
     public $theme = 1;
+    public $country = 'JO';
+    public $state = '';
 
     protected $rules = [
         'mobile' => 'required',
@@ -51,8 +53,11 @@ class AddMune extends Component
             $this->type = $mune->additions->type;
             $this->start_date = Carbon::create($mune->start_date)->format('Y-m-d');
             $this->end_date = Carbon::create($mune->end_date)->format('Y-m-d');
+            $this->country = $mune->user->country;
+            $this->state = $mune->user->state;
         } 
     }
+
     public function render()
     {
         return view('livewire.add-mune');
@@ -72,6 +77,8 @@ class AddMune extends Component
             'email' => $this->email,
             'role' => 'mune',
             'mobile' => $this->mobile,
+            'country' => $this->country,
+            'state' => $this->state,
         ])->id;
 
         if ($this->id_m == 0) {

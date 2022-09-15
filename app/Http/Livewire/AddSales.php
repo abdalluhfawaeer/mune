@@ -12,6 +12,8 @@ class AddSales extends Component
     public $name = '';
     public $mobile = '';
     public $password = '';
+    public $country = 'JO';
+    public $state = '';
     public $show_pass = 0;
     
     protected $rules = [
@@ -32,6 +34,8 @@ class AddSales extends Component
             $this->email = $user->email;
             $this->mobile = $user->mobile;
             $this->password = $user->password;
+            $this->country = $user->country;
+            $this->state = $user->state;
         } 
     }
 
@@ -48,6 +52,8 @@ class AddSales extends Component
             'email' => $this->email,
             'role' => 'sales',
             'mobile' => $this->mobile,
+            'country' => $this->country,
+            'state' => $this->state,
         ])->id;
 
         if ($this->show_pass == 0) {

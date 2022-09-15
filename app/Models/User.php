@@ -24,6 +24,8 @@ class User extends Authenticatable
         'role',
         'mobile',
         'staus',
+        'country',
+        'state',
     ];
 
     /**

@@ -50,7 +50,7 @@ class DashboardMenu extends Component
             $this->menu = Mune::first();
             $addition = Addition::where('menu_id',$this->menu->id)->first();
         }
-        $this->type = $addition->type;
+        $this->type = $addition->type ?? 'order';
         $this->query();
         $this->orderStatus();
         $this->qrdcode = 'qrcode_'.$this->menu->id.'.png';

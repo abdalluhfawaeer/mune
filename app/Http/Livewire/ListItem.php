@@ -57,7 +57,7 @@ class ListItem extends Component
         }
 
 
-        $list = $list->paginate(6);
+        $list = $list->orderBy('items.id','DESC')->paginate(6);
         $this->resetPage();
         return  $list;
     }

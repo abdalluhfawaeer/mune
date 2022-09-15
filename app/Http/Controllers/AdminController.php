@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\FuncCall;
 
 class AdminController extends Controller
 {
@@ -38,5 +39,9 @@ class AdminController extends Controller
 
     public function customerReport() {
         return view('admin.menu-customer');
+    }
+
+    public function categoryItem() {
+        return view('admin.category-item');
     }
 }
