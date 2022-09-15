@@ -242,9 +242,18 @@
 
         function addProduct(){
             var required = document.getElementById('required');
+            var error_r = false;
             if (required != null) {
                 if (required.value > 0) {
-                    if ($('*div.checkbox-group.required :radio:checked').length > 0) {
+                    error_r = false;
+                    $('.required').each(function(i, obj) {
+                        if ($(this).find(':radio:checked').length > 0) {
+                            error_r = true;
+                        } else {
+                            error_r = false;
+                        }
+                    });
+                    if (error_r) {
                         pushStore();
                         @this.close_model();
                         fetchCart();
