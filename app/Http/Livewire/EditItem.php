@@ -10,6 +10,7 @@ use App\Models\Item;
 use App\Models\Mune;
 use App\Models\Variation;
 use App\Models\VariationsAdd;
+use App\Models\Addition;
 
 class EditItem extends Component
 {
@@ -27,6 +28,7 @@ class EditItem extends Component
     public $menu = '';
     public $item_id = '';
     public $img = '';
+    public $type = '';
 
     //livewire form repeater
     public $title = [];
@@ -79,6 +81,7 @@ class EditItem extends Component
     public function mount($item_id) {
         $this->menu = Mune::with('user')->where('user_id',Auth()->user()->id)->first();
         $this->category = Category::select('id','name_ar','name_en')->where('menu_id',$this->menu->id)->get();
+        $this->type = Addition::where('menu_id',$this->menu->id)->first()->type;
         $item = Item::where('id',$item_id)->first();
         $this->name_ar = $item->name_ar;
         $this->name_en = $item->name_en;

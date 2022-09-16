@@ -27,6 +27,11 @@ class CustomizeMune extends Component
     public $color_text = '';
     public $maps = '';
     public $faecbook = ''; public $youtube ='';public $instagram='';public $twitter='';
+    public $address = '';
+    public $contact_email = '';
+    public $phone_number_1 = '';
+    public $phone_number_2 = '';
+    public $phone_number_3 = '';
 
     protected $rules = [
         'product_name' => 'required',
@@ -47,6 +52,13 @@ class CustomizeMune extends Component
         $this->youtube = $mune->additions->youtube;
         $this->instagram = $mune->additions->instagram;
         $this->twitter = $mune->additions->twitter;
+        $this->maps = $mune->additions->maps;
+        $this->contact_email = $mune->additions->contact_email;
+        $phone_number = $mune->additions->phone_number;
+        $this->phone_number_1 = $phone_number['phone_number_1'] ?? '';
+        $this->phone_number_2 = $phone_number['phone_number_2'] ?? '';
+        $this->phone_number_3 = $phone_number['phone_number_3'] ?? '';
+        $this->address = $mune->additions->address;
     }
 
     public function render()
@@ -55,7 +67,7 @@ class CustomizeMune extends Component
     }
 
     public function save() {
-        // $this->rules['mobile'] = 'required|unique:users,mobile,'.Auth()->user()->id;
+        $this->rules['mobile'] = 'required|unique:users,mobile,'.Auth()->user()->id;
 
         $this->validate();
         
@@ -82,6 +94,13 @@ class CustomizeMune extends Component
             'instagram' => $this->instagram,
             'twitter' => $this->twitter,
             'maps' => $this->maps,
+            'address' => $this->address,
+            'contact_email' => $this->contact_email,
+            'phone_number' => [
+                'phone_number_1' => $this->phone_number_1,
+                'phone_number_2' => $this->phone_number_2,
+                'phone_number_3' => $this->phone_number_3,
+            ],
         ]);
 
         session()->flash('message',  __('text.message'));

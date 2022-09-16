@@ -33,7 +33,8 @@ class Addition extends Model
 
 	protected $casts = [
 		'theme' => 'int',
-		'menu_id' => 'int'
+		'menu_id' => 'int',
+		'phone_number' => 'array',
 	];
 
 	protected $fillable = [
@@ -43,7 +44,11 @@ class Addition extends Model
 		'twitter',
 		'theme',
 		'type',
-		'menu_id'
+		'menu_id',
+		'maps',
+		'address',
+		'contact_email',
+		'phone_number',
 	];
 
 	public function mune()

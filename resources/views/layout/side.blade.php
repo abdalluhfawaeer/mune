@@ -1,7 +1,7 @@
 <div id="kt_aside" class="aside aside-dark aside-hoverable" data-kt-drawer="true" data-kt-drawer-name="aside" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_mobile_toggle">
     <div class="aside-logo flex-column-auto" id="kt_aside_logo">
-        <a href="../../demo1/dist/index.html">
-            <img alt="Logo" src="{{ url('media/logo.jpeg') }}" class="h-45px w-40 logo" />
+        <a href="/">
+            <img alt="Logo" src="{{ url('mf_logo.png') }}" class="h-45px w-40 logo" />
         </a>
     </div>
     <div class="aside-menu flex-column-fluid">

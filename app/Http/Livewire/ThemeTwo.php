@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Item;
 use App\Models\Mune;
 use App\Models\Variation;
+use App\Models\Addition;
 
 class ThemeTwo extends Component
 {
@@ -23,10 +24,14 @@ class ThemeTwo extends Component
     public $desc = '';
     public $item_id = '';
     public $i = '';
+    public $type = '';
+    public $addition = '';
 
     public function mount($id ,$name) {
         $this->menu = Mune::where('id',$id)->first();
         $this->category = Category::where('menu_id',$id)->where('staus','active')->get();
+        $this->addition = Addition::where('menu_id',$this->menu->id)->first();
+        $this->type = $this->addition->type;
     }
 
     public function render()

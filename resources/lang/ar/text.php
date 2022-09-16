@@ -120,4 +120,7 @@ return [
    'Itemsreport' => 'تقرير الاصناف والعناصر',
    'requestssales' => 'طلبات التوظيف',
    'requestsmenu' => 'طلبات المنيو',
+   'Contactemail' => 'إيميل التواصل',
+   'Contactphonenumber' => 'أرقام هواتف للتواصل',
+   'Contactus' => 'التواصل معنا'
 ]; 

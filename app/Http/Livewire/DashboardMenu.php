@@ -66,8 +66,8 @@ class DashboardMenu extends Component
     public function query() {
         $this->total_view = Viwe::where('menu_id',$this->menu->id);
         $this->total_view_real = Counter::where('menu_id',$this->menu->id);
-        $this->total_order = Order::where('menu_id',$this->menu->id);
-        $this->total_order_jd = Order::where('menu_id',$this->menu->id);
+        $this->total_order = Order::where('menu_id',$this->menu->id)->where('status','Complete');
+        $this->total_order_jd = Order::where('menu_id',$this->menu->id)->where('status','Complete');
         $this->order = Order::join('customer','customer.id','orders.customer_id')->where('orders.menu_id',$this->menu->id);
         $this->customer = Customer::where('menu_id',$this->menu->id)->where('menu_id',$this->menu->id);
 
@@ -90,12 +90,18 @@ class DashboardMenu extends Component
 
     public function orderStatus() {
         $this->order_status = [
-            'cancelled' => Order::where('status','cancelled')->where('menu_id',$this->menu->id),
-            'cancelled_jd' => Order::where('status','cancelled')->where('menu_id',$this->menu->id),
-            'confirmed' => Order::where('status','confirmed')->where('menu_id',$this->menu->id),
-            'confirmed_jd' => Order::where('status','cancelled')->where('menu_id',$this->menu->id),
+            'cancelled' => Order::where('status','Cancel')->where('menu_id',$this->menu->id),
+            'cancelled_jd' => Order::where('status','Cancel')->where('menu_id',$this->menu->id),
+            'confirmed' => Order::where('status','Complete')->where('menu_id',$this->menu->id),
+            'confirmed_jd' => Order::where('status','Complete')->where('menu_id',$this->menu->id),
             'new' => Order::where('status','new')->where('menu_id',$this->menu->id),
-            'new_jd' => Order::where('status','cancelled')->where('menu_id',$this->menu->id),
+            'new_jd' => Order::where('status','new')->where('menu_id',$this->menu->id),
+            'WithCaptain' => Order::where('status','WithCaptain')->where('menu_id',$this->menu->id),
+            'WithCaptain_jd' => Order::where('status','WithCaptain')->where('menu_id',$this->menu->id),
+            'Received' => Order::where('status','Received')->where('menu_id',$this->menu->id),
+            'Received_jd' => Order::where('status','Received')->where('menu_id',$this->menu->id),
+            'all' => Order::where('menu_id',$this->menu->id),
+            'all_jd' => Order::where('menu_id',$this->menu->id),
         ];
 
         if (!empty($this->start_date) && !empty($this->end_date)) {
@@ -105,6 +111,12 @@ class DashboardMenu extends Component
             $this->order_status['confirmed_jd'] = $this->order_status['confirmed_jd']->whereBetween('created_at',[$this->start_date,$this->end_date]);
             $this->order_status['new'] = $this->order_status['new']->whereBetween('created_at',[$this->start_date,$this->end_date]);
             $this->order_status['new_jd'] = $this->order_status['new_jd']->whereBetween('created_at',[$this->start_date,$this->end_date]);
+            $this->order_status['WithCaptain'] = $this->order_status['WithCaptain']->whereBetween('created_at',[$this->start_date,$this->end_date]);
+            $this->order_status['WithCaptain_jd'] = $this->order_status['WithCaptain_jd']->whereBetween('created_at',[$this->start_date,$this->end_date]);
+            $this->order_status['Received'] = $this->order_status['Received']->whereBetween('created_at',[$this->start_date,$this->end_date]);
+            $this->order_status['Received_jd'] = $this->order_status['Received_jd']->whereBetween('created_at',[$this->start_date,$this->end_date]);
+            $this->order_status['all'] = $this->order_status['all']->whereBetween('created_at',[$this->start_date,$this->end_date]);
+            $this->order_status['all_jd'] = $this->order_status['all_jd']->whereBetween('created_at',[$this->start_date,$this->end_date]);
         }
 
         $this->order_status['cancelled'] = $this->order_status['cancelled']->count();
@@ -113,5 +125,11 @@ class DashboardMenu extends Component
         $this->order_status['confirmed_jd'] = $this->order_status['confirmed_jd']->sum('total');
         $this->order_status['new'] = $this->order_status['new']->count();
         $this->order_status['new_jd'] = $this->order_status['new_jd']->sum('total');
+        $this->order_status['WithCaptain'] = $this->order_status['WithCaptain']->count();
+        $this->order_status['WithCaptain_jd'] = $this->order_status['WithCaptain_jd']->sum('total');
+        $this->order_status['Received'] = $this->order_status['Received']->count();
+        $this->order_status['Received_jd'] = $this->order_status['Received_jd']->sum('total');
+        $this->order_status['all'] = $this->order_status['all']->count();
+        $this->order_status['all_jd'] = $this->order_status['all_jd']->sum('total');
     }
 }

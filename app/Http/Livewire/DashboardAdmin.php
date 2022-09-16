@@ -111,7 +111,13 @@ class DashboardAdmin extends Component
             'confirmed' => Order::where('status','confirmed'),
             'confirmed_jd' => Order::where('status','cancelled'),
             'new' => Order::where('status','new'),
-            'new_jd' => Order::where('status','cancelled'),
+            'new_jd' => Order::where('status','new'),
+            'WithCaptain' => Order::where('status','WithCaptain'),
+            'WithCaptain_jd' => Order::where('status','WithCaptain'),
+            'Received' => Order::where('status','Received'),
+            'Received_jd' => Order::where('status','Received'),
+            'all' => Order::whereNotNull('menu_id'),
+            'all_jd' => Order::whereNotNull('menu_id'),
         ];
 
         if (!empty($this->start_date) && !empty($this->end_date)) {
@@ -121,6 +127,12 @@ class DashboardAdmin extends Component
             $this->order_status['confirmed_jd'] = $this->order_status['confirmed_jd']->whereBetween('created_at',[$this->start_date,$this->end_date]);
             $this->order_status['new'] = $this->order_status['new']->whereBetween('created_at',[$this->start_date,$this->end_date]);
             $this->order_status['new_jd'] = $this->order_status['new_jd']->whereBetween('created_at',[$this->start_date,$this->end_date]);
+            $this->order_status['WithCaptain'] = $this->order_status['WithCaptain']->whereBetween('created_at',[$this->start_date,$this->end_date]);
+            $this->order_status['WithCaptain_jd'] = $this->order_status['WithCaptain_jd']->whereBetween('created_at',[$this->start_date,$this->end_date]);
+            $this->order_status['Received'] = $this->order_status['Received']->whereBetween('created_at',[$this->start_date,$this->end_date]);
+            $this->order_status['Received_jd'] = $this->order_status['Received_jd']->whereBetween('created_at',[$this->start_date,$this->end_date]);
+            $this->order_status['all'] = $this->order_status['all']->whereBetween('created_at',[$this->start_date,$this->end_date]);
+            $this->order_status['all_jd'] = $this->order_status['all_jd']->whereBetween('created_at',[$this->start_date,$this->end_date]);
         }
 
         $this->order_status['cancelled'] = $this->order_status['cancelled']->count();
@@ -129,5 +141,11 @@ class DashboardAdmin extends Component
         $this->order_status['confirmed_jd'] = $this->order_status['confirmed_jd']->sum('total');
         $this->order_status['new'] = $this->order_status['new']->count();
         $this->order_status['new_jd'] = $this->order_status['new_jd']->sum('total');
+        $this->order_status['WithCaptain'] = $this->order_status['WithCaptain']->count();
+        $this->order_status['WithCaptain_jd'] = $this->order_status['WithCaptain_jd']->sum('total');
+        $this->order_status['Received'] = $this->order_status['Received']->count();
+        $this->order_status['Received_jd'] = $this->order_status['Received_jd']->sum('total');
+        $this->order_status['all'] = $this->order_status['all']->count();
+        $this->order_status['all_jd'] = $this->order_status['all_jd']->sum('total');
     }
 }

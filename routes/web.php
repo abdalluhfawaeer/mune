@@ -46,6 +46,7 @@ Route::middleware('lang')->controller(FrontController::class)->group(function ()
     Route::get('/{name}/{id}', 'viwe')->name('showMenu');
     Route::get('/{name}/{id}/checkout', 'checkout');
     Route::get('/{name}/{id}/send', 'send');
+    Route::get('/{name}/{id}/contact-us', 'Contactus');
 });
 
 Route::middleware('lang')->controller(OrderController::class)->group(function () {

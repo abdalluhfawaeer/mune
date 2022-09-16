@@ -7,13 +7,16 @@ use Livewire\Component;
 use App\Models\Mune;
 use App\Models\Order;
 use App\Models\OrderDetail;
+use App\Models\Addition;
 
 class SendFront extends Component
 {
     public $menu = [];
+    public $addition = '';
 
     public function mount($id ,$name) {
         $this->menu = Mune::with('user')->where('id',$id)->first();
+        $this->addition = Addition::where('menu_id',$this->menu->id)->first();
     }
 
     public function render()

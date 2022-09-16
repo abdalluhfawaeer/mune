@@ -10,6 +10,7 @@ use App\Models\Variation;
 use App\Models\VariationsAdd;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use App\Models\Addition;
 
 class AddItem extends Component
 {
@@ -25,6 +26,7 @@ class AddItem extends Component
     public $desc = '';
     public $cat = '';
     public $menu = '';
+    public $type = '';
 
     //livewire form repeater
     public $title = [];
@@ -79,6 +81,7 @@ class AddItem extends Component
     public function mount() {
         $this->menu = Mune::with('user')->where('user_id',Auth()->user()->id)->first();
         $this->category = Category::where('menu_id',$this->menu->id)->where('staus','active')->get();
+        $this->type = Addition::where('menu_id',$this->menu->id)->first()->type;
     }
 
     public function save() {

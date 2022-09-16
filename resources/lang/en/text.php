@@ -120,4 +120,7 @@ return [
    'Itemsreport' => 'Items and Category report',
    'requestssales' => 'Request Sales',
    'requestsmenu' => 'Request Menu',
+   'Contactemail' => 'Contact Email',
+   'Contactphonenumber' => 'Contact Phone Number',
+   'Contactus' => 'Contact us',
 ]; 
