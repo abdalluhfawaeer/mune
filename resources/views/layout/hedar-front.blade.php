@@ -12,7 +12,7 @@
   @else
   <link rel="stylesheet" href="{{ url('front/dark/theme_dark.css') }}">
   <link rel="stylesheet" href="{{ url('front/dark/checkout_dark.css') }}">
-  {{-- <link rel="stylesheet" href="{{ url('front/dark/modal_dark.css') }}"> --}}
+  <link rel="stylesheet" href="{{ url('front/dark/modal_dark.css') }}">
   @endif
   <link href="{{ asset('storage/' . session()->get('img')) }}" rel="icon">
   <script src="https://kit.fontawesome.com/187117d8c3.js" crossorigin="anonymous"></script>
