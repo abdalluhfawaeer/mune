@@ -123,4 +123,5 @@ return [
    'Contactemail' => 'Contact Email',
    'Contactphonenumber' => 'Contact Phone Number',
    'Contactus' => 'Contact us',
+   'Priceasperchoice' => 'Price as per choice'
 ]; 

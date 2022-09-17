@@ -63,7 +63,11 @@
                         @else
                             <p class="title">{{ $item->name_ar }}</p>
                         @endif
-                        <p>{{ $item->price }}</p>
+                        @if ($item->price == 0)
+                            <p>{{ __('text.Priceasperchoice') }}</p>
+                        @else
+                        <p>{{ $item->price }} JD</p>
+                        @endif
                     </div>
                 </div>
             @endforeach

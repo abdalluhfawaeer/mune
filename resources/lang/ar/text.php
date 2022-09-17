@@ -123,4 +123,5 @@ return [
    'Contactemail' => 'إيميل التواصل',
    'Contactphonenumber' => 'أرقام هواتف للتواصل',
    'Contactus' => 'التواصل معنا',
+   'Priceasperchoice' => 'السعر حسب الاختيار'
 ]; 
