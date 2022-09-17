@@ -32,6 +32,7 @@ class ThemeTwo extends Component
         $this->category = Category::where('menu_id',$id)->where('staus','active')->get();
         $this->addition = Addition::where('menu_id',$this->menu->id)->first();
         $this->type = $this->addition->type;
+        $this->item($this->category[0]->id);
     }
 
     public function render()
