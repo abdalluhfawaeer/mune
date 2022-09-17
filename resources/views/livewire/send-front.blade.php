@@ -123,8 +123,12 @@
                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABuUlEQVRIie3Wv2sUQRTA8c9sohc4oohypknQIlhoZ6FEA7G2thMhpLe0SaFWNjYWIgg24UDwT7BSEhQRu4iIoHJaHFH8yWFOTcZic9nT09zu6YHFfbsd5r3ve7OzO8OAAX0idJsQD9pulzHBHomSNWWMCkrpBE18NqRhXVP01nv18NjXQuJ43IxgDpOYwFieAn9NgzpqeCa6EZbc+aM4TjuNhR5EeQo5ExZVO8SRYNpLaZf9oGbRvpAWIdkcPqLSRylMmLG39ZCJh+3PFV4ZJ/T4JqLJTvFQzm5PznH9IYemiovXsuYycbQjd4IDh7m6xMVb6QrkJdjZKQ7K+TNIl/vEKapPmL3AtlL3mLbm2jsuJm4xUmb2PAvLaSFbkRjtFP8tMdL8svWc9fRTguHNwaCRDRdgtcHNy1Qv8a259dzEx05x1CgkjJHbVa6d4109Z4wPneLgU+6Onz7iylmW7xUpFZk4+2Uec1TiftfQyjhvXqcdFyUxFe6mjmxzffciV/DKq96ksOp5VkOLB1akx1i/qG04fhZvnBrz9LS3uxExH9py/x8Xgd9maF19ErsFI//q6jNgQN/4AR8QhIwXZx0rAAAAAElFTkSuQmCC"></a>
             @endif            
         </div>
-        <a href="/{{ $menu->name }}/{{ $menu->id }}/contact-us" style="text-decoration: none;color: black;">{{ __('text.Contactus') }}</a>
         <br>
+        @if ($menu->color == 'Dark')
+        <a href="/{{ $menu->name }}/{{ $menu->id }}/contact-us" style="text-decoration: none;color: white;">{{ __('text.Contactus') }}</a>
+        @else
+        <a href="/{{ $menu->name }}/{{ $menu->id }}/contact-us" style="text-decoration: none;color: black;">{{ __('text.Contactus') }}</a>
+        @endif        <br>
         <br>
         <a href="" class="endtext">powered by <span>menuface.com</span></a>
      </div>

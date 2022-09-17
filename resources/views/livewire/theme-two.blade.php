@@ -1,4 +1,5 @@
 <div>
+    
     <div class="top-container animate__animated animate__backInDown">
         <div class="l">
             @if ($type == 'order')
@@ -37,7 +38,14 @@
     </div>
     <div class="category animate__animated animate__backInRight">
         @foreach ($category as $cat)
-            <div class="cat" wire:click="item({{ $cat->id }})">
+            <div class="cat" wire:click="item({{ $cat->id }})" 
+                @if(isset($avtive[$cat->id]))  
+                    @if ($theme == 'Dark')
+                        style="background: white;color:black"
+                    @else 
+                        style="background: black;color:white"
+                    @endif
+                @endif>
                 <img src="{{ asset('storage/' . $cat->img) }}" class="btni">
                 @if (app()->getLocale() == 'en')
                     <p>{{ $cat->name_en }}</p>
@@ -51,7 +59,7 @@
         <div class="loader" wire:loading></div>
     </center>
     <center>
-        <div class="cards">
+        <div class="cards animate__animated animate__backInUp">
             @foreach ($items as $item)
                 <div class="card" wire:click="modal({{ $item->id }})" onclick="hideButton()">
                     <div class="letf">
@@ -74,7 +82,7 @@
         </div>
     </center>
     @if ($type == 'order')
-        <div class="button_cart" wire:ignore>
+        <div class="button_cart" wire:ignore style="display: none">
             <button class="button_carts">
                 <span id="cart_r" style="float: right;"></span>
                 <a href="/{{ $menu->name }}/{{ $menu->id }}/checkout">{{ __('text.view_cart') }}</a>
@@ -104,7 +112,12 @@
                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABuUlEQVRIie3Wv2sUQRTA8c9sohc4oohypknQIlhoZ6FEA7G2thMhpLe0SaFWNjYWIgg24UDwT7BSEhQRu4iIoHJaHFH8yWFOTcZic9nT09zu6YHFfbsd5r3ve7OzO8OAAX0idJsQD9pulzHBHomSNWWMCkrpBE18NqRhXVP01nv18NjXQuJ43IxgDpOYwFieAn9NgzpqeCa6EZbc+aM4TjuNhR5EeQo5ExZVO8SRYNpLaZf9oGbRvpAWIdkcPqLSRylMmLG39ZCJh+3PFV4ZJ/T4JqLJTvFQzm5PznH9IYemiovXsuYycbQjd4IDh7m6xMVb6QrkJdjZKQ7K+TNIl/vEKapPmL3AtlL3mLbm2jsuJm4xUmb2PAvLaSFbkRjtFP8tMdL8svWc9fRTguHNwaCRDRdgtcHNy1Qv8a259dzEx05x1CgkjJHbVa6d4109Z4wPneLgU+6Onz7iylmW7xUpFZk4+2Uec1TiftfQyjhvXqcdFyUxFe6mjmxzffciV/DKq96ksOp5VkOLB1akx1i/qG04fhZvnBrz9LS3uxExH9py/x8Xgd9maF19ErsFI//q6jNgQN/4AR8QhIwXZx0rAAAAAElFTkSuQmCC"></a>
             @endif            
         </div>
-        <a href="/{{ $menu->name }}/{{ $menu->id }}/contact-us" style="text-decoration: none;color: black;">{{ __('text.Contactus') }}</a>
+        <br>
+        @if ($theme == 'Dark')
+            <a href="/{{ $menu->name }}/{{ $menu->id }}/contact-us" style="text-decoration: none;color: white;">{{ __('text.Contactus') }}</a>
+        @else
+            <a href="/{{ $menu->name }}/{{ $menu->id }}/contact-us" style="text-decoration: none;color: black;">{{ __('text.Contactus') }}</a>
+        @endif
         <br>
         <br>
         <a href="" class="endtext">powered by <span>menuface.com</span></a>
@@ -144,7 +157,7 @@
                 </div>
             </center>
         @endif
-        <section class="light"` style="margin-bottom: 300px;" id="form_calc">
+        <section class="light" style="margin-bottom: 300px;" id="form_calc">
             @if ($type == 'order')
                 @if (count($variations) > 0)
                     @foreach ($variations as $v)
@@ -210,7 +223,7 @@
                                             title="{{ $add->name_en }}" onclick="ShowHideDiv(this)">
                                         <span class="design"></span>
                                         <span class="text" style="opacity: 0.6; width:100%"
-                                            id="add_{{ $v->id }}">
+                                            id="add_{{ $add->id }}">
                                             <span style="float: right;">{{ $add->price }} JD</span>
                                             <span style="float: left;">{{ $add->name_en }}</span>
                                         </span>

@@ -26,12 +26,15 @@ class ThemeTwo extends Component
     public $i = '';
     public $type = '';
     public $addition = '';
+    public $theme = '';
+    public $avtive = [];
 
     public function mount($id ,$name) {
         $this->menu = Mune::where('id',$id)->first();
         $this->category = Category::where('menu_id',$id)->where('staus','active')->get();
         $this->addition = Addition::where('menu_id',$this->menu->id)->first();
         $this->type = $this->addition->type;
+        $this->theme = $this->menu->color;
         $this->item($this->category[0]->id);
     }
 
@@ -41,7 +44,9 @@ class ThemeTwo extends Component
     }
 
     public function item($cat_id) {
+        $this->avtive = [];
         $this->items = Item::where('cat_id',$cat_id)->where('staus','active')->get();
+        $this->avtive[$cat_id] = 1;
     }
 
     public function modal($item_id) {
