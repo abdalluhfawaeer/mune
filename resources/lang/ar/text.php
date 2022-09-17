@@ -122,5 +122,5 @@ return [
    'requestsmenu' => 'طلبات المنيو',
    'Contactemail' => 'إيميل التواصل',
    'Contactphonenumber' => 'أرقام هواتف للتواصل',
-   'Contactus' => 'التواصل معنا'
+   'Contactus' => 'التواصل معنا',
 ]; 

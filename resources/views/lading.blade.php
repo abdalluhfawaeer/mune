@@ -95,9 +95,13 @@
       <div class="row gy-5" data-aos="fade-in">
         <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start">
           <h2>Welcome to <span>Menuface</span></h2>
-          <p>Sed autem laudantium dolores. Voluptatem itaque ea consequatur eveniet. Eum quas beatae cumque eum quaerat.</p>
+          <p style="text-align:right;font-weight: bold;">
+            إكتشف مع منيو فيس أحدث نظام لعرض المنتجات واستقبال الطلبات في 
+            المنيو الالكتروني عن طريق الباركود، امتلك الان حسابك من منيو فيس
+            وانشر رابط المنيو الخاص بك واستقبل طلباتك، ابدأ عملك الرقمي وقم بزيادة ارباحك مع القوائم الرقمية
+          </p>
           <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="#about" class="btn-get-started">Get Started</a>
+            <a href="#about" class="btn-get-started">ابدأ الإصدار التجريبي المجاني لمدة 14 يومًا</a>
             <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
           </div>
         </div>
@@ -113,32 +117,32 @@
 
           <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="icon-box">
-              <div class="icon"><i class="bi bi-easel"></i></div>
-              <h4 class="title"><a href="" class="stretched-link">Lorem Ipsum</a></h4>
+              <div class="icon"><i class="bi bi-window-fullscreen"></i></div>
+              <h4 class="title"><a href="" class="stretched-link">لوحة قيادة شاملة</a></h4>
             </div>
           </div>
           <!--End Icon Box -->
 
           <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="icon-box">
-              <div class="icon"><i class="bi bi-gem"></i></div>
-              <h4 class="title"><a href="" class="stretched-link">Sed ut perspiciatis</a></h4>
+              <div class="icon"><i class="bi bi-shop-window"></i></div>
+              <h4 class="title"><a href="" class="stretched-link">باسم علامتك التجارية</a></h4>
             </div>
           </div>
           <!--End Icon Box -->
 
           <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
             <div class="icon-box">
-              <div class="icon"><i class="bi bi-geo-alt"></i></div>
-              <h4 class="title"><a href="" class="stretched-link">Magni Dolores</a></h4>
+              <div class="icon"><i class="bi bi-cash-coin"></i></div>
+              <h4 class="title"><a href="" class="stretched-link">بدون عمولات</a></h4>
             </div>
           </div>
           <!--End Icon Box -->
 
           <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
             <div class="icon-box">
-              <div class="icon"><i class="bi bi-command"></i></div>
-              <h4 class="title"><a href="" class="stretched-link">Nemo Enim</a></h4>
+              <div class="icon"><i class="bi bi-diagram-3-fill"></i></div>
+              <h4 class="title"><a href="" class="stretched-link"> بدون شركات وسيطة</a></h4>
             </div>
           </div>
           <!--End Icon Box -->
@@ -159,10 +163,12 @@
 
         <div class="section-header">
           <h2>About Us</h2>
-          <p>Aperiam dolorum et et wuia molestias qui eveniet numquam nihil porro incidunt dolores placeat sunt id nobis omnis tiledo stran delop</p>
+          <p style="text-align: right">
+            نحن فريق اردني وهندي متحمس ولدينا باع طويل في إدارة المطاعم والشركات ونقدم التطبيقات المستندة إلى السحابة لزيادة الكفاءة والإيرادات وتقليل التكاليف لذلك تم تأسيس منيو فيس لتوفير ما تدفعه المطاعم من عملها الشاق وصافي أرباحها للشركات الوسيطة وبنسب كبيرة غير عادلة حيث قمنا بتوفير برمجية قوية وسهلة تخدم تلك الاهداف بالاضافة لادارة بيانات الزبائن والبقاء على تواصل معهم.
+          </p>
         </div>
 
-        <div class="row gy-4">
+        <div class="row gy-4" style="display: none">
           <div class="col-lg-6">
             <h3>Voluptatem dignissimos provident quasi corporis</h3>
             <img src="assets/img/about.jpg" class="img-fluid rounded-4 mb-4" alt="">
@@ -197,7 +203,7 @@
     </section><!-- End About Us Section -->
 
     <!-- ======= Clients Section ======= -->
-    <section id="clients" class="clients">
+    <section id="clients" class="clients" style="display: none">
       <div class="container" data-aos="zoom-out">
 
         <div class="clients-slider swiper">
@@ -217,7 +223,7 @@
     </section><!-- End Clients Section -->
 
     <!-- ======= Stats Counter Section ======= -->
-    <section id="stats-counter" class="stats-counter">
+    <section id="stats-counter" class="stats-counter" style="display: none">
       <div class="container" data-aos="fade-up">
 
         <div class="row gy-4 align-items-center">
@@ -254,9 +260,9 @@
     <section id="call-to-action" class="call-to-action">
       <div class="container text-center" data-aos="zoom-out">
         <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
-        <h3>Call To Action</h3>
-        <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <a class="cta-btn" href="#">Call To Action</a>
+        <br>
+        <a class="cta-btn" href="https://menuface.com/Alreef/1">Demo Dark</a>
+        <a class="cta-btn" href="#">Demo Ligth</a>
       </div>
     </section><!-- End Call To Action Section -->
 
@@ -265,75 +271,107 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2>Our Services</h2>
-          <p>Aperiam dolorum et et wuia molestias qui eveniet numquam nihil porro incidunt dolores placeat sunt id nobis omnis tiledo stran delop</p>
+          <h2> الميزات</h2>
         </div>
 
         <div class="row gy-4" data-aos="fade-up" data-aos-delay="100">
-
           <div class="col-lg-4 col-md-6">
             <div class="service-item  position-relative">
               <div class="icon">
-                <i class="bi bi-activity"></i>
+                <i class="bi bi-shield-check"></i>
               </div>
-              <h3>Nesciunt Mete</h3>
-              <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+              <h3 style="text-align: right">امن لجميع الأطراف</h3>
+              <p style="text-align: right">
+                مؤمن منيو فيس  وجميع المنيو مع
+                <br>
+                HTTPS
+              </p>
+              {{-- <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a> --}}
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6">
             <div class="service-item position-relative">
               <div class="icon">
-                <i class="bi bi-broadcast"></i>
+                <i class="bi bi-pc-display-horizontal"></i>
               </div>
-              <h3>Eosle Commodi</h3>
-              <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+              <h3 style="text-align: right">بدون أجهزة خاصة</h3>
+              <p style="text-align: right">متوافق مع جميع الاجهزة يمكن الوصول إليه على أجهزة Android و iOS و Windows اللوحية ومن السهل جدًا إنشاء وتحديث قائمتك من أي مكان</p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6">
             <div class="service-item position-relative">
               <div class="icon">
-                <i class="bi bi-easel"></i>
+                <i class="bi bi-emoji-smile"></i>
               </div>
-              <h3>Ledo Markt</h3>
-              <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+              <h3 style="text-align: right">سهل</h3>
+              <p style="text-align: right">سهل الاستخدام وتستطيع تغير أي عنصر تريده (اسم الطعام ، الوصف ، السعر ، إلخ) وسيتم تطبيقه في قائمتك على الفور</p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6">
             <div class="service-item position-relative">
               <div class="icon">
-                <i class="bi bi-bounding-box-circles"></i>
+                <i class="bi bi-people-fill"></i>
               </div>
-              <h3>Asperiores Commodit</h3>
-              <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident adipisci neque.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+              <h3 style="text-align: right">ولاء العملاء والاحتفاظ بهم</h3>
+              <p style="text-align: right">يحفظ برنامج menuface تفاصيل العملاء ويتيح لك التفاعل معهم من خلال الرسائل القصيرة ورسائل الواتس واطلاعهم على العروض الترويجية</p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6">
             <div class="service-item position-relative">
               <div class="icon">
-                <i class="bi bi-calendar4-week"></i>
+                <i class="bi bi-cart"></i>
               </div>
-              <h3>Velit Doloremque</h3>
-              <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+              <h3 style="text-align: right">احصل على طلبات من عملائك بدون نادل أو اتصال
+              </h3>
+              <p style="text-align: right">يوفر نظام menuface عدد الموظفين وينجز أعمالك بشكل أكبر 
+              </p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6">
             <div class="service-item position-relative">
               <div class="icon">
-                <i class="bi bi-chat-square-text"></i>
+                <i class="bi bi-arrows-fullscreen"></i>
               </div>
-              <h3>Dolori Architecto</h3>
-              <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+              <h3 style="text-align: right">مرن</h3>
+              <p style="text-align: right">تستطيع التحكم بحالة الأصناف او العناصر في حال لم تعد متوفرة فبإمكانك اخفائها من القائمة لحين توفرها</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-printer-fill"></i>
+              </div>
+              <h3 style="text-align: right">سهولة الطباعة</h3>
+              <p style="text-align: right">سهولة طباعة الطلب الواحد أو التقارير المهمة عبر.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-bar-chart-steps"></i>
+              </div>
+              <h3 style="text-align: right">حالة الطلب</h3>
+              <p style="text-align: right">يمكنك بسهولة تغيير حالة الطلب من جديد ثم  تأكيد استلام أو إلغاء ثم مع السائق ثم مكتمل.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-shuffle" ></i>
+              </div>
+              <h3 style="text-align: right">إمكانيات غير محدودة
+                هل لديك قائمة معقدة؟ لا تقلق!
+                </h3>
+              <p style="text-align: right">يوفر نظام menuface تعامل مرن مع جميع أونواع الطلبات  والاضافات الخاصة بها مثل الطلب حسب السعر والاضافات الاجبارية والاختيارية وغيرها
+              </p>
             </div>
           </div><!-- End Service Item -->
 
@@ -347,123 +385,29 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2>Testimonials</h2>
-          <p>Voluptatem quibusdam ut ullam perferendis repellat non ut consequuntur est eveniet deleniti fignissimos eos quam</p>
+          <h2>عملائنا</h2>
         </div>
 
         <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
           <div class="swiper-wrapper">
-
+            @foreach ($menu as $m)              
             <div class="swiper-slide">
               <div class="testimonial-wrap">
                 <div class="testimonial-item">
                   <div class="d-flex align-items-center">
-                    <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img flex-shrink-0" alt="">
+                    <img src="{{ asset('storage/' . $m->logo) }}" class="testimonial-img flex-shrink-0" alt="">
                     <div>
-                      <h3>Saul Goodman</h3>
-                      <h4>Ceo &amp; Founder</h4>
+                      <h3>{{ $m->name }}</h3>
+                      <h4><a href="/{{ $m->name }}/{{ $m->id }}">Viwe Menu</a></h4>
                       <div class="stars">
                         <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                       </div>
                     </div>
                   </div>
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
                 </div>
               </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <div class="d-flex align-items-center">
-                    <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img flex-shrink-0" alt="">
-                    <div>
-                      <h3>Sara Wilsson</h3>
-                      <h4>Designer</h4>
-                      <div class="stars">
-                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <div class="d-flex align-items-center">
-                    <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img flex-shrink-0" alt="">
-                    <div>
-                      <h3>Jena Karlis</h3>
-                      <h4>Store Owner</h4>
-                      <div class="stars">
-                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <div class="d-flex align-items-center">
-                    <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img flex-shrink-0" alt="">
-                    <div>
-                      <h3>Matt Brandon</h3>
-                      <h4>Freelancer</h4>
-                      <div class="stars">
-                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore.
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <div class="d-flex align-items-center">
-                    <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img flex-shrink-0" alt="">
-                    <div>
-                      <h3>John Larson</h3>
-                      <h4>Entrepreneur</h4>
-                      <div class="stars">
-                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore.
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
+            </div>
+            @endforeach
           </div>
           <div class="swiper-pagination"></div>
         </div>
@@ -472,7 +416,7 @@
     </section><!-- End Testimonials Section -->
 
     <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio sections-bg">
+    <section id="portfolio" class="portfolio sections-bg" style="display: none">
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
@@ -627,62 +571,57 @@
 
         <div class="section-header">
           <h2>Our Team</h2>
-          <p>Nulla dolorum nulla nesciunt rerum facere sed ut inventore quam porro nihil id ratione ea sunt quis dolorem dolore earum</p>
         </div>
 
         <div class="row gy-4">
 
           <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
             <div class="member">
-              <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
-              <h4>Walter White</h4>
-              <span>Web Development</span>
+              <img src="{{ url('mf_logo.png') }}" class="img-fluid" alt="">
+              <h4>Maher AL-Otaibi</h4>
+              <span>Sales Manager</span>
               <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
                 <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-whatsapp"></i></a>
                 <a href=""><i class="bi bi-linkedin"></i></a>
               </div>
             </div>
           </div><!-- End Team Member -->
 
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
             <div class="member">
-              <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
-              <h4>Sarah Jhinson</h4>
-              <span>Marketing</span>
+              <img src="{{ url('mf_logo.png') }}" class="img-fluid" alt="">
+              <h4>Maher AL-Otaibi</h4>
+              <span>Sales Manager</span>
               <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
                 <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-whatsapp"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+          
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="member">
+              <img src="{{ url('mf_logo.png') }}" class="img-fluid" alt="">
+              <h4>Maher AL-Otaibi</h4>
+              <span>Sales Manager</span>
+              <div class="social">
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-whatsapp"></i></a>
                 <a href=""><i class="bi bi-linkedin"></i></a>
               </div>
             </div>
           </div><!-- End Team Member -->
 
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
             <div class="member">
-              <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
-              <h4>William Anderson</h4>
-              <span>Content</span>
+              <img src="{{ url('mf_logo.png') }}" class="img-fluid" alt="">
+              <h4>Maher AL-Otaibi</h4>
+              <span>Sales Manager</span>
               <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
                 <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
-            <div class="member">
-              <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
-              <h4>Amanda Jepson</h4>
-              <span>Accountant</span>
-              <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-whatsapp"></i></a>
                 <a href=""><i class="bi bi-linkedin"></i></a>
               </div>
             </div>
@@ -773,9 +712,6 @@
           <div class="col-lg-4">
             <div class="content px-xl-5">
               <h3>Frequently Asked <strong>Questions</strong></h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-              </p>
             </div>
           </div>
 
@@ -787,12 +723,12 @@
                 <h3 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
                     <span class="num">1.</span>
-                    Non consectetur a erat nam at lectus urna duis?
+                    هل يمكنني طرح استفسارات على فريقك أثناء استخدام الإصدار التجريبي المجاني لـ منيو فيس  ؟
                   </button>
                 </h3>
                 <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                  <div class="accordion-body">
-                    Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+                  <div class="accordion-body" style="text-align: right">
+                    نعم. يمكنك أن تطلب من فريق الدعم لدينا في حال كنت تريد معرفة أي ميزة أو لديك أي استفسار متعلق بها.
                   </div>
                 </div>
               </div><!-- # Faq item-->
@@ -801,12 +737,12 @@
                 <h3 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2">
                     <span class="num">2.</span>
-                    Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?
+                    هل هناك أي تكلفة إضافية للدعم المباشر أم أنها مجانية لمستخدمي الإصدار التجريبي المجاني؟
                   </button>
                 </h3>
                 <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                  <div class="accordion-body">
-                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                  <div class="accordion-body" style="text-align: right">
+                    لا يوجد اي تكاليف اضافية دعمنا المباشر على مدار الساعة طوال أيام الأسبوع مجاني أيضًا لمستخدمي الإصدار التجريبي المجاني.
                   </div>
                 </div>
               </div><!-- # Faq item-->
@@ -815,13 +751,12 @@
                 <h3 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3">
                     <span class="num">3.</span>
-                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi?
+                    في حال استخدمنا نسخة تجريبية مجانية من برنامج المطعم هذا في بياناتنا ، فماذا سيحدث لجميع السجلات المخزنة في البرنامج بعد 14 يومًا؟
                   </button>
                 </h3>
                 <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                  <div class="accordion-body">
-                    Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
-                  </div>
+                  <div class="accordion-body" style="text-align: right">
+                    إذا كانت صلاحية حسابك ستنتهي بعد 14 يومًا ، فيمكنك طلب جميع سجلات بياناتك معنا. سنوفرها بالتأكيد بالتنسيق القابل للتنزيل حسب طلبك.                  </div>
                 </div>
               </div><!-- # Faq item-->
 
@@ -829,12 +764,12 @@
                 <h3 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-4">
                     <span class="num">4.</span>
-                    Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?
+                    هل هناك أي قيود على الميزات في الإصدار التجريبي المجاني؟
                   </button>
                 </h3>
                 <div id="faq-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                  <div class="accordion-body">
-                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                  <div class="accordion-body" style="text-align: right">
+                    يتم تضمين جميع الميزات في العرض التوضيحي لبرنامج منيو فيس 
                   </div>
                 </div>
               </div><!-- # Faq item-->
@@ -843,12 +778,53 @@
                 <h3 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-5">
                     <span class="num">5.</span>
-                    Tempus quam pellentesque nec nam aliquam sem et tortor consequat?
+                    هل يمكنني الحصول على تدريب على كيفية استخدام منيو فيس أثناء الإصدار التجريبي المجاني؟                  
                   </button>
                 </h3>
                 <div id="faq-content-5" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                  <div class="accordion-body">
-                    Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
+                  <div class="accordion-body" style="text-align: right">
+                    نعم. التدريب متاح خلال الفترة التجريبية المجانية وهي مجانية.
+                  </div>
+                </div>
+              </div><!-- # Faq item-->
+
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-6">
+                    <span class="num">6.</span>
+                    كيف يمكنني تغيير سعر الطعام أو الاسم في القائمة؟
+                  </button>
+                </h3>
+                <div id="faq-content-6" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                  <div class="accordion-body" style="text-align: right">
+                    كل ما عليك فعله هو الوصول إلى اللوحة التي أنشأناها ، وسوف تدخل اللوحة ، وتغير أي عنصر تريده (اسم الطعام ، الوصف ، السعر ، إلخ) وسيتم تطبيقه في قائمتك على الفور.
+                  </div>
+                </div>
+              </div><!-- # Faq item-->
+
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-7">
+                    <span class="num">7.</span>
+                    هل الطريقة الوحيدة للوصول إلى قائمة مطعمي هي مسح رمز الاستجابة السريعة ضوئيًا؟
+                  </button>
+                </h3>
+                <div id="faq-content-7" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                  <div class="accordion-body" style="text-align: right">
+                    لا يمكنك ايضا الوصول إليها عن طريق رابط الكترونى مختصر او اضافتها على صفحاتك على وسائل التواصل الإجتماعى.
+                  </div>
+                </div>
+              </div><!-- # Faq item-->
+
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-8">
+                    <span class="num">8.</span>
+                    أين يمكنني استخدام رمز الاستجابة السريعة؟                 
+                   </button>
+                </h3>
+                <div id="faq-content-8" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                  <div class="accordion-body" style="text-align: right">
                   </div>
                 </div>
               </div><!-- # Faq item-->
@@ -862,7 +838,7 @@
     </section><!-- End Frequently Asked Questions Section -->
 
     <!-- ======= Recent Blog Posts Section ======= -->
-    <section id="recent-posts" class="recent-posts sections-bg">
+    <section id="recent-posts" class="recent-posts sections-bg" style="display: none">
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">

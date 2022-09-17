@@ -20,10 +20,12 @@ class FrontController extends Controller
                     'id' => $request->id
                 ]);
             } else {
-                return view('lading');
+                $menu = Mune::where('staus','active')->get();
+                return view('lading',['menu'=>$menu]);
             }
         } else {
-            return view('ladeng');
+            $menu = Mune::where('staus','active')->get();
+            return view('lading',['menu'=>$menu]);
         }
     }
 
@@ -44,10 +46,12 @@ class FrontController extends Controller
                     ]);
                 }
             } else {
-                return view('ladeng');
+                $menu = Mune::where('staus','active')->get();
+                return view('lading',['menu'=>$menu]);
             }
         } else {
-            return view('ladeng');
+            $menu = Mune::where('staus','active')->get();
+            return view('lading',['menu'=>$menu]);
         }
     }
 
@@ -68,10 +72,12 @@ class FrontController extends Controller
                     ]);
                 }
             } else {
-                return view('ladeng');
+                $menu = Mune::where('staus','active')->get();
+                return view('lading',['menu'=>$menu]);
             }
         } else {
-            return view('ladeng');
+            $menu = Mune::where('staus','active')->get();
+            return view('lading',['menu'=>$menu]);
         }
     }
 
@@ -92,10 +98,12 @@ class FrontController extends Controller
                     ]);
                 }
             } else {
-                return view('ladeng');
+                $menu = Mune::where('staus','active')->get();
+                return view('lading',['menu'=>$menu]);
             }
         } else {
-            return view('ladeng');
+            $menu = Mune::where('staus','active')->get();
+            return view('lading',['menu'=>$menu]);
         }
     }
 

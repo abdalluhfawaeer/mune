@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Mune;
 use App\Models\Order;
+use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -60,7 +61,11 @@ class OrderList extends Component
         }
 
         if (!empty($this->start_date)) {
-            $list = $list->whereBetween('orders.created_at',[$this->start_date,$this->end_date]);
+            if ($this->start_date == $this->end_date) {
+                $list = $list->whereDate('orders.created_at',$this->start_date);
+            } else {
+                $list = $list->whereBetween('orders.created_at',[$this->start_date,$this->end_date]);
+            }
         }
 
         if (!empty($this->type)) {

@@ -6,13 +6,15 @@ use App\Http\Controllers\AuthCoutroller;
 use App\Http\Controllers\MuneCoutroller;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\OrderController;
+use App\Models\Mune;
 
 Route::get('/login', function () {
     return view('login');
 });
 
 Route::get('/', function () {
-    return view('lading');
+    $menu = Mune::where('staus','active')->get();
+    return view('lading',['menu'=>$menu]);
 });
 
 Route::middleware('lang')->get('/dashboard', function () {
