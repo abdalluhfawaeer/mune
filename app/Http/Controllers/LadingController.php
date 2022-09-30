@@ -26,6 +26,7 @@ class LadingController extends Controller
     }
 
     public function send(Request $request) {
+        return 'dd';
         Contact::create([
             'mobile' => $request->mobile,
             'email'=> $request->email,
