@@ -43,7 +43,13 @@ class DashboardSales extends Component
             $this->menu_count_active = $this->menu_count_active->whereBetween('start_date',[$this->start_date,$this->end_date]);
             $this->menu_count_not = $this->menu_count_not->whereBetween('start_date',[$this->start_date,$this->end_date]);
             $this->menu_sum = $this->menu_sum->whereBetween('start_date',[$this->start_date,$this->end_date]);
+        } else {
+            $this->menu = $this->menu->whereDate('created_at', Carbon::today());
+            $this->menu_count_active = $this->menu_count_active->whereDate('created_at', Carbon::today());
+            $this->menu_count_not = $this->menu_count_not->whereDate('created_at', Carbon::today());
+            $this->menu_sum = $this->menu_sum->whereDate('created_at', Carbon::today());
         }
+        
         $this->menu = $this->menu->limit(6)->orderBy('id','desc')->get();
         $this->menu_count_active = $this->menu_count_active->count();
         $this->menu_count_not = $this->menu_count_not->count();

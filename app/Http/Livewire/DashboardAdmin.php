@@ -86,6 +86,24 @@ class DashboardAdmin extends Component
             $this->ranking['menu'] = $this->ranking['menu']->whereBetween('mune.created_at',[$this->start_date,$this->end_date]);
             $this->menu =  $this->menu->whereBetween('created_at',[$this->start_date,$this->end_date]);
             $this->order =  $this->menu->whereBetween('created_at',[$this->start_date,$this->end_date]);
+        } else {
+            $this->view['total_page_main'] = $this->view['total_page_main']->whereDate('created_at', Carbon::today());
+            $this->view['total_page_menu'] = $this->view['total_page_menu']->whereDate('created_at', Carbon::today());
+            $this->view['total_page_menu_real'] = $this->view['total_page_menu_real']->whereDate('created_at', Carbon::today());
+            $this->view['total_menu_acvtiv'] = $this->view['total_menu_acvtiv']->whereDate('created_at', Carbon::today());
+            $this->view['total_menu_acvtiv_jd'] = $this->view['total_menu_acvtiv_jd']->whereDate('created_at', Carbon::today());
+            $this->view['total_sales_active'] = $this->view['total_sales_active']->whereDate('created_at', Carbon::today());
+            $this->view['total_sales_not_active'] = $this->view['total_sales_not_active']->whereDate('created_at', Carbon::today());
+            $this->view['total_order'] = Order::whereDate('created_at', Carbon::today())->count();
+            $this->view['total_order_jd'] = Order::whereDate('created_at', Carbon::today())->sum('total');
+            $this->view['customer'] = Customer::whereDate('created_at', Carbon::today())->count();
+            $this->view['total_menu_not_acvtiv'] = $this->view['total_menu_not_acvtiv']->whereDate('created_at', Carbon::today());
+            $this->view['total_menu_not_acvtiv_jd'] = $this->view['total_menu_not_acvtiv_jd']->whereDate('created_at', Carbon::today());
+            $this->ranking['customer'] = $this->ranking['customer']->whereDate('orders.created_at', Carbon::today());
+            $this->ranking['sales'] = $this->ranking['sales']->whereDate('mune.created_at', Carbon::today());
+            $this->ranking['menu'] = $this->ranking['menu']->whereDate('mune.created_at', Carbon::today());
+            $this->menu =  $this->menu->whereDate('created_at', Carbon::today());
+            $this->order =  $this->menu->whereDate('created_at', Carbon::today());
         }
 
         $this->view['total_page_main'] = $this->view['total_page_main']->first()->counter ?? 0;
@@ -133,8 +151,20 @@ class DashboardAdmin extends Component
             $this->order_status['Received_jd'] = $this->order_status['Received_jd']->whereBetween('created_at',[$this->start_date,$this->end_date]);
             $this->order_status['all'] = $this->order_status['all']->whereBetween('created_at',[$this->start_date,$this->end_date]);
             $this->order_status['all_jd'] = $this->order_status['all_jd']->whereBetween('created_at',[$this->start_date,$this->end_date]);
+        } else {
+            $this->order_status['cancelled'] = $this->order_status['cancelled']->whereDate('created_at', Carbon::today());
+            $this->order_status['cancelled_jd'] = $this->order_status['cancelled_jd']->whereDate('created_at', Carbon::today());
+            $this->order_status['confirmed'] = $this->order_status['confirmed']->whereDate('created_at', Carbon::today());
+            $this->order_status['confirmed_jd'] = $this->order_status['confirmed_jd']->whereDate('created_at', Carbon::today());
+            $this->order_status['new'] = $this->order_status['new']->whereDate('created_at', Carbon::today());
+            $this->order_status['new_jd'] = $this->order_status['new_jd']->whereDate('created_at', Carbon::today());
+            $this->order_status['WithCaptain'] = $this->order_status['WithCaptain']->whereDate('created_at', Carbon::today());
+            $this->order_status['WithCaptain_jd'] = $this->order_status['WithCaptain_jd']->whereDate('created_at', Carbon::today());
+            $this->order_status['Received'] = $this->order_status['Received']->whereDate('created_at', Carbon::today());
+            $this->order_status['Received_jd'] = $this->order_status['Received_jd']->whereDate('created_at', Carbon::today());
+            $this->order_status['all'] = $this->order_status['all']->whereDate('created_at', Carbon::today());
+            $this->order_status['all_jd'] = $this->order_status['all_jd']->whereDate('created_at', Carbon::today());
         }
-
         $this->order_status['cancelled'] = $this->order_status['cancelled']->count();
         $this->order_status['cancelled_jd'] = $this->order_status['cancelled_jd']->sum('total');
         $this->order_status['confirmed'] = $this->order_status['confirmed']->count();

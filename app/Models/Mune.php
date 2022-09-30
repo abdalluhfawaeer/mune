@@ -59,6 +59,7 @@ class Mune extends Model
 		'currint_user',
 		'text',
 		'qr_code',
+		'desc_en',
 	];
 
 	public function user()

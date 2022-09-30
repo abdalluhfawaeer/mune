@@ -8,7 +8,11 @@
             <img class="logo" src="{{ asset('storage/' . $menu->logo) }}" style="width: 150px;
 			height: 100px;">
             <p class="desc">{{ $menu->name }}</p>
-            <p class="desc" style="opacity: 0.6;">{{ $menu->desc }}</p>
+            @if (app()->getLocale() == 'en')
+                <p class="desc" style="opacity: 0.6;">{{ $menu->desc }}</p>
+             @else
+                <p class="desc" style="opacity: 0.6;">{{ $menu->desc_en }}</p>
+            @endif        
         </center>
         <div class="r">
             @if (app()->getLocale() == 'en')

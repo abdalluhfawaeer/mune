@@ -144,12 +144,27 @@
                                                             </div>
                                                             <div class="mb-10 fv-row fv-plugins-icon-container">
                                                                 <label
-                                                                    class="required form-label">{{ __('text.Description') }}</label>
+                                                                    class="required form-label">{{ __('text.Description') }} AR</label>
                                                                 <input type="text" name="product_name"
                                                                     class="form-control mb-2"
                                                                     placeholder="{{ __('text.Description') }}"
                                                                     wire:model.dafer="desc">
                                                                 @error('desc')
+                                                                    <span class="alert alert-danger"
+                                                                        role="alert">{{ $message }}</span>
+                                                                @enderror
+                                                                <div
+                                                                    class="fv-plugins-message-container invalid-feedback">
+                                                                </div>
+                                                            </div>
+                                                            <div class="mb-10 fv-row fv-plugins-icon-container">
+                                                                <label
+                                                                    class="required form-label">{{ __('text.Description') }} EN</label>
+                                                                <input type="text" name="product_name"
+                                                                    class="form-control mb-2"
+                                                                    placeholder="{{ __('text.Description') }}"
+                                                                    wire:model.dafer="desc_en">
+                                                                @error('desc_en')
                                                                     <span class="alert alert-danger"
                                                                         role="alert">{{ $message }}</span>
                                                                 @enderror

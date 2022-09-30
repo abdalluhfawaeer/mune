@@ -35,7 +35,9 @@ class ThemeTwo extends Component
         $this->addition = Addition::where('menu_id',$this->menu->id)->first();
         $this->type = $this->addition->type;
         $this->theme = $this->menu->color;
-        $this->item($this->category[0]->id);
+        if (isset($this->category[0])) {
+            $this->item($this->category[0]->id);
+        }
     }
 
     public function render()

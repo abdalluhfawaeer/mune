@@ -94,6 +94,7 @@ class AddMune extends Component
             'end_date' => $this->end_date,
             'user_id' => $id,
             'desc' => '',
+            'desc_en' => '',
             'qr_code' => 'qr', 
         ])->id;
 

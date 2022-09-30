@@ -19,6 +19,7 @@ class CustomizeMune extends Component
     public $color = "";
     public $mobile = "";
     public $desc = "";
+    public $desc_en = "";
     public $email = "";
     public $password = "";
     public $password_c = "";
@@ -45,6 +46,7 @@ class CustomizeMune extends Component
         $this->color_text = $mune->text;
         $this->mobile = $mune->user->mobile;
         $this->desc = $mune->desc;
+        $this->desc_en = $mune->desc_en;
         $this->email = $mune->user->email;
         $this->password_c = $mune->user->password;
         $this->img = $mune->logo;
@@ -78,6 +80,7 @@ class CustomizeMune extends Component
             'name' => $this->product_name,
             'color' => $this->color,
             'desc' => $this->desc,
+            'desc_en' => $this->desc_en,
             'logo' => $logo,
             'text' => $this->color_text,
         ]);
