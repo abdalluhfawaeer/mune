@@ -57,26 +57,36 @@
     })
     .then(response => {
       if( response.ok ) {
+    console.log('8');
+
         return response.text()
       } else {
+    console.log('1');
+
         throw new Error(`${response.status} ${response.statusText} ${response.url}`); 
       }
     })
     .then(data => {
       thisForm.querySelector('.loading').classList.remove('d-block');
       if (data.trim() == 'OK') {
+    console.log('5');
+
         thisForm.querySelector('.sent-message').classList.add('d-block');
         thisForm.reset(); 
       } else {
+    console.log('2');
+
         throw new Error(data ? data : 'Form submission failed and no error message returned from: ' + action); 
       }
     })
     .catch((error) => {
+      console.log('3');
       displayError(thisForm, error);
     });
   }
 
   function displayError(thisForm, error) {
+    console.log('4');
     thisForm.querySelector('.loading').classList.remove('d-block');
     error = error.toString().replace("Error:", "");
     thisForm.querySelector('.sent-message').innerHTML = error;
