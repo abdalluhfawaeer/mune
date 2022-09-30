@@ -15,6 +15,7 @@ class AddSales extends Component
     public $country = 'JO';
     public $state = '';
     public $show_pass = 0;
+    public $send = '';
     
     protected $rules = [
         'mobile' => 'required',
@@ -29,21 +30,28 @@ class AddSales extends Component
     public function mount($id) {
         $this->show_pass = $id;    
         if ($id > 0) {
-            $user = User::where('id',$id)->first();
+            $user = User::find($id);
             $this->name = $user->name;
             $this->email = $user->email;
             $this->mobile = $user->mobile;
             $this->password = $user->password;
             $this->country = $user->country;
             $this->state = $user->state;
+            $this->send = $user->role;
         } 
     }
 
     public function save() {
-        $this->validate();
+
         if ($this->show_pass == 0) {
             $this->rules['email'] = 'unique:users,email';
+            $this->rules['mobile'] = 'unique:users,mobile';
+        } else {
+            $this->rules['mobile'] = 'required|unique:users,mobile,'.$this->show_pass;
+            $this->rules['email'] = 'required|unique:users,email,'.$this->show_pass;
         }
+
+        $this->validate();
 
         $id = User::updateOrCreate([
             'id' => $this->show_pass
@@ -56,7 +64,7 @@ class AddSales extends Component
             'state' => $this->state,
         ])->id;
 
-        if ($this->show_pass == 0) {
+        if ($this->show_pass == 0 || $this->send == 'sales_send') {
             User::where('id',$id)->update(['password' => Hash::make($this->password)]);
             $this->reset(['name','email','password','mobile']);
         }

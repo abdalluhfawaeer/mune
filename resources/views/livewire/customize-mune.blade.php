@@ -132,17 +132,15 @@
                                                             <div class="mb-10 fv-row fv-plugins-icon-container">
                                                                 <label
                                                                     class="required form-label">{{ __('text.LinkwithWhatsAppnumber') }}</label>
-                                                                <input type="text" name="product_name"
+                                                                <input type="text"
                                                                     class="form-control mb-2"
                                                                     placeholder="{{ __('text.Mobile') }}"
-                                                                    wire:model.dafer="mobile">
+                                                                    wire:model.defer="mobile">
                                                                 @error('mobile')
                                                                     <span class="alert alert-danger"
                                                                         role="alert">{{ $message }}</span>
                                                                 @enderror
-                                                                <div
-                                                                    class="fv-plugins-message-container invalid-feedback">
-                                                                </div>
+                                                                
                                                             </div>
                                                             <div class="mb-10 fv-row fv-plugins-icon-container">
                                                                 <label
@@ -282,29 +280,18 @@
                                       
                                     @if (session()->has('message'))
                                         <script>
-                                            toastr.options = {
-                                                "closeButton": true,
-                                                "debug": false,
-                                                "newestOnTop": false,
-                                                "progressBar": true,
-                                                "positionClass": "toastr-bottom-center",
-                                                "preventDuplicates": false,
-                                                "onclick": null,
-                                                "showDuration": "300",
-                                                "hideDuration": "1000",
-                                                "timeOut": "5000",
-                                                "extendedTimeOut": "1000",
-                                                "showEasing": "swing",
-                                                "hideEasing": "linear",
-                                                "showMethod": "fadeIn",
-                                                "hideMethod": "fadeOut"
-                                            };
                                             toastr.success("{{ session('message') }}");
                                     </script>
-                                @endif
+                                    @endif
+                                    @if ($errors->any())
+                                        @foreach ($errors->all() as $error)
+                                        <script>
+                                            toastr.error("{{ $error }}");
+                                    </script>
+                                        @endforeach
+                                    @endif
                                     </div>
                                     <div></div>
-                                    </form>
                                 </div>
                             </div>
                         </div>

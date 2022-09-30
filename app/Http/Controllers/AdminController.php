@@ -44,4 +44,16 @@ class AdminController extends Controller
     public function categoryItem() {
         return view('admin.category-item');
     }
+
+    public function contact() {
+        return view('contact.contact');
+    }
+
+    public function contactSales() {
+        return view('contact.sales');
+    }
+
+    public function contactMenu() {
+        return view('contact.menu');
+    }
 }

@@ -40,7 +40,7 @@ class CustomizeMune extends Component
     public function mount() {
         $mune = Mune::with('user','additions')->where('user_id',Auth()->user()->id)->first();
         $this->mune_id = $mune->id;
-        $this->product_name = $mune->name;
+        $this->product_name = $mune->name; 
         $this->color = $mune->color;
         $this->color_text = $mune->text;
         $this->mobile = $mune->user->mobile;
@@ -85,7 +85,6 @@ class CustomizeMune extends Component
         User::where('id',Auth()->user()->id)->update([
             'email' => $this->email,
             'mobile' => $this->mobile,
-            //'password' => empty($this->password) ? Hash::make($this->password) : $this->password_c,
         ]);
 
         Addition::where('menu_id',$this->mune_id)->update([

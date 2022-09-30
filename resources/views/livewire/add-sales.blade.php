@@ -56,7 +56,7 @@
                                         <div class="mb-10 fv-row fv-plugins-icon-container" wire:ignore>
                                             <x-contray country='{{ $country }}'/>
                                         </div>
-                                        @if ($show_pass == 0)
+                                        @if ($show_pass == 0 || $send == 'sales_send')
                                             <div class="mb-10 fv-row fv-plugins-icon-container">
                                                 <label class="required form-label">{{ __('text.Password') }}</label>
                                                 <input type="text" name="{{ __('text.Password') }}" class="form-control mb-2" livewire

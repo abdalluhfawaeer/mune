@@ -5,16 +5,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthCoutroller;
 use App\Http\Controllers\MuneCoutroller;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\LadingController;
 use App\Http\Controllers\OrderController;
 use App\Models\Mune;
 
 Route::get('/login', function () {
     return view('login');
-});
-
-Route::get('/', function () {
-    $menu = Mune::where('staus','active')->get();
-    return view('lading',['menu'=>$menu]);
 });
 
 Route::middleware('lang')->get('/dashboard', function () {
@@ -28,6 +24,19 @@ Route::post('post-login', [AuthCoutroller::class, 'postLogin'])->name('login.pos
 Route::get('logout', [AuthCoutroller::class, 'logout'])->name('logout');
 Route::get('/lang/{lang}', [AuthCoutroller::class, 'lang']);
 Route::middleware('lang')->get('change-password', [AuthCoutroller::class, 'changePassword']);
+Route::get('forgot-password', [AuthCoutroller::class, 'forgotPassword'])->name('forgot-password');
+Route::get('forgot-password/{token}', [AuthCoutroller::class, 'forgotPasswordValidate']);
+Route::post('forgot-password', [AuthCoutroller::class, 'resetPassword'])->name('forgot-password');
+Route::put('reset-password', [AuthCoutroller::class, 'updatePassword'])->name('reset-password');
+
+Route::middleware('lang')->controller(LadingController::class)->group(function () {
+    Route::get('/', 'index');
+    Route::post('/send/contact/lading', 'send');
+    Route::post('/send/contact/sales', 'addSales');
+    Route::post('/send/contact/menu', 'addMenu');
+    Route::get('/add-sales', 'sales');
+    Route::get('/send/menu/{type}', 'menu');
+});
 
 Route::middleware('lang')->controller(MuneCoutroller::class)->group(function () {
     Route::get('/mune/add', 'add');
@@ -67,4 +76,7 @@ Route::middleware('lang')->controller(AdminController::class)->group(function ()
     Route::get('/admin/menu/customer/{id}', 'menuCustomer');
     Route::get('/admin/menu/report/order/{id}', 'menuOrder');
     Route::get('/admin/report/customer', 'customerReport');
+    Route::get('/admin/contact/contact', 'contact');
+    Route::get('/admin/contact/sales', 'contactSales');
+    Route::get('/admin/contact/menu', 'contactMenu');
 });

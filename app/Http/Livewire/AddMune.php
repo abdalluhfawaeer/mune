@@ -31,7 +31,6 @@ class AddMune extends Component
     public $state = '';
 
     protected $rules = [
-        'mobile' => 'required',
         'price' => 'required',
         'start_date' => 'required|before:end_date',
         'end_date' => 'required',
@@ -67,9 +66,11 @@ class AddMune extends Component
         if ($this->id_m == 0) {
             $this->rules['email'] = 'required|unique:users';
             $this->rules['password'] = 'required';
-            // $this->rules['password'] = 'required|unique:users';
+            $this->rules['mobile'] = 'unique:users,mobile';
+        } else {
+            $this->rules['mobile'] = 'required|unique:users,mobile,'.$this->user_id;
         }
-    
+
         $this->validate();
 
         $id = User::updateOrCreate(['id' => $this->user_id],[

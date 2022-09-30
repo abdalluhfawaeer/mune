@@ -55,30 +55,15 @@
       </a>
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="/">الصفحة الرئيسية</a></li>
+          <li><a href="#about">عن الموقع</a></li>
+          <li><a href="#services">خدمات</a></li>
+          {{-- <li><a href="#portfolio" >Portfolio</a></li> --}}
+          <li><a href="#team">الفريق</a></li>
+          <li><a href="#send_menu">تقديم طلب منيو</a></li>
+          <li><a href="/add-sales">تقديم طلب توظيف</a></li>
+          {{-- <li><a href="blog.html">Blog</a></li> --}}
+          <li><a href="#contact">تواصل معنا</a></li>
         </ul>
       </nav><!-- .navbar -->
 
@@ -102,7 +87,7 @@
           </p>
           <div class="d-flex justify-content-center justify-content-lg-start">
             <a href="#about" class="btn-get-started">ابدأ الإصدار التجريبي المجاني لمدة 14 يومًا</a>
-            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+            <a style="display: none !important" href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2">
@@ -259,7 +244,7 @@
     <!-- ======= Call To Action Section ======= -->
     <section id="call-to-action" class="call-to-action">
       <div class="container text-center" data-aos="zoom-out">
-        <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
+        <a href="" class="glightbox play-btn"></a>
         <br>
         <a class="cta-btn" href="https://menuface.com/Alreef/1">Demo Dark</a>
         <a class="cta-btn" href="#">Demo Ligth</a>
@@ -633,68 +618,67 @@
     </section><!-- End Our Team Section -->
 
     <!-- ======= Pricing Section ======= -->
-    <section id="pricing" class="pricing sections-bg">
+    <section id="send_menu" class="pricing sections-bg">
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2>Pricing</h2>
-          <p>Aperiam dolorum et et wuia molestias qui eveniet numquam nihil porro incidunt dolores placeat sunt id nobis omnis tiledo stran delop</p>
+          <h2>الخطط</h2>
         </div>
 
         <div class="row g-4 py-lg-5" data-aos="zoom-out" data-aos-delay="100">
 
           <div class="col-lg-4">
             <div class="pricing-item">
-              <h3>Free Plan</h3>
+              <h3>مجاني</h3>
               <div class="icon">
                 <i class="bi bi-box"></i>
               </div>
-              <h4><sup>$</sup>0<span> / month</span></h4>
-              <ul>
+              {{-- <h4><sup>$</sup>0<span> / month</span></h4> --}}
+              {{-- <ul>
                 <li><i class="bi bi-check"></i> Quam adipiscing vitae proin</li>
                 <li><i class="bi bi-check"></i> Nec feugiat nisl pretium</li>
                 <li><i class="bi bi-check"></i> Nulla at volutpat diam uteera</li>
                 <li class="na"><i class="bi bi-x"></i> <span>Pharetra massa massa ultricies</span></li>
                 <li class="na"><i class="bi bi-x"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-              </ul>
-              <div class="text-center"><a href="#" class="buy-btn">Buy Now</a></div>
+              </ul> --}}
+              <div class="text-center"><a href="/send/menu/free" class="buy-btn">سجل الان</a></div>
             </div>
           </div><!-- End Pricing Item -->
 
           <div class="col-lg-4">
             <div class="pricing-item featured">
-              <h3>Business Plan</h3>
+              <h3>مدفوع بريميوم</h3>
               <div class="icon">
                 <i class="bi bi-airplane"></i>
               </div>
 
-              <h4><sup>$</sup>29<span> / month</span></h4>
-              <ul>
+              {{-- <h4><sup>$</sup>29<span> / month</span></h4> --}}
+              {{-- <ul>
                 <li><i class="bi bi-check"></i> Quam adipiscing vitae proin</li>
                 <li><i class="bi bi-check"></i> Nec feugiat nisl pretium</li>
                 <li><i class="bi bi-check"></i> Nulla at volutpat diam uteera</li>
                 <li><i class="bi bi-check"></i> Pharetra massa massa ultricies</li>
                 <li><i class="bi bi-check"></i> Massa ultricies mi quis hendrerit</li>
-              </ul>
-              <div class="text-center"><a href="#" class="buy-btn">Buy Now</a></div>
+              </ul> --}}
+              <div class="text-center"><a href="/send/menu/premium" class="buy-btn">سجل الان</a></div>
             </div>
           </div><!-- End Pricing Item -->
 
           <div class="col-lg-4">
             <div class="pricing-item">
-              <h3>Developer Plan</h3>
+              <h3>مدفوع اساسي</h3>
               <div class="icon">
                 <i class="bi bi-send"></i>
               </div>
-              <h4><sup>$</sup>49<span> / month</span></h4>
-              <ul>
+              {{-- <h4><sup>$</sup>49<span> / month</span></h4> --}}
+              {{-- <ul>
                 <li><i class="bi bi-check"></i> Quam adipiscing vitae proin</li>
                 <li><i class="bi bi-check"></i> Nec feugiat nisl pretium</li>
                 <li><i class="bi bi-check"></i> Nulla at volutpat diam uteera</li>
                 <li><i class="bi bi-check"></i> Pharetra massa massa ultricies</li>
                 <li><i class="bi bi-check"></i> Massa ultricies mi quis hendrerit</li>
-              </ul>
-              <div class="text-center"><a href="#" class="buy-btn">Buy Now</a></div>
+              </ul> --}}
+              <div class="text-center"><a href="/send/menu/main" class="buy-btn">سجل الان</a></div>
             </div>
           </div><!-- End Pricing Item -->
 
@@ -937,7 +921,6 @@
 
         <div class="section-header">
           <h2>Contact</h2>
-          <p>Nulla dolorum nulla nesciunt rerum facere sed ut inventore quam porro nihil id ratione ea sunt quis dolorem dolore earum</p>
         </div>
 
         <div class="row gx-lg-0 gy-4">
@@ -949,7 +932,7 @@
                 <i class="bi bi-geo-alt flex-shrink-0"></i>
                 <div>
                   <h4>Location:</h4>
-                  <p>A108 Adam Street, New York, NY 535022</p>
+                  <p></p>
                 </div>
               </div><!-- End Info Item -->
 
@@ -957,7 +940,7 @@
                 <i class="bi bi-envelope flex-shrink-0"></i>
                 <div>
                   <h4>Email:</h4>
-                  <p>info@example.com</p>
+                  <p>info@menuface.com</p>
                 </div>
               </div><!-- End Info Item -->
 
@@ -965,7 +948,7 @@
                 <i class="bi bi-phone flex-shrink-0"></i>
                 <div>
                   <h4>Call:</h4>
-                  <p>+1 5589 55488 55</p>
+                  <p>+962 78121 1010</p>
                 </div>
               </div><!-- End Info Item -->
 
@@ -973,7 +956,7 @@
                 <i class="bi bi-clock flex-shrink-0"></i>
                 <div>
                   <h4>Open Hours:</h4>
-                  <p>Mon-Sat: 11AM - 23PM</p>
+                  <p>من 8 صباحا الى 5 مساء</p>
                 </div>
               </div><!-- End Info Item -->
             </div>
@@ -981,14 +964,18 @@
           </div>
 
           <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="/send/contact/lading" method="post"  class="php-email-form">
+              @csrf
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                  <input type="text" name="mobile" class="form-control" id="name" placeholder="Your Mobile" required>
                 </div>
+              </div>
+              <div class="form-group mt-3">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
               </div>
               <div class="form-group mt-3">
                 <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
@@ -998,7 +985,6 @@
               </div>
               <div class="my-3">
                 <div class="loading">Loading</div>
-                <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
               <div class="text-center"><button type="submit">Send Message</button></div>
@@ -1018,10 +1004,10 @@
     <div class="container">
       <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-info">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <span>Impact</span>
+          <a href="/" class="logo d-flex align-items-center">
+            <span>Menuface.</span>
           </a>
-          <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+          <br>
           <div class="social-links d-flex mt-4">
             <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
             <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
@@ -1033,33 +1019,35 @@
         <div class="col-lg-2 col-6 footer-links">
           <h4>Useful Links</h4>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
+            <li><a href="#hero">الصفحة الرئيسية</a></li>
+            <li><a href="#about">عن الموقع</a></li>
+            <li><a href="#services">خدمات</a></li>
+            {{-- <li><a href="#portfolio" >Portfolio</a></li> --}}
+            <li><a href="#team">الفريق</a></li>
+            <li><a href="#team">تقديم طلب منيو</a></li>
+            <li><a href="#team">تقديم طلب توظيف</a></li>
+            {{-- <li><a href="blog.html">Blog</a></li> --}}
+            <li><a href="#contact">تواصل معنا</a></li>
           </ul>
         </div>
 
         <div class="col-lg-2 col-6 footer-links">
           <h4>Our Services</h4>
-          <ul>
+          {{-- <ul>
             <li><a href="#">Web Design</a></li>
             <li><a href="#">Web Development</a></li>
             <li><a href="#">Product Management</a></li>
             <li><a href="#">Marketing</a></li>
             <li><a href="#">Graphic Design</a></li>
-          </ul>
+          </ul> --}}
         </div>
 
         <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
           <h4>Contact Us</h4>
           <p>
-            A108 Adam Street <br>
-            New York, NY 535022<br>
-            United States <br><br>
-            <strong>Phone:</strong> +1 5589 55488 55<br>
-            <strong>Email:</strong> info@example.com<br>
+            Location<br>
+            <strong>Phone:</strong> +962 78121 1010<br>
+            <strong>Email:</strong> info@menuface.com<br>
           </p>
 
         </div>
@@ -1069,14 +1057,14 @@
 
     <div class="container mt-4">
       <div class="copyright">
-        &copy; Copyright <strong><span>Impact</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>Menuface.</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/impact-bootstrap-business-website-template/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        by <a href="">Abdalluh Fawaeer</a>
       </div>
     </div>
 
