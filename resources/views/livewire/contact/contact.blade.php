@@ -60,6 +60,7 @@
                                                         <th>Subject</th>
                                                         <th>msg</th>
                                                         <th>{{ __('text.date') }}</th>
+                                                        <th>{{ __('text.type') }}</th>
                                                         <th></th>
                                                     </tr>
                                                 </thead>
@@ -78,6 +79,9 @@
                                                         <td data-kt-ecommerce-order-filter="order_id">
                                                             <a class="text-gray-800 text-hover-primary fs-5 fw-bold">{{ $item->masg }}</a>
                                                         </td>
+                                                        <td data-kt-ecommerce-order-filter="order_id">
+                                                            <a class="text-gray-800 text-hover-primary fs-5 fw-bold">{{ $item->type }}</a>
+                                                        </td> 
                                                         <td data-kt-ecommerce-order-filter="order_id">
                                                             <a class="text-gray-800 text-hover-primary fs-5 fw-bold">{{ $item->created_at }}</a>
                                                         </td> 
