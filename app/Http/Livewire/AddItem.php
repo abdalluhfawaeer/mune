@@ -17,7 +17,7 @@ class AddItem extends Component
     use WithFileUploads;
 
     public $category = [];
-    public $photo;
+    public $photo = '';
     public $status = 'active';
     public $name_ar = '';
     public $name_en = '';
@@ -43,14 +43,6 @@ class AddItem extends Component
     public $inputs_a = [];
     public $i = 0;
     public $y = 0;
-
-    protected $rules = [
-        'name_ar' => 'required',
-        'name_en' => 'required',
-        'cat' => 'required',
-        'price' => 'required',
-        'photo' => 'required',
-    ];
 
     public function add($i)
     {
@@ -85,7 +77,19 @@ class AddItem extends Component
     }
 
     public function save() {
-        $this->validate();
+        $this->validate([
+            'name_ar' => 'required',
+            'name_en' => 'required',
+            'cat' => 'required',
+            'price' => 'required',
+            'photo' => 'required',
+        ],[],[
+            'name_ar' => trans('text.name_ar'),
+            'name_en' => trans('text.name_en'),
+            'cat' => trans('text.category'),
+            'price' => trans('text.Price'),
+            'photo' => trans('text.photo'),
+        ]);
 
         $img = empty($this->photo) ? $this->img : $this->photo->store('public/'.$this->menu->id);
         $img = str_replace('public/','',$img);

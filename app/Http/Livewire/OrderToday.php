@@ -19,7 +19,7 @@ class OrderToday extends Component
     public $status = '';
     public $type = '';
     public $mobile = '';
-    
+    public $count = 0;
     protected $listeners = ['refreshOrderList' => '$refresh'];
 
     public function mount() {
@@ -39,7 +39,7 @@ class OrderToday extends Component
         $list = Order::select('orders.id as order_id','orders.*','customer.*','orders.created_at as order_date');
 
         $list = $list->join('customer','customer.id','orders.customer_id');
-        $list = $list->whereDate('orders.created_at', Carbon::today());
+        $list = $list->whereDate('orders.created_at', Carbon::today())->where('orders.menu_id',$this->menu_id);
 
         if (!empty($this->id_mune)) {
             $list = $list->where('orders.id', $this->id_mune);
@@ -60,9 +60,17 @@ class OrderToday extends Component
         if (!empty($this->type)) {
             $list = $list->where('orders.type', $this->type);
         }
-
-        $list = $list->orderBy('orders.id','desc')->where('orders.menu_id',$this->menu_id)->paginate(10);
+        $this->notification();
+        $list = $list->orderBy('orders.id','desc')->paginate(10);
         $this->resetPage();
         return  $list;
+    }
+
+    public function notification() {
+        $last = Order::where('orders.menu_id',$this->menu_id)->whereDate('orders.created_at', Carbon::today())->where('status','new')->count();
+        // $totalDuration = $last->diffInSeconds(Carbon::now());
+        if ($last > 0) {
+            $this->dispatchBrowserEvent('refreshOrderList');
+        }
     }
 }

@@ -238,6 +238,42 @@
                                                                 </div>
                                                             </div>
                                                             <div class="mb-10 fv-row fv-plugins-icon-container">
+                                                                <label class="form-label">snapchat</label>
+                                                                <input type="text" name="product_name"
+                                                                    class="form-control mb-2" placeholder="snapchat"
+                                                                    wire:model.dafer="snapchat">
+                                                                <div
+                                                                    class="fv-plugins-message-container invalid-feedback">
+                                                                </div>
+                                                            </div>
+                                                            <div class="mb-10 fv-row fv-plugins-icon-container">
+                                                                <label class="form-label">whatsapp</label>
+                                                                <input type="text" name="product_name"
+                                                                    class="form-control mb-2" placeholder="whatsapp"
+                                                                    wire:model.dafer="whatapp">
+                                                                <div
+                                                                    class="fv-plugins-message-container invalid-feedback">
+                                                                </div>
+                                                            </div>
+                                                            <div class="mb-10 fv-row fv-plugins-icon-container">
+                                                                <label class="form-label">tiktok</label>
+                                                                <input type="text" name="product_name"
+                                                                    class="form-control mb-2" placeholder="tiktok"
+                                                                    wire:model.dafer="tiktok">
+                                                                <div
+                                                                    class="fv-plugins-message-container invalid-feedback">
+                                                                </div>
+                                                            </div>
+                                                            <div class="mb-10 fv-row fv-plugins-icon-container">
+                                                                <label class="form-label">{{ __('text.timework') }}</label>
+                                                                <input type="text" name="product_name"
+                                                                    class="form-control mb-2" placeholder="{{ __('text.timework') }}"
+                                                                    wire:model.dafer="tiktok">
+                                                                <div
+                                                                    class="fv-plugins-message-container invalid-feedback">
+                                                                </div>
+                                                            </div>
+                                                            <div class="mb-10 fv-row fv-plugins-icon-container">
                                                                 <label class="form-label">google maps
                                                                     link</label>
                                                                 <input type="text" name="product_name"

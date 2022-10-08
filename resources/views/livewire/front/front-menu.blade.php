@@ -1,45 +1,4 @@
 <div>
-    <style>
-        .actives {
-            color: {{ $menu->text }};
-        }
-
-        .accordion {
-            color: {{ $menu->text }};
-        }
-
-        .curt {
-            background-color: {{ $menu->color }};
-        }
-        .title {
-            color: {{ $menu->text }};
-        }
-        .checkout_href {
-            color: {{ $menu->text }};
-        }
-        .light {
-            --primary: {{ $menu->text }};
-        }
-        .textuuuu {
-            border: 1px solid {{ $menu->text }};
-        }
-        .textnumber {
-            border: 1px solid {{ $menu->text }};
-        }
-        .btnq {
-            background-color: {{ $menu->color }};
-            color: {{ $menu->text }};        
-        }
-    </style>
-
-
-    <div class="top-container">
-        <center>
-            <img class="logo" src="{{ asset('storage/' . $menu->logo) }}" alt="">
-            <p class="desc">{{ $menu->name }}</p>
-            <p class="desc" style="opacity: 0.6;">{{ $menu->desc }}</p>
-        </center>
-    </div>
     <div id="navopen">
     <div class="topnav" id="myTopnav" style="display: none">
         <a href="#home"><img class="logo2" src="{{ asset('storage/' . $menu->logo) }}" alt=""></a>

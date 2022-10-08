@@ -4,7 +4,7 @@
             <div data-kt-swapper="true" data-kt-swapper-mode="prepend"
                 data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
                 class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
-                <h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">{{ __('text.sales') }}
+                <h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">{{ __('text.add_sales') }}
                     <span class="h-20px border-1 border-gray-200 border-start ms-3 mx-2 me-1"></span>
                 </h1>
             </div>
@@ -22,7 +22,7 @@
                                 <div class="card card-flush py-4">
                                     <div class="card-header">
                                         <div class="card-title">
-                                            <h2>General</h2>
+                                            <h2>{{ __('text.add_sales') }}</h2>
                                         </div>
                                     </div>
                                     <div class="card-body pt-0">

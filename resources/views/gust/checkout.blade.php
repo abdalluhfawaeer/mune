@@ -24,5 +24,5 @@
 <body>
   @livewireScripts
 <div>
-  @livewire('front-checkout',['name'=>$name,'id'=>$id])
+  @livewire('front.front-checkout',['name'=>$name,'id'=>$id])
 </div>

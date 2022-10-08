@@ -27,16 +27,13 @@ class CustomizeMune extends Component
     public $img;
     public $color_text = '';
     public $maps = '';
-    public $faecbook = ''; public $youtube ='';public $instagram='';public $twitter='';
+    public $faecbook = ''; public $youtube ='';public $instagram='';public $twitter='';public $snapchat='';public $whatapp='';public $tiktok='';
     public $address = '';
     public $contact_email = '';
     public $phone_number_1 = '';
     public $phone_number_2 = '';
     public $phone_number_3 = '';
-
-    protected $rules = [
-        'product_name' => 'required',
-    ];
+    public $timework = '';
 
     public function mount() {
         $mune = Mune::with('user','additions')->where('user_id',Auth()->user()->id)->first();
@@ -69,9 +66,12 @@ class CustomizeMune extends Component
     }
 
     public function save() {
-        $this->rules['mobile'] = 'required|unique:users,mobile,'.Auth()->user()->id;
-
-        $this->validate();
+        $this->validate([
+            'product_name' => 'required',
+            'mobile' => 'required|unique:users,mobile,'.Auth()->user()->id,
+        ],[],[
+            'product_name' => __('text.MenuName'),
+        ]);
         
         $logo = !method_exists($this->img, 'temporaryUrl') ? $this->img : $this->img->store('public/'.$this->mune_id);
         $logo = str_replace('public/','',$logo);
@@ -103,6 +103,10 @@ class CustomizeMune extends Component
                 'phone_number_2' => $this->phone_number_2,
                 'phone_number_3' => $this->phone_number_3,
             ],
+            'snapchat' => $this->snapchat,
+            'whatapp' => $this->whatapp,
+            'tiktok' => $this->tiktok,
+            'timework' => $this->timework,
         ]);
 
         session()->flash('message',  __('text.message'));

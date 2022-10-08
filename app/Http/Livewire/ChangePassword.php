@@ -28,6 +28,9 @@ class ChangePassword extends Component
          $this->validate([
             'old_password' => ['required', new MatchOldPassword],
             'new_password' => 'required|confirmed',
+         ],[],[
+            'old_password' => trans('text.old_password'),
+            'new_password' => trans('text.newPassword')
          ]);
 
         // #Update the new Password

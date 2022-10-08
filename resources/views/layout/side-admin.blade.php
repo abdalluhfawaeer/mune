@@ -21,7 +21,7 @@
                 </svg>
             </span>
         </span>
-        <span class="menu-title">{{ __('text.menu')}} </span>
+        <span class="menu-title">{{ __('text.all_menu')}} </span>
     </a>
 </div>
 <div class="menu-item">

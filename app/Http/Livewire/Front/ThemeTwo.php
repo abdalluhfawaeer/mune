@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Front;
 
 use Livewire\Component;
 use App\Models\Add;
@@ -42,7 +42,7 @@ class ThemeTwo extends Component
 
     public function render()
     {
-        return view('livewire.theme-two');  
+        return view('livewire.front.theme-two');  
     }
 
     public function item($cat_id) {

@@ -49,6 +49,10 @@ class Addition extends Model
 		'address',
 		'contact_email',
 		'phone_number',
+		'snapchat',
+		'whatapp',
+		'tiktok',
+		'timework',
 	];
 
 	public function mune()

@@ -24,7 +24,7 @@
 <body>
 
 <div>
-  @livewire('send-front',['name'=>$name,'id'=>$id])
+  @livewire('front.send-front',['name'=>$name,'id'=>$id])
 </div>
 @livewireScripts
 @stack('scripts')

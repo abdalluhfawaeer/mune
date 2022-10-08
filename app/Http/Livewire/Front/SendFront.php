@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Front;
 
 use App\Models\Customer;
 use Livewire\Component;
@@ -13,20 +13,26 @@ class SendFront extends Component
 {
     public $menu = [];
     public $addition = '';
+    public $type = '';
+    public $theme = '';
+    public $phone = 0;
 
     public function mount($id ,$name) {
         $this->menu = Mune::with('user')->where('id',$id)->first();
         $this->addition = Addition::where('menu_id',$this->menu->id)->first();
+        $this->type = $this->addition->type ?? '';
+        $this->theme = $this->menu->color ?? '';
     }
 
     public function render()
     {
-        return view('livewire.send-front');
+        return view('livewire.front.send-front');
     }
 
     public function sends($name, $mobile,$data ,$type = 'from' ,$number_table = 0,$address = '')
     {
         $mobile = '962'.substr($mobile, -9);
+        $this->phone = $mobile;
         $total = 0;
         $customer = Customer::where('mobile',$mobile)->where('menu_id',$this->menu->id)->firstOr(function() use($name,$mobile) {
             return Customer::create([
@@ -56,7 +62,7 @@ class SendFront extends Component
                 'qty' => $item['qty'],
                 'price' => $item['item_price'],
                 'acc' => $item['acc'],
-                'notes' => $item['notes'],
+                'note' => $item['notes'],
             ]);
             $total += $item['item_price'];
         }
@@ -66,5 +72,11 @@ class SendFront extends Component
         ]);
         
         $this->emit('order_id',$order_id);
+    }
+
+    public function sendLoction($location) {
+        Customer::where('mobile',$this->phone)->where('menu_id',$this->menu->id)->update([
+            'location' => $location
+        ]);
     }
 }

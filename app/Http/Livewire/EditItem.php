@@ -45,13 +45,6 @@ class EditItem extends Component
     public $i = 0;
     public $y = 0;
 
-    protected $rules = [
-        'name_ar' => 'required',
-        'name_en' => 'required',
-        'cat' => 'required',
-        'price' => 'required',
-    ];
-
     public function add($i)
     {
         $i = $i + 1;
@@ -120,7 +113,17 @@ class EditItem extends Component
     }
 
     public function save() {
-        $this->validate();
+        $this->validate([
+            'name_ar' => 'required',
+            'name_en' => 'required',
+            'cat' => 'required',
+            'price' => 'required',
+        ],[],[
+            'name_ar' => trans('text.name_ar'),
+            'name_en' => trans('text.name_en'),
+            'cat' => trans('text.category'),
+            'price' => trans('text.Price'),
+        ]);        
         $img = !method_exists($this->photo, 'temporaryUrl') ? $this->img : $this->photo->store('public/'.$this->menu->id);
         $img = str_replace('public/','',$img);
         $item_id = $this->item_id;

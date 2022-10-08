@@ -87,7 +87,7 @@
                 </svg>
             </span>
         </span>
-        <span class="menu-title">{{ __('text.Order') }}</span>
+        <span class="menu-title">{{ __('text.OrderHistory') }}</span>
     </a>
 </div>
 <div class="menu-item">

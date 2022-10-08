@@ -24,7 +24,7 @@
 <body>
 
 <div>
-  @livewire('conract-front',['name'=>$name,'id'=>$id])
+  @livewire('front.conract-front',['name'=>$name,'id'=>$id])
 </div>
 @livewireScripts
 @stack('scripts')

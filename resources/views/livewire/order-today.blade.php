@@ -1,4 +1,10 @@
-<div>
+<div wire:poll.750ms>
+    <audio id="myAudio">
+        <source src="horse.ogg" type="audio/ogg">
+        <source src="{{ asset('alert.mp3') }}" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <button onclick="playAudio()" type="button" class="btn btn-danger btn-lg">Play Audio</button>
     <div class="d-flex flex-column flex-root">
         <div>
             <div>
@@ -48,11 +54,11 @@
                                                 <input type="text" class="form-control form-control-solid ps-10" name="search" wire:model="mobile" placeholder="{{ __('text.Mobile') }}">
                                             </div>
                                             <div class="position-relative w-md-400px me-md-2">
-                                                <select class="form-control form-control-solid ps-10" wire:model="status">
-                                                    <option value="" selected>{{ __('text.status') }}</option>
-                                                    <option value="new">{{ __('text.new') }}</option>
-                                                    <option value="confirmed">{{ __('text.confirmed') }}</option>
-                                                    <option value="cancelled">{{ __('text.cancelled') }}</option>
+                                                <select class="form-control form-control-solid ps-10" wire:model="type">
+                                                    <option value="" selected>{{ __('text.type') }}</option>
+                                                    <option value="delvairy">{{ __('text.Delivery') }}</option>
+                                                    <option value="table">{{ __('text.from_the_table') }}</option>
+                                                    <option value="from_restaurant">{{ __('text.restaurant') }}</option>
                                                 </select>
                                             </div>
                                             <div class="position-relative w-md-400px me-md-2">
@@ -174,4 +180,16 @@
             </div>
         </div>
     </div>
+    <script>
+        var x = document.getElementById("myAudio");
+        function playAudio() {
+            x.play();
+        }
+        window.addEventListener('refreshOrderList', event => {
+            playAudio();
+        });
+        function pauseAudio() {
+            x.pause();
+        }
+    </script>
 </div>

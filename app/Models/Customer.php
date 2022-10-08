@@ -36,7 +36,8 @@ class Customer extends Model
 	protected $fillable = [
 		'name',
 		'mobile',
-		'menu_id'
+		'menu_id',
+		'location',
 	];
 
 	public function mune()

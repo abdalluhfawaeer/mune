@@ -17,13 +17,6 @@ class AddCategory extends Component
     public $status = '';
     public $id_c = '';
 
-    protected $rules = [
-        'name_ar' => 'required',
-        'name_en' => 'required',
-        'img' => 'required',
-        'status' => 'required',
-    ];
-
     public function mount($id) {
         $this->id_c = $id;
         if ($id) {
@@ -42,7 +35,17 @@ class AddCategory extends Component
 
     public function save() { 
         $menu_id = Mune::with('user')->where('user_id',Auth()->user()->id)->first()->id;
-        $this->validate();
+        $this->validate([
+            'name_ar' => 'required',
+            'name_en' => 'required',
+            'img' => 'required',
+            'status' => 'required',
+        ],[],[
+            'name_ar' => trans('text.name_ar'),
+            'name_en' => trans('text.name_en'),
+            'img' => trans('text.photo'),
+            'status' => trans('text.status'),
+        ]);
         $logo = !method_exists($this->img, 'temporaryUrl') ? $this->img : $this->img->store('public/'.$menu_id);
         $logo = str_replace('public/','',$logo);
         Category::updateOrCreate([
