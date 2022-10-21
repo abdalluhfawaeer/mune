@@ -120,6 +120,10 @@
                                                                         {{ __('text.Light') }}</option>
                                                                     <option value="Dark" selected>
                                                                         {{ __('text.Dark') }}</option>
+                                                                    <option value="Navy" selected>{{ __('text.navyblue') }}</option>
+                                                                    <option value="Blue" selected>{{ __('text.blue') }}</option>
+                                                                    <option value="Red" selected>{{ __('text.red') }}</option>
+                                                                    <option value="Yellow" selected>{{ __('text.yellow') }}</option>
                                                                 </select>
                                                                 @error('color')
                                                                     <span class="alert alert-danger"
@@ -268,7 +272,7 @@
                                                                 <label class="form-label">{{ __('text.timework') }}</label>
                                                                 <input type="text" name="product_name"
                                                                     class="form-control mb-2" placeholder="{{ __('text.timework') }}"
-                                                                    wire:model.dafer="tiktok">
+                                                                    wire:model.dafer="timework">
                                                                 <div
                                                                     class="fv-plugins-message-container invalid-feedback">
                                                                 </div>

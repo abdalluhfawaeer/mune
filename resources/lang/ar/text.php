@@ -125,4 +125,8 @@ return [
    'Contactus' => 'التواصل معنا',
    'Priceasperchoice' => 'السعر حسب الاختيار',
    'timework' => 'اوقات العمل',
+   'navyblue' => 'كحلي',
+   'blue' => 'أزرق',
+   'red' => 'أحمر',
+   'yellow' => 'أصفر',
 ];

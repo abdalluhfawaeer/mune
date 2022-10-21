@@ -1,0 +1,75 @@
+.top-container {
+    text-align: center;
+    padding: 10px;
+}
+
+.logo {
+    width: 150px;
+    height: 100px;
+    margin-top: 5px;
+}
+
+.desc {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.mybutton {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: #cc071e;
+    text-align: center;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 3px 10px -2px rgba(0, 0, 0, 0.1);
+}
+h3 {
+    padding-top: 5px;
+}
+
+.curt {
+    width: 100%;
+    height: 50px;
+    margin-top: 10px;
+    border: none;
+    background-color: #cc071e;
+    color: white;
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+    margin-bottom: 190px;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+td img {
+    width: 50px;
+    height: 50px;
+}
+input {
+    width: 80%;
+    height: 40px;
+    text-align: center;
+}
+a{
+    color: #cc071e;
+    text-decoration: none;
+    font-weight: bold;
+}

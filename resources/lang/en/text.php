@@ -125,4 +125,8 @@ return [
    'Contactus' => 'Contact us',
    'Priceasperchoice' => 'Price on selection',
    'timework' => 'Time Work',
+   'navyblue' => 'Navy Blue',
+   'blue' => 'Blue',
+   'red' => 'Red',
+   'yellow' => 'Yellow',
 ]; 

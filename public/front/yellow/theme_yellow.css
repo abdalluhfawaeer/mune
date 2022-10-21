@@ -1,0 +1,219 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body {
+    background-color: #fec516;
+    color: black;
+}
+.logo {
+    width: 100px;
+    height: 100px;
+}
+.l{
+    position: absolute;
+    top: 10px;
+    left: 22px;
+    background-color: #ffffff;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 10px;
+    color: black;
+
+}
+i{
+  color: black;
+}
+.r{
+    position: absolute;
+    top: 10px;
+    right: 22px;
+    background-color: #ffffff;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 10px;
+    font-weight: bold;
+    color: black;
+}
+.r a {
+  color: black;
+}
+.category {
+    margin-top: 20px;
+    padding: 10px;
+    display: flex;
+    overflow: hidden;
+    overflow-x: auto;
+}
+.cat {
+    background-color: #ffffff;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    text-align: center;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    margin-right: 10px;
+    width: 120px;
+}
+.cat img{
+    width: 120px;
+    height: 100px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+.cat p{
+    padding: 10px;
+    overflow: auto;
+}
+.cards {
+    padding: 10px;
+    margin-top: 20px;
+}
+.card {
+    display: flex;
+    background-color: #ffffff;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin-top: 20px;
+    height: 100px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;}
+.card img{
+    width: 100%;
+    height: 100%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+.right {
+    flex: 60%;
+    text-align: center;
+}
+.letf {
+    flex: 40%;
+}
+.title{
+    padding-top: 20px;
+    font-weight: bold;
+}
+
+.right p{
+    padding-top: 10px;
+
+}
+.footer {
+    color: white;
+    text-align: center;
+    padding: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 3px 10px -2px rgba(0, 0, 0, 0.1); 
+    text-align: center;
+    bottom: 0;
+}
+.link {
+    text-decoration: none;
+    color: white;
+}
+
+.endtext {
+    color: white;
+    text-decoration: none;
+}
+.endtext span{
+    color: green;
+}
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid black;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+    box-shadow: 0 3px 10px -2px rgba(0, 0, 0, 0.1); 
+  }
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .topnav {
+    overflow: hidden;
+    background-color: #ffffff;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  
+  .topnav a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: white;
+  }
+  
+  .topnav .icon {
+    display: none;
+    color: white;
+    font-size: 28px;
+  }
+  .logo2 {
+    width: 47px;
+    height: 30px;
+  }
+  @media screen and (max-width: 600px) {
+    .topnav a:not(:first-child) {display: none;}
+    .topnav a.icon {
+      float: right;
+      display: block;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .topnav.responsive .icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .topnav.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+  }
+  @media screen and (min-width:769px) {
+    .card {
+        width: 516px;
+    }
+  }
+
+  .button_carts {
+    width: 100%;
+    position: fixed;
+    z-index: 10000;
+    bottom: 25px;
+    background-color: white;
+    color: #121212;
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .button_cart a {
+    text-decoration: none;
+    color: #121212;
+  }
+  .icon_footer{
+    color: black;
+    font-size: 32px;
+  }

@@ -9,6 +9,22 @@
   <link rel="stylesheet" href="{{ url('front/light/theme.css') }}">
   <link rel="stylesheet" href="{{ url('front/light/checkout.css') }}">
   <link rel="stylesheet" href="{{ url('front/light/modal.css') }}">
+  @elseif (session()->get('color') == 'Navy')
+  <link rel="stylesheet" href="{{ url('front/navy/theme_navy.css') }}">
+  <link rel="stylesheet" href="{{ url('front/navy/checkout_navy.css') }}">
+  <link rel="stylesheet" href="{{ url('front/navy/modal_navy.css') }}">
+  @elseif (session()->get('color') == 'Yellow')
+  <link rel="stylesheet" href="{{ url('front/yellow/theme_yellow.css') }}">
+  <link rel="stylesheet" href="{{ url('front/yellow/checkout_yellow.css') }}">
+  <link rel="stylesheet" href="{{ url('front/yellow/modal_yellow.css') }}">
+  @elseif (session()->get('color') == 'Red')
+  <link rel="stylesheet" href="{{ url('front/red/theme_red.css') }}">
+  <link rel="stylesheet" href="{{ url('front/red/checkout_red.css') }}">
+  <link rel="stylesheet" href="{{ url('front/red/modal_red.css') }}">
+  @elseif (session()->get('color') == 'Blue')
+  <link rel="stylesheet" href="{{ url('front/blue/theme_blue.css') }}">
+  <link rel="stylesheet" href="{{ url('front/blue/checkout_blue.css') }}">
+  <link rel="stylesheet" href="{{ url('front/blue/modal_blue.css') }}">
   @else
   <link rel="stylesheet" href="{{ url('front/dark/theme_dark.css') }}">
   <link rel="stylesheet" href="{{ url('front/dark/checkout_dark.css') }}">

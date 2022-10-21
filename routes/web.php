@@ -20,6 +20,7 @@ Route::middleware('lang')->get('/dashboard', function () {
 Route::get('/wc', function () {
         return view('welcome');
 });
+
 Route::post('post-login', [AuthCoutroller::class, 'postLogin'])->name('login.post'); 
 Route::get('logout', [AuthCoutroller::class, 'logout'])->name('logout');
 Route::get('/lang/{lang}', [AuthCoutroller::class, 'lang']);

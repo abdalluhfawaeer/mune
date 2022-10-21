@@ -11,8 +11,9 @@ use Illuminate\Http\Request;
 class LadingController extends Controller
 {
     public function index() {
-        $menu = Mune::where('staus','active')->get();
-        return view('lading.lading',['menu'=>$menu]);
+        // $menu = Mune::where('staus','active')->get();
+        // return view('lading.lading',['menu'=>$menu]);
+        return view('comming-soon');
     }
 
     public function sales() {
